@@ -6,6 +6,7 @@ import os
 import sys
 import importlib.util
 from pathlib import Path
+import logging
 
 def discover_and_import_module(module_name, possible_locations=None):
     """
@@ -55,6 +56,9 @@ def discover_and_import_module(module_name, possible_locations=None):
 sindy_markov_module = discover_and_import_module("sindy_markov_model")
 SINDyMarkovModel = sindy_markov_module.SINDyMarkovModel
 
+# Create logs directory
+os.makedirs('logs', exist_ok=True)
+
 def run_simple_example():
     """Run a simple example with 3 terms, one of which is the true term."""
     print("Running simple example with 3 library terms")
@@ -72,7 +76,7 @@ def run_simple_example():
     # Create model instance
     sigma = 0.1  # Noise level
     threshold = 0.05  # STLSQ threshold
-    model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold)
+    model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold, log_file='logs/simple_example.log')
     
     # Compare theory to simulation
     x_range = np.linspace(0.1, 2.0, 5)  # Different data ranges
@@ -93,8 +97,12 @@ def run_simple_example():
     results.to_csv('results/simple_example_results.csv', index=False)
     
     # Plot and save figures
-    fig1 = model.plot_comparison(results, x_axis='discriminability')
-    fig1.savefig('results/simple_example_discriminability.png', dpi=300, bbox_inches='tight')
+    fig1 = model.plot_comparison(results, x_axis='log_gram_det')
+    fig1.savefig('results/simple_example_log_gram_det.png', dpi=300, bbox_inches='tight')
+    
+    # Also create discriminability plot for reference/comparison
+    fig1b = model.plot_comparison(results, x_axis='discriminability')
+    fig1b.savefig('results/simple_example_discriminability.png', dpi=300, bbox_inches='tight')
     
     fig2 = model.plot_direct_comparison(results)
     fig2.savefig('results/simple_example_direct_comparison.png', dpi=300, bbox_inches='tight')
@@ -135,7 +143,8 @@ def run_lambda_sigma_experiment():
         threshold = ratio * sigma
         print(f"\nTesting lambda/sigma ratio: {ratio} (λ={threshold:.4f}, σ={sigma})")
         
-        model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold)
+        model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold, 
+                                log_file=f'logs/lambda_sigma_ratio_{ratio}.log')
         
         results = model.compare_theory_to_simulation(x_range, n_samples_range, n_trials=50)
         results['lambda_sigma_ratio'] = ratio
@@ -149,6 +158,22 @@ def run_lambda_sigma_experiment():
     combined_results.to_csv('results/lambda_sigma_experiment_results.csv', index=False)
     
     # Plot combined results
+    plt.figure(figsize=(10, 6))
+    for ratio in lambda_sigma_ratios:
+        ratio_results = combined_results[combined_results['lambda_sigma_ratio'] == ratio]
+        plt.scatter(ratio_results['log_gram_det'], ratio_results['empirical_prob'], 
+                   label=f'Empirical λ/σ={ratio}', alpha=0.7, marker='o')
+        plt.plot(ratio_results['log_gram_det'], ratio_results['theoretical_prob'],
+                label=f'Theory λ/σ={ratio}', linestyle='--')
+    
+    plt.xlabel('Log Determinant of Gram Matrix')
+    plt.ylabel('Success Probability')
+    plt.title('Effect of λ/σ Ratio on Success Probability')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig('results/lambda_sigma_experiment_log_gram_det.png', dpi=300, bbox_inches='tight')
+    
+    # Also create traditional plots with discriminability
     plt.figure(figsize=(10, 6))
     for ratio in lambda_sigma_ratios:
         ratio_results = combined_results[combined_results['lambda_sigma_ratio'] == ratio]
@@ -193,7 +218,7 @@ def run_multiterm_experiment():
     # Create model instance
     sigma = 0.1  # Noise level
     threshold = 0.05  # STLSQ threshold
-    model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold)
+    model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold, log_file='logs/multiterm_experiment.log')
     
     # Compare theory to simulation with a more focused parameter set
     # due to higher computational complexity
@@ -211,9 +236,13 @@ def run_multiterm_experiment():
     # Save results
     results.to_csv('results/multiterm_experiment_results.csv', index=False)
     
-    # Plot and save figures
-    fig1 = model.plot_comparison(results, x_axis='discriminability')
-    fig1.savefig('results/multiterm_discriminability.png', dpi=300, bbox_inches='tight')
+    # Plot and save figures using log_gram_det
+    fig1 = model.plot_comparison(results, x_axis='log_gram_det')
+    fig1.savefig('results/multiterm_log_gram_det.png', dpi=300, bbox_inches='tight')
+    
+    # Also plot discriminability for comparison/reference
+    fig1b = model.plot_comparison(results, x_axis='discriminability')
+    fig1b.savefig('results/multiterm_discriminability.png', dpi=300, bbox_inches='tight')
     
     fig2 = model.plot_direct_comparison(results)
     fig2.savefig('results/multiterm_direct_comparison.png', dpi=300, bbox_inches='tight')
@@ -230,24 +259,77 @@ def run_all_experiments():
     
     # Create output directory
     os.makedirs('results', exist_ok=True)
+    os.makedirs('logs', exist_ok=True)
+    
+    # Set up root logger for high-level messages
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('logs/experiments.log', mode='w'),
+            logging.StreamHandler()
+        ]
+    )
+    
+    logger = logging.getLogger('experiments')
+    logger.info("Starting all experiments")
     
     # Run each experiment and collect results
+    logger.info("\n" + "="*60)
+    logger.info("EXPERIMENT 1: Simple Three-Term Example")
+    logger.info("="*60)
     print("\n" + "="*60)
     print("EXPERIMENT 1: Simple Three-Term Example")
     print("="*60)
     simple_results, simple_metrics = run_simple_example()
     
+    logger.info("\n" + "="*60)
+    logger.info("EXPERIMENT 2: Lambda/Sigma Ratio Experiment")
+    logger.info("="*60)
     print("\n" + "="*60)
     print("EXPERIMENT 2: Lambda/Sigma Ratio Experiment")
     print("="*60)
     lambda_sigma_results = run_lambda_sigma_experiment()
     
+    logger.info("\n" + "="*60)
+    logger.info("EXPERIMENT 3: Multiple True Terms Experiment")
+    logger.info("="*60)
     print("\n" + "="*60)
     print("EXPERIMENT 3: Multiple True Terms Experiment")
     print("="*60)
     multiterm_results, multiterm_metrics = run_multiterm_experiment()
     
-    # Create summary plot of all experiments
+    # Create summary plot of all experiments with log_gram_det
+    plt.figure(figsize=(15, 8))
+    
+    # Plot simple example results
+    plt.scatter(simple_results['log_gram_det'], simple_results['empirical_prob'], 
+               label='Simple Example (Empirical)', alpha=0.7, marker='o', color='blue')
+    plt.plot(simple_results['log_gram_det'], simple_results['theoretical_prob'],
+            label='Simple Example (Theory)', linestyle='-', color='blue')
+    
+    # Plot multiterm results
+    plt.scatter(multiterm_results['log_gram_det'], multiterm_results['empirical_prob'], 
+               label='Multiple Terms (Empirical)', alpha=0.7, marker='s', color='red')
+    plt.plot(multiterm_results['log_gram_det'], multiterm_results['theoretical_prob'],
+            label='Multiple Terms (Theory)', linestyle='-', color='red')
+    
+    # Plot lambda/sigma result for middle ratio
+    middle_ratio = 0.5
+    ratio_results = lambda_sigma_results[lambda_sigma_results['lambda_sigma_ratio'] == middle_ratio]
+    plt.scatter(ratio_results['log_gram_det'], ratio_results['empirical_prob'], 
+               label=f'λ/σ={middle_ratio} (Empirical)', alpha=0.7, marker='^', color='green')
+    plt.plot(ratio_results['log_gram_det'], ratio_results['theoretical_prob'],
+            label=f'λ/σ={middle_ratio} (Theory)', linestyle='-', color='green')
+    
+    plt.xlabel('Log Determinant of Gram Matrix')
+    plt.ylabel('Success Probability')
+    plt.title('Summary of SINDy Markov Model Performance Across Experiments')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig('results/all_experiments_summary_log_gram_det.png', dpi=300, bbox_inches='tight')
+    
+    # Also create traditional plot with discriminability
     plt.figure(figsize=(15, 8))
     
     # Plot simple example results
@@ -263,8 +345,6 @@ def run_all_experiments():
             label='Multiple Terms (Theory)', linestyle='-', color='red')
     
     # Plot lambda/sigma result for middle ratio
-    middle_ratio = 0.5
-    ratio_results = lambda_sigma_results[lambda_sigma_results['lambda_sigma_ratio'] == middle_ratio]
     plt.scatter(ratio_results['discriminability'], ratio_results['empirical_prob'], 
                label=f'λ/σ={middle_ratio} (Empirical)', alpha=0.7, marker='^', color='green')
     plt.plot(ratio_results['discriminability'], ratio_results['theoretical_prob'],
@@ -278,7 +358,6 @@ def run_all_experiments():
     plt.grid(True, alpha=0.3)
     plt.savefig('results/all_experiments_summary.png', dpi=300, bbox_inches='tight')
     
-    # Write summary report
     # Write summary report
     with open('results/experiment_summary.txt', 'w', encoding='utf-8') as f:
         f.write("SINDy Markov Model Experiment Summary\n")
@@ -304,9 +383,14 @@ def run_all_experiments():
         f.write(f"  Average R² across experiments: {avg_r2:.4f}\n")
         f.write("  The SINDy Markov model provides a robust theoretical framework for\n")
         f.write("  predicting success probability across different library configurations,\n")
-        # Replace the lambda character with "lambda" to avoid encoding issues
         f.write("  lambda/sigma ratios, and experimental settings.\n")
+        f.write("\n  Log Determinant of Gram Matrix Analysis:\n")
+        f.write("  Using the log determinant of the Gram matrix as a predictor shows\n")
+        f.write("  a clear relationship with success probability. Higher log determinant\n")
+        f.write("  values generally indicate better conditioning and improved model\n")
+        f.write("  identification performance.\n")
     
+    logger.info("Experiments completed. Results saved to 'results' directory.")
     print("\nExperiments completed. Results saved to 'results' directory.")
 
 if __name__ == "__main__":

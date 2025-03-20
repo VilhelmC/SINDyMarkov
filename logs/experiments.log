@@ -1,0 +1,60 @@
+2025-03-20 13:05:27,456 - experiments - INFO - Starting all experiments
+2025-03-20 13:05:27,456 - experiments - INFO - 
+============================================================
+2025-03-20 13:05:27,456 - experiments - INFO - EXPERIMENT 1: Simple Three-Term Example
+2025-03-20 13:05:27,457 - experiments - INFO - ============================================================
+2025-03-20 13:05:27,458 - SINDyMarkovModel - INFO - Initializing SINDy Markov Model
+2025-03-20 13:05:27,459 - SINDyMarkovModel - INFO - True term indices: [0]
+2025-03-20 13:05:27,459 - SINDyMarkovModel - INFO - 
+
+================================================================================
+2025-03-20 13:05:27,460 - SINDyMarkovModel - INFO - STARTING THEORY VS SIMULATION COMPARISON
+2025-03-20 13:05:27,460 - SINDyMarkovModel - INFO - ================================================================================
+2025-03-20 13:05:27,461 - SINDyMarkovModel - INFO - Testing 5 data ranges: [0.1   0.575 1.05  1.525 2.   ]
+2025-03-20 13:05:27,461 - SINDyMarkovModel - INFO - Testing 5 sample sizes: [ 50 100 200 300 500]
+2025-03-20 13:05:27,462 - SINDyMarkovModel - INFO - Running 50 trials per configuration
+2025-03-20 13:05:27,462 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+2025-03-20 13:05:27,462 - SINDyMarkovModel - INFO - 
+----------------------------------------
+2025-03-20 13:05:27,462 - SINDyMarkovModel - INFO - CONFIGURATION 1/25
+2025-03-20 13:05:27,463 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 50
+2025-03-20 13:05:27,463 - SINDyMarkovModel - INFO - ----------------------------------------
+2025-03-20 13:05:27,463 - SINDyMarkovModel - INFO - Computing Gram matrix with 50 sample points
+2025-03-20 13:05:27,463 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -49.2746
+2025-03-20 13:05:27,463 - SINDyMarkovModel - INFO - 
+================================================================================
+2025-03-20 13:05:27,463 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - ================================================================================
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - 
+>> TRUE MODEL STATE TRANSITIONS <<
+2025-03-20 13:05:27,464 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 13:05:27,465 - SINDyMarkovModel - INFO - >> TRUE MODEL STATE STOPPING PROBABILITY: 1.000000 <<
+
+2025-03-20 13:05:27,491 - SINDyMarkovModel - INFO - Transitions from {0, 1}:
+    -> {0}: 0.000060
+    -> [STOP]: 0.999940
+2025-03-20 13:05:27,521 - SINDyMarkovModel - INFO - Transitions from {0, 2}:
+    -> {0}: 0.000170
+    -> [STOP]: 0.999830
+2025-03-20 13:05:27,605 - SINDyMarkovModel - INFO - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 13:05:27,606 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 13:05:27,607 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 13:05:27,608 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+2025-03-20 13:05:27,608 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 13:05:27,608 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+2025-03-20 13:05:27,608 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 13:05:27,609 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 13:05:27,609 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 13:05:27,609 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 13:05:27,609 - SINDyMarkovModel - INFO - ================================================================================
+
+2025-03-20 13:05:27,609 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...

@@ -35,6 +35,8 @@ def analyze_experiment(results, title):
     
     # Basic statistics
     print(f"Number of data points: {len(results)}")
+    if 'log_gram_det' in results.columns:
+        print(f"Log Gram Det range: {results['log_gram_det'].min():.2f} to {results['log_gram_det'].max():.2f}")
     if 'discriminability' in results.columns:
         print(f"Discriminability range: {results['discriminability'].min():.2f} to {results['discriminability'].max():.2f}")
     
@@ -50,25 +52,25 @@ def analyze_experiment(results, title):
     # Create plots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 6))
     
-    # Plot 1: Discriminability vs Success Probability
-    if 'discriminability' in results.columns:
-        ax1.scatter(results['discriminability'], results['empirical_prob'], 
+    # Plot 1: Log Gram Det vs Success Probability
+    if 'log_gram_det' in results.columns:
+        # Sort for better visualization
+        sorted_idx = results['log_gram_det'].argsort()
+        sorted_results = results.iloc[sorted_idx].reset_index(drop=True)
+        
+        ax1.scatter(sorted_results['log_gram_det'], sorted_results['empirical_prob'], 
                    label='Empirical', alpha=0.7, s=80, color='blue')
         
-        # Sort for smoother line
-        sorted_idx = results['discriminability'].argsort()
-        ax1.plot(results['discriminability'].iloc[sorted_idx], 
-                results['theoretical_prob'].iloc[sorted_idx], 
+        ax1.plot(sorted_results['log_gram_det'], sorted_results['theoretical_prob'], 
                 label='Theoretical', linewidth=2, color='red')
         
-        ax1.set_xscale('log')
-        ax1.set_xlabel('Discriminability (D)')
+        ax1.set_xlabel('Log Determinant of Gram Matrix')
         ax1.set_ylabel('Success Probability')
-        ax1.set_title('Success Probability vs Discriminability')
+        ax1.set_title('Success Probability vs Log Determinant of Gram Matrix')
         ax1.legend()
         ax1.grid(True, alpha=0.3)
     else:
-        ax1.text(0.5, 0.5, "Discriminability data not available", 
+        ax1.text(0.5, 0.5, "Log Gram Determinant data not available", 
                 ha='center', va='center', fontsize=14)
         ax1.axis('off')
     
@@ -106,15 +108,23 @@ def analyze_experiment(results, title):
         # Calculate residuals
         residuals = results['empirical_prob'] - results['theoretical_prob']
         
-        # Plot residuals vs discriminability
+        # Plot residuals vs log_gram_det or discriminability
         plt.figure(figsize=(10, 6))
-        if 'discriminability' in results.columns:
+        if 'log_gram_det' in results.columns:
+            plt.scatter(results['log_gram_det'], residuals, alpha=0.7, s=70)
+            plt.axhline(y=0, color='r', linestyle='--')
+            plt.xlabel('Log Determinant of Gram Matrix')
+            plt.ylabel('Residual (Empirical - Theoretical)')
+            plt.title('Residual Analysis vs Log Gram Determinant')
+            plt.grid(True, alpha=0.3)
+            plt.show()
+        elif 'discriminability' in results.columns:
             plt.scatter(results['discriminability'], residuals, alpha=0.7, s=70)
             plt.axhline(y=0, color='r', linestyle='--')
             plt.xscale('log')
             plt.xlabel('Discriminability (D)')
             plt.ylabel('Residual (Empirical - Theoretical)')
-            plt.title('Residual Analysis')
+            plt.title('Residual Analysis vs Discriminability')
             plt.grid(True, alpha=0.3)
             plt.show()
 
@@ -176,7 +186,29 @@ def analyze_lambda_sigma_experiment(results):
     plt.tight_layout()
     plt.show()
     
-    # Plot success probability curves for different ratios
+    # Plot success probability curves for different ratios using log_gram_det
+    if 'log_gram_det' in results.columns:
+        plt.figure(figsize=(12, 8))
+        
+        for ratio in ratios:
+            ratio_results = results[results['lambda_sigma_ratio'] == ratio]
+            # Sort for smoother line
+            sorted_idx = ratio_results['log_gram_det'].argsort()
+            
+            plt.scatter(ratio_results['log_gram_det'], ratio_results['empirical_prob'], 
+                       label=f'Empirical λ/σ={ratio}', alpha=0.5, s=60)
+            plt.plot(ratio_results['log_gram_det'].iloc[sorted_idx], 
+                    ratio_results['theoretical_prob'].iloc[sorted_idx], 
+                    label=f'Theory λ/σ={ratio}', linestyle='--')
+        
+        plt.xlabel('Log Determinant of Gram Matrix')
+        plt.ylabel('Success Probability')
+        plt.title('Effect of λ/σ Ratio on Success Probability')
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        plt.show()
+    
+    # Also plot using discriminability for comparison
     plt.figure(figsize=(12, 8))
     
     for ratio in ratios:
@@ -198,31 +230,26 @@ def analyze_lambda_sigma_experiment(results):
     plt.grid(True, alpha=0.3)
     plt.show()
     
-    # Plot phase diagram with color based on ratio
-    plt.figure(figsize=(10, 8))
-    scatter = plt.scatter(results['discriminability'], results['empirical_prob'], 
-                         c=results['lambda_sigma_ratio'], cmap='viridis', 
-                         s=80, alpha=0.7)
-    
-    # Add colorbar
-    cbar = plt.colorbar(scatter)
-    cbar.set_label('λ/σ Ratio')
-    
-    # Plot theoretical curves for each ratio
-    for ratio in ratios:
-        ratio_results = results[results['lambda_sigma_ratio'] == ratio]
-        # Sort for smoother line
-        sorted_idx = ratio_results['discriminability'].argsort()
-        plt.plot(ratio_results['discriminability'].iloc[sorted_idx], 
-                ratio_results['theoretical_prob'].iloc[sorted_idx], 
-                'k--', alpha=0.5)
-    
-    plt.xscale('log')
-    plt.xlabel('Discriminability (D)')
-    plt.ylabel('Success Probability')
-    plt.title('Phase Diagram with λ/σ Ratio')
-    plt.grid(True, alpha=0.3)
-    plt.show()
+    # Plot phase diagram with color based on ratio using log_gram_det
+    if 'log_gram_det' in results.columns:
+        plt.figure(figsize=(10, 8))
+        scatter = plt.scatter(results['log_gram_det'], results['empirical_prob'], 
+                             c=results['lambda_sigma_ratio'], cmap='viridis', 
+                             s=80, alpha=0.7)
+        
+        # Add colorbar
+        cbar = plt.colorbar(scatter)
+        cbar.set_label('λ/σ Ratio')
+        
+        # Add theoretical points
+        plt.scatter(results['log_gram_det'], results['theoretical_prob'], 
+                   color='red', alpha=0.3, s=40, marker='x')
+        
+        plt.xlabel('Log Determinant of Gram Matrix')
+        plt.ylabel('Success Probability')
+        plt.title('Phase Diagram with λ/σ Ratio')
+        plt.grid(True, alpha=0.3)
+        plt.show()
 
 # Function to compare all experiments
 def compare_all_experiments():
@@ -233,6 +260,9 @@ def compare_all_experiments():
     
     print("\nComparison Across Experiments")
     print("============================")
+    
+    # Check if log_gram_det column is available in both datasets
+    has_log_gram_det = 'log_gram_det' in simple_results.columns and 'log_gram_det' in multiterm_results.columns
     
     # Combine results from different experiments
     simple_results_copy = simple_results.copy()
@@ -260,7 +290,31 @@ def compare_all_experiments():
     metrics_df = pd.DataFrame(metrics_by_exp)
     print(metrics_df)
     
-    # Plot combined results
+    # Plot combined results using log_gram_det if available
+    if has_log_gram_det:
+        plt.figure(figsize=(12, 8))
+        
+        for exp in combined['experiment'].unique():
+            exp_results = combined[combined['experiment'] == exp]
+            
+            # Sort for smoother line
+            sorted_idx = exp_results['log_gram_det'].argsort()
+            sorted_results = exp_results.iloc[sorted_idx].reset_index(drop=True)
+            
+            plt.scatter(sorted_results['log_gram_det'], sorted_results['empirical_prob'],
+                       label=f'{exp} (Empirical)', alpha=0.7, s=70)
+            
+            plt.plot(sorted_results['log_gram_det'], sorted_results['theoretical_prob'],
+                    label=f'{exp} (Theory)')
+        
+        plt.xlabel('Log Determinant of Gram Matrix')
+        plt.ylabel('Success Probability')
+        plt.title('Success Probability vs Log Gram Determinant Across Experiments')
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        plt.show()
+    
+    # Plot combined results using discriminability (traditional view)
     plt.figure(figsize=(12, 8))
     
     for exp in combined['experiment'].unique():

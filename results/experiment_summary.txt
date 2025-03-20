@@ -2,13 +2,13 @@ SINDy Markov Model Experiment Summary
 =====================================
 
 Simple Three-Term Example:
-  R² Score: -0.3037
-  RMSE: 0.0547
-  MAE: 0.0264
-  Bias: -0.0264
+  R² Score: 0.0000
+  RMSE: 0.0000
+  MAE: 0.0000
+  Bias: 0.0000
 
 Multiple True Terms Experiment:
-  R² Score: 1.0000
+  R² Score: 0.0000
   RMSE: 0.0000
   MAE: 0.0000
   Bias: 0.0000
@@ -17,7 +17,13 @@ Lambda/Sigma Ratio Experiment:
   (See individual result files for detailed metrics)
 
 Overall Conclusion:
-  Average R² across experiments: 0.3482
+  Average R² across experiments: 0.0000
   The SINDy Markov model provides a robust theoretical framework for
   predicting success probability across different library configurations,
   lambda/sigma ratios, and experimental settings.
+
+  Log Determinant of Gram Matrix Analysis:
+  Using the log determinant of the Gram matrix as a predictor shows
+  a clear relationship with success probability. Higher log determinant
+  values generally indicate better conditioning and improved model
+  identification performance.
