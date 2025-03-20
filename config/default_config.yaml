@@ -1,0 +1,42 @@
+# Default configuration for SINDy Markov Chain Model experiments
+
+# Experiment metadata
+experiment:
+  name: "default_experiment"
+  description: "Default experiment with three library terms"
+  save_path: "results/default_experiment"
+
+# Model parameters
+model:
+  library_functions:
+    - name: "linear"    # x
+    - name: "sin"       # sin(x)
+    - name: "tanh"      # tanh(x)
+  true_coefficients: [1.0, 0.0, 0.0]  # Only first term is active
+  sigma: 0.1            # Noise level
+  threshold: 0.05       # STLSQ threshold
+
+# Simulation parameters
+simulation:
+  # Fixed trial count approach
+  n_trials: 50          # Number of trials for empirical simulation
+  
+  # Adaptive trial count approach (only used if adaptive_trials is true)
+  adaptive_trials: false
+  max_trials: 500       # Maximum number of trials to run
+  min_trials: 30        # Minimum number of trials to run
+  confidence: 0.95      # Confidence level (e.g., 0.95 for 95% confidence)
+  margin: 0.05          # Maximum margin of error desired
+  batch_size: 10        # Number of trials to run in each batch
+  
+  # Common parameters
+  x_range: [0.1, 0.5, 1.0, 1.5, 2.0]  # Data ranges to test
+  n_samples_range: [50, 100, 200, 300, 500]  # Sample sizes to test
+  analyze_coefficients: true  # Whether to analyze coefficient distributions
+
+# Logging parameters
+logging:
+  log_file: "logs/default_experiment.log"
+  console_level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file_level: "DEBUG"
+  diagnose_transitions: true  # Whether to add detailed diagnostics for transitions

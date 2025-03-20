@@ -2,7 +2,7 @@
 """
 Run experiments for the SINDy Markov Chain Model.
 
-This script executes a series of experiments to validate the theoretical model
+This script executes experiments to validate the theoretical model
 for predicting success probabilities in SINDy algorithm with STLSQ.
 """
 
@@ -12,14 +12,32 @@ import pandas as pd
 import time
 import os
 import sys
+import argparse
 import importlib.util
+import json
 from pathlib import Path
-import logging
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import centralized logging
 from models.logging_config import setup_logging, get_logger
 from models.logging_config import bold, green, yellow, red, cyan, header, section
 from models.logging_config import bold_green, bold_yellow, bold_red
+
+# Import configuration loader
+from models.config_loader import load_config, setup_experiment_from_config
+
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, np.bool_):
+            return bool(obj)
+        return super(NumpyEncoder, self).default(obj)
 
 def discover_and_import_module(module_name, possible_locations=None):
     """
@@ -65,12 +83,6 @@ def discover_and_import_module(module_name, possible_locations=None):
     print(f"Successfully imported {module_name} from {found_path}")
     return module
 
-def setup_directories():
-    """Create necessary directories for results and logs."""
-    os.makedirs('logs', exist_ok=True)
-    os.makedirs('results', exist_ok=True)
-
-# Import the SINDy Markov model
 def import_modules():
     """Import necessary modules."""
     modules = {}
@@ -87,365 +99,194 @@ def import_modules():
     simulation_module = discover_and_import_module("markov_simulation")
     modules['simulation'] = simulation_module
     
-    # Import diagnostics module (optional)
-    try:
-        diagnostics_module = discover_and_import_module("markov_diagnostics")
-        modules['diagnostics'] = diagnostics_module
-    except ImportError:
-        print("Diagnostics module not found, continuing without it.")
-    
     return modules
 
-def run_simple_example(modules):
+def ensure_directory_exists(file_path):
+    """Ensure the directory for a file exists, creating it if necessary."""
+    directory = os.path.dirname(file_path)
+    if directory and not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
+
+def run_experiment(config_path=None):
     """
-    Run a simple example with 3 terms, one of which is the true term.
+    Run an experiment based on configuration.
     
     Parameters:
     -----------
-    modules : dict
-        Dictionary of imported modules
-    
-    Returns:
-    --------
-    results : DataFrame
-        Results from the experiment
-    metrics : dict
-        Evaluation metrics
+    config_path : str, optional
+        Path to a custom configuration file. If None, use default config.
     """
-    SINDyMarkovModel = modules['model']
-    analysis = modules['analysis']
-    
-    print("Running simple example with 3 library terms")
-    
-    results = modules['simulation'].run_simple_example(SINDyMarkovModel)
-    
-    # Save results to CSV
-    results.to_csv('results/simple_example_results.csv', index=False)
-    
-    # Plot and save figures
-    fig1 = analysis.plot_comparison(results, x_axis='log_gram_det')
-    fig1.savefig('results/simple_example_log_gram_det.png', dpi=300, bbox_inches='tight')
-    
-    # Also create discriminability plot for reference/comparison
-    fig1b = analysis.plot_comparison(results, x_axis='discriminability')
-    fig1b.savefig('results/simple_example_discriminability.png', dpi=300, bbox_inches='tight')
-    
-    fig2 = analysis.plot_direct_comparison(results)
-    fig2.savefig('results/simple_example_direct_comparison.png', dpi=300, bbox_inches='tight')
-    
-    # Calculate and print evaluation metrics
-    metrics = analysis.evaluate_model(results)
-    analysis.print_metrics(metrics)
-    
-    return results, metrics
-
-def run_lambda_sigma_experiment(modules):
-    """
-    Run experiment varying the lambda/sigma ratio.
-    
-    Parameters:
-    -----------
-    modules : dict
-        Dictionary of imported modules
-    
-    Returns:
-    --------
-    combined_results : DataFrame
-        Combined results from all experiments
-    """
-    SINDyMarkovModel = modules['model']
-    analysis = modules['analysis']
-    
-    print("\nRunning lambda/sigma ratio experiment")
-    
-    # Define library functions
-    def f1(x): return x          # Term 1: x
-    def f2(x): return np.sin(x)  # Term 2: sin(x)
-    def f3(x): return x**2       # Term 3: x^2
-    
-    library_functions = [f1, f2, f3]
-    
-    # Define true model: only the first term is present
-    true_coefs = np.array([1.0, 0.0, 0.0])
-    
-    # Run the experiment
-    combined_results = modules['simulation'].run_lambda_sigma_experiment(
-        SINDyMarkovModel, 
-        library_functions, 
-        true_coefs
-    )
-    
-    # Save combined results
-    combined_results.to_csv('results/lambda_sigma_experiment_results.csv', index=False)
-    
-    # Plot combined results
-    plt.figure(figsize=(10, 6))
-    lambda_sigma_ratios = sorted(combined_results['lambda_sigma_ratio'].unique())
-    
-    for ratio in lambda_sigma_ratios:
-        ratio_results = combined_results[combined_results['lambda_sigma_ratio'] == ratio]
-        plt.scatter(ratio_results['log_gram_det'], ratio_results['empirical_prob'], 
-                   label=f'Empirical λ/σ={ratio}', alpha=0.7, marker='o')
-        plt.plot(ratio_results['log_gram_det'], ratio_results['theoretical_prob'],
-                label=f'Theory λ/σ={ratio}', linestyle='--')
-    
-    plt.xlabel('Log Determinant of Gram Matrix')
-    plt.ylabel('Success Probability')
-    plt.title('Effect of λ/σ Ratio on Success Probability')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.savefig('results/lambda_sigma_experiment_log_gram_det.png', dpi=300, bbox_inches='tight')
-    
-    # Also create traditional plots with discriminability
-    plt.figure(figsize=(10, 6))
-    for ratio in lambda_sigma_ratios:
-        ratio_results = combined_results[combined_results['lambda_sigma_ratio'] == ratio]
-        plt.scatter(ratio_results['discriminability'], ratio_results['empirical_prob'], 
-                   label=f'Empirical λ/σ={ratio}', alpha=0.7, marker='o')
-        plt.plot(ratio_results['discriminability'], ratio_results['theoretical_prob'],
-                label=f'Theory λ/σ={ratio}', linestyle='--')
-    
-    plt.xscale('log')
-    plt.xlabel('Discriminability (D)')
-    plt.ylabel('Success Probability')
-    plt.title('Effect of λ/σ Ratio on Success Probability')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.savefig('results/lambda_sigma_experiment.png', dpi=300, bbox_inches='tight')
-    
-    # Create direct comparison plot for each ratio
-    model = SINDyMarkovModel(library_functions, true_coefs, 0.1, 0.05)
-    for ratio in lambda_sigma_ratios:
-        ratio_results = combined_results[combined_results['lambda_sigma_ratio'] == ratio]
-        fig = analysis.plot_direct_comparison(ratio_results)
-        fig.suptitle(f'λ/σ Ratio = {ratio}')
-        fig.savefig(f'results/lambda_sigma_ratio_{ratio}_comparison.png', dpi=300, bbox_inches='tight')
-    
-    return combined_results
-
-def run_multiterm_experiment(modules):
-    """
-    Run an experiment with multiple true terms.
-    
-    Parameters:
-    -----------
-    modules : dict
-        Dictionary of imported modules
-    
-    Returns:
-    --------
-    results : DataFrame
-        Results from the experiment
-    metrics : dict
-        Evaluation metrics
-    """
-    SINDyMarkovModel = modules['model']
-    analysis = modules['analysis']
-    
-    print("\nRunning experiment with multiple true terms")
-    
-    results = modules['simulation'].run_multiterm_experiment(SINDyMarkovModel)
-    
-    # Save results
-    results.to_csv('results/multiterm_experiment_results.csv', index=False)
-    
-    # Plot and save figures using log_gram_det
-    fig1 = analysis.plot_comparison(results, x_axis='log_gram_det')
-    fig1.savefig('results/multiterm_log_gram_det.png', dpi=300, bbox_inches='tight')
-    
-    # Also plot discriminability for comparison/reference
-    fig1b = analysis.plot_comparison(results, x_axis='discriminability')
-    fig1b.savefig('results/multiterm_discriminability.png', dpi=300, bbox_inches='tight')
-    
-    fig2 = analysis.plot_direct_comparison(results)
-    fig2.savefig('results/multiterm_direct_comparison.png', dpi=300, bbox_inches='tight')
-    
-    # Calculate and print evaluation metrics
-    metrics = analysis.evaluate_model(results)
-    analysis.print_metrics(metrics)
-    
-    return results, metrics
-
-def create_summary_plots(simple_results, multiterm_results, lambda_sigma_results):
-    """
-    Create summary plots comparing all experiments.
-    
-    Parameters:
-    -----------
-    simple_results : DataFrame
-        Results from simple example
-    multiterm_results : DataFrame
-        Results from multiterm experiment
-    lambda_sigma_results : DataFrame
-        Results from lambda/sigma experiment
-    """
-    print("\nCreating summary plots")
-    
-    # Create summary plot of all experiments with log_gram_det
-    plt.figure(figsize=(15, 8))
-    
-    # Plot simple example results
-    plt.scatter(simple_results['log_gram_det'], simple_results['empirical_prob'], 
-               label='Simple Example (Empirical)', alpha=0.7, marker='o', color='blue')
-    plt.plot(simple_results['log_gram_det'], simple_results['theoretical_prob'],
-            label='Simple Example (Theory)', linestyle='-', color='blue')
-    
-    # Plot multiterm results
-    plt.scatter(multiterm_results['log_gram_det'], multiterm_results['empirical_prob'], 
-               label='Multiple Terms (Empirical)', alpha=0.7, marker='s', color='red')
-    plt.plot(multiterm_results['log_gram_det'], multiterm_results['theoretical_prob'],
-            label='Multiple Terms (Theory)', linestyle='-', color='red')
-    
-    # Plot lambda/sigma result for middle ratio
-    lambda_sigma_ratios = sorted(lambda_sigma_results['lambda_sigma_ratio'].unique())
-    middle_ratio = lambda_sigma_ratios[len(lambda_sigma_ratios) // 2]
-    ratio_results = lambda_sigma_results[lambda_sigma_results['lambda_sigma_ratio'] == middle_ratio]
-    
-    plt.scatter(ratio_results['log_gram_det'], ratio_results['empirical_prob'], 
-               label=f'λ/σ={middle_ratio} (Empirical)', alpha=0.7, marker='^', color='green')
-    plt.plot(ratio_results['log_gram_det'], ratio_results['theoretical_prob'],
-            label=f'λ/σ={middle_ratio} (Theory)', linestyle='-', color='green')
-    
-    plt.xlabel('Log Determinant of Gram Matrix')
-    plt.ylabel('Success Probability')
-    plt.title('Summary of SINDy Markov Model Performance Across Experiments')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.savefig('results/all_experiments_summary_log_gram_det.png', dpi=300, bbox_inches='tight')
-    
-    # Also create traditional plot with discriminability
-    plt.figure(figsize=(15, 8))
-    
-    # Plot simple example results
-    plt.scatter(simple_results['discriminability'], simple_results['empirical_prob'], 
-               label='Simple Example (Empirical)', alpha=0.7, marker='o', color='blue')
-    plt.plot(simple_results['discriminability'], simple_results['theoretical_prob'],
-            label='Simple Example (Theory)', linestyle='-', color='blue')
-    
-    # Plot multiterm results
-    plt.scatter(multiterm_results['discriminability'], multiterm_results['empirical_prob'], 
-               label='Multiple Terms (Empirical)', alpha=0.7, marker='s', color='red')
-    plt.plot(multiterm_results['discriminability'], multiterm_results['theoretical_prob'],
-            label='Multiple Terms (Theory)', linestyle='-', color='red')
-    
-    # Plot lambda/sigma result for middle ratio
-    plt.scatter(ratio_results['discriminability'], ratio_results['empirical_prob'], 
-               label=f'λ/σ={middle_ratio} (Empirical)', alpha=0.7, marker='^', color='green')
-    plt.plot(ratio_results['discriminability'], ratio_results['theoretical_prob'],
-            label=f'λ/σ={middle_ratio} (Theory)', linestyle='-', color='green')
-    
-    plt.xscale('log')
-    plt.xlabel('Discriminability (D)')
-    plt.ylabel('Success Probability')
-    plt.title('Summary of SINDy Markov Model Performance Across Experiments')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.savefig('results/all_experiments_summary.png', dpi=300, bbox_inches='tight')
-
-def write_summary_report(simple_metrics, multiterm_metrics):
-    """
-    Write a summary report of the experiments.
-    
-    Parameters:
-    -----------
-    simple_metrics : dict
-        Metrics from simple example
-    multiterm_metrics : dict
-        Metrics from multiterm experiment
-    """
-    print("\nWriting summary report")
-    
-    with open('results/experiment_summary.txt', 'w', encoding='utf-8') as f:
-        f.write("SINDy Markov Model Experiment Summary\n")
-        f.write("=====================================\n\n")
-        
-        f.write("Simple Three-Term Example:\n")
-        f.write(f"  R² Score: {simple_metrics['r2']:.4f}\n")
-        f.write(f"  RMSE: {simple_metrics['rmse']:.4f}\n")
-        f.write(f"  MAE: {simple_metrics['mae']:.4f}\n")
-        f.write(f"  Bias: {simple_metrics['bias']:.4f}\n\n")
-        
-        f.write("Multiple True Terms Experiment:\n")
-        f.write(f"  R² Score: {multiterm_metrics['r2']:.4f}\n")
-        f.write(f"  RMSE: {multiterm_metrics['rmse']:.4f}\n")
-        f.write(f"  MAE: {multiterm_metrics['mae']:.4f}\n")
-        f.write(f"  Bias: {multiterm_metrics['bias']:.4f}\n\n")
-        
-        f.write("Lambda/Sigma Ratio Experiment:\n")
-        f.write("  (See individual result files for detailed metrics)\n\n")
-        
-        f.write("Overall Conclusion:\n")
-        avg_r2 = (simple_metrics['r2'] + multiterm_metrics['r2']) / 2
-        f.write(f"  Average R² across experiments: {avg_r2:.4f}\n")
-        f.write("  The SINDy Markov model provides a robust theoretical framework for\n")
-        f.write("  predicting success probability across different library configurations,\n")
-        f.write("  lambda/sigma ratios, and experimental settings.\n")
-        f.write("\n  Log Determinant of Gram Matrix Analysis:\n")
-        f.write("  Using the log determinant of the Gram matrix as a predictor shows\n")
-        f.write("  a clear relationship with success probability. Higher log determinant\n")
-        f.write("  values generally indicate better conditioning and improved model\n")
-        f.write("  identification performance.\n")
-
-def run_all_experiments():
-    """Run all experiments and summarize results."""
-    # Measure total execution time
     start_time = time.time()
     
-    print("Starting SINDy Markov Model Experiments")
+    # Load configuration
+    config = load_config(config_path)
+    params = setup_experiment_from_config(config)
     
-    # Setup directories and logging
-    setup_directories()
+    # Setup logging
+    setup_logging(params['log_file'], params['console_level'], params['file_level'])
+    logger = get_logger('SINDyExperiment')
     
-    # Set up root logger for high-level messages
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.FileHandler('logs/experiments.log', mode='w'),
-            logging.StreamHandler()
-        ]
-    )
-    
-    logger = logging.getLogger('experiments')
-    logger.info("Starting all experiments")
+    logger.info(header(f"STARTING EXPERIMENT: {params['name']}"))
+    logger.info(bold(f"Description: {params['description']}"))
     
     # Import modules
     modules = import_modules()
+    SINDyMarkovModel = modules['model']
+    analysis = modules['analysis']
     
-    # Run each experiment and collect results
-    logger.info("\n" + "="*60)
-    logger.info("EXPERIMENT 1: Simple Three-Term Example")
-    logger.info("="*60)
-    print("\n" + "="*60)
-    print("EXPERIMENT 1: Simple Three-Term Example")
-    print("="*60)
-    simple_results, simple_metrics = run_simple_example(modules)
+    # Create model
+    model = SINDyMarkovModel(
+        params['library_functions'], 
+        params['true_coefficients'], 
+        params['sigma'], 
+        params['threshold'], 
+        log_file=params['log_file']
+    )
     
-    logger.info("\n" + "="*60)
-    logger.info("EXPERIMENT 2: Lambda/Sigma Ratio Experiment")
-    logger.info("="*60)
-    print("\n" + "="*60)
-    print("EXPERIMENT 2: Lambda/Sigma Ratio Experiment")
-    print("="*60)
-    lambda_sigma_results = run_lambda_sigma_experiment(modules)
+    # Run comparison between theory and simulation
+    logger.info(section("RUNNING THEORY VS SIMULATION COMPARISON"))
     
-    logger.info("\n" + "="*60)
-    logger.info("EXPERIMENT 3: Multiple True Terms Experiment")
-    logger.info("="*60)
-    print("\n" + "="*60)
-    print("EXPERIMENT 3: Multiple True Terms Experiment")
-    print("="*60)
-    multiterm_results, multiterm_metrics = run_multiterm_experiment(modules)
+    # Log experiment parameters
+    logger.info(bold_yellow("Experiment Parameters:"))
+    logger.info(f"  Library Functions: {[getattr(f, '__name__', str(f)) for f in params['library_functions']]}")
+    logger.info(f"  True Coefficients: {params['true_coefficients']}")
+    logger.info(f"  Sigma (noise): {params['sigma']}")
+    logger.info(f"  Threshold: {params['threshold']}")
+    logger.info(f"  Lambda/Sigma Ratio: {params['threshold']/params['sigma']:.4f}")
     
-    # Create summary plots and write report
-    create_summary_plots(simple_results, multiterm_results, lambda_sigma_results)
-    write_summary_report(simple_metrics, multiterm_metrics)
+    if params['adaptive_trials']:
+        logger.info(f"  Using adaptive trials (max: {params['max_trials']}, min: {params['min_trials']})")
+        logger.info(f"  Confidence: {params['confidence']*100:.0f}%, Margin: {params['margin']*100:.1f}%")
+    else:
+        logger.info(f"  Fixed trials: {params['n_trials']}")
+    
+    logger.info(f"  x_range: {params['x_range']}")
+    logger.info(f"  n_samples_range: {params['n_samples_range']}")
+    
+    # Run the comparison
+    if params['adaptive_trials']:
+        results = analysis.compare_theory_to_simulation(
+            model, 
+            params['x_range'], 
+            params['n_samples_range'],
+            adaptive_trials=True,
+            max_trials=params['max_trials'],
+            min_trials=params['min_trials'],
+            confidence=params['confidence'],
+            margin=params['margin'],
+            batch_size=params['batch_size']
+        )
+    else:
+        results = analysis.compare_theory_to_simulation(
+            model, 
+            params['x_range'], 
+            params['n_samples_range'], 
+            n_trials=params['n_trials']
+        )
+    
+    # Save results to CSV
+    results_file = f"{params['save_path']}_results.csv"
+    results.to_csv(results_file, index=False)
+    logger.info(f"Results saved to {results_file}")
+    
+    # Plot and save figures
+    fig1 = analysis.plot_comparison(results, x_axis='log_gram_det')
+    fig1.savefig(f"{params['save_path']}_log_gram_det.png", dpi=300, bbox_inches='tight')
+    
+    fig1b = analysis.plot_comparison(results, x_axis='discriminability')
+    fig1b.savefig(f"{params['save_path']}_discriminability.png", dpi=300, bbox_inches='tight')
+    
+    fig2 = analysis.plot_direct_comparison(results)
+    fig2.savefig(f"{params['save_path']}_direct_comparison.png", dpi=300, bbox_inches='tight')
+    
+    # If using adaptive trials, also create a plot showing trials used vs. discrepancy
+    if params['adaptive_trials'] and 'trials_used' in results.columns:
+        plt.figure(figsize=(10, 6))
+        plt.scatter(results['trials_used'], results['discrepancy'], s=80, alpha=0.7)
+        plt.xlabel('Number of Trials Used')
+        plt.ylabel('Discrepancy (|Theoretical - Empirical|)')
+        plt.title('Discrepancy vs. Number of Trials Used')
+        plt.grid(True, alpha=0.3)
+        plt.savefig(f"{params['save_path']}_trials_vs_discrepancy.png", dpi=300, bbox_inches='tight')
+    
+    # Calculate evaluation metrics
+    metrics = analysis.evaluate_model(results)
+    analysis.print_metrics(metrics)
+    
+    # Convert numpy types to Python native types for JSON serialization
+    def numpy_to_python_types(obj):
+        """
+        Recursively convert numpy types to standard Python types.
+        Compatible with NumPy 2.0+
+        
+        Parameters:
+        -----------
+        obj : any
+            Object that may contain numpy data types
+            
+        Returns:
+        --------
+        converted_obj : any
+            Same object with all numpy types converted to Python native types
+        """
+        # Handle NumPy scalars
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.bool_):
+            return bool(obj)
+        elif isinstance(obj, np.ndarray):
+            return [numpy_to_python_types(x) for x in obj]
+        
+        # Handle other containers
+        elif isinstance(obj, dict):
+            return {numpy_to_python_types(k): numpy_to_python_types(v) for k, v in obj.items()}
+        elif isinstance(obj, list) or isinstance(obj, tuple):
+            return [numpy_to_python_types(x) for x in obj]
+        elif hasattr(obj, 'item') and callable(getattr(obj, 'item')):
+            # Handle other numpy scalar types that have an 'item' method
+            try:
+                return obj.item()
+            except:
+                return obj
+        else:
+            # Return unchanged for non-numpy types
+            return obj
+        
+    metrics_json = numpy_to_python_types(metrics)
+    
+    # Add adaptive trial information if applicable
+    if params['adaptive_trials']:
+        metrics_json['adaptive_trials'] = {
+            'enabled': True,
+            'max_trials': params['max_trials'],
+            'min_trials': params['min_trials'],
+            'confidence': params['confidence'],
+            'margin': params['margin'],
+            'average_trials_used': results['trials_used'].mean(),
+            'min_trials_used': results['trials_used'].min(),
+            'max_trials_used': results['trials_used'].max()
+        }
+    
+    metrics_file = f"{params['save_path']}_metrics.json"
+    ensure_directory_exists(metrics_file)
+    with open(metrics_file, 'w') as f:
+        json.dump(metrics, f, indent=2, cls=NumpyEncoder)
     
     # Calculate execution time
     execution_time = time.time() - start_time
-    logger.info(f"All experiments completed in {execution_time:.2f} seconds")
-    print(f"\nExperiments completed in {execution_time:.2f} seconds")
-    print("Results saved to 'results' directory.")
+    logger.info(bold_green(f"\nExperiment completed in {execution_time:.2f} seconds"))
+    
+    return results, metrics
+
+def main():
+    """Parse arguments and run experiment."""
+    parser = argparse.ArgumentParser(description='Run SINDy Markov Chain Model experiments')
+    parser.add_argument('--config', type=str, help='Path to custom configuration file')
+    args = parser.parse_args()
+    
+    run_experiment(args.config)
 
 if __name__ == "__main__":
-    run_all_experiments()
+    main()

@@ -15,6 +15,16 @@ import argparse
 from collections import defaultdict
 import numpy as np
 
+# Import centralized logging
+from models.logging_config import setup_logging, get_logger
+from models.logging_config import bold, green, yellow, red, cyan, header, section
+from models.logging_config import bold_green, bold_yellow, bold_red
+
+# Set up logger
+setup_logging('logs/analyze_logs.log')
+logger = get_logger('analyze_logs')
+
+
 def parse_log_file(log_file):
     """Parse a log file and extract key information."""
     print(f"Analyzing log file: {log_file}")

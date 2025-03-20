@@ -47,17 +47,35 @@ def setup_logging(log_file='logs/sindy_model.log', console_level=logging.INFO, f
     for handler in root_logger.handlers[:]:
         root_logger.removeHandler(handler)
     
-    # Console handler with colors
-    console = logging.StreamHandler()
+    # Console handler with colors - force UTF-8 encoding 
+    try:
+        # Try to create a handler with UTF-8 encoding
+        console = logging.StreamHandler()
+        console.stream.reconfigure(encoding='utf-8')  # Python 3.7+ method
+    except (AttributeError, UnicodeError):
+        # Fallback to standard handler if reconfigure is not available or fails
+        console = logging.StreamHandler()
+        
     console.setLevel(console_level)
     console.setFormatter(ColoredConsoleFormatter('%(levelname)s - %(message)s'))
-    root_logger.addHandler(console)
     
-    # File handler without colors
-    file_handler = logging.FileHandler(log_file, mode='w')
+    # File handler without colors - explicitly set UTF-8 encoding
+    try:
+        file_handler = logging.FileHandler(log_file, mode='w', encoding='utf-8')
+    except (ValueError, UnicodeError):
+        # Fallback to default encoding if UTF-8 fails
+        file_handler = logging.FileHandler(log_file, mode='w')
+        
     file_handler.setLevel(file_level)
     file_handler.setFormatter(PlainFileFormatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    
+    # Add handlers to logger
+    root_logger.addHandler(console)
     root_logger.addHandler(file_handler)
+    
+    # Set higher log levels for third-party libraries to reduce noise
+    logging.getLogger('PIL').setLevel(logging.WARNING)
+    logging.getLogger('matplotlib').setLevel(logging.WARNING)
     
     return root_logger
 

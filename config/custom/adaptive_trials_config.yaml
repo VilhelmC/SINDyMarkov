@@ -1,0 +1,30 @@
+# Adaptive Trials experiment configuration
+
+experiment:
+  name: "adaptive_trials_experiment"
+  description: "Experiment using adaptive trial count determination"
+  save_path: "results/adaptive_trials_experiment"
+
+model:
+  # Use the default library functions and coefficients
+  sigma: 0.1
+  threshold: 0.05
+
+simulation:
+  # Enable adaptive trials
+  adaptive_trials: true
+  max_trials: 500
+  min_trials: 30
+  confidence: 0.95
+  margin: 0.03       # Tighter margin than default (0.05)
+  batch_size: 20     # Larger batch size than default
+  
+  # Use a smaller set of parameter combinations for faster execution
+  x_range: [0.1, 1.0, 2.0]
+  n_samples_range: [100, 300, 500]
+  analyze_coefficients: true
+
+logging:
+  log_file: "logs/adaptive_trials_experiment.log"
+  console_level: "INFO"
+  file_level: "DEBUG"

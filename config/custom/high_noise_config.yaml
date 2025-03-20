@@ -1,0 +1,18 @@
+# High noise experiment configuration
+
+experiment:
+  name: "high_noise_experiment"
+  description: "Experiment with higher noise level"
+  save_path: "results/high_noise_experiment"
+
+model:
+  # Use the same library functions as default
+  sigma: 0.3            # Higher noise level (default is 0.1)
+  threshold: 0.1        # Adjusted threshold 
+
+simulation:
+  n_trials: 100         # More trials for better statistics with high noise
+  # Use default x_range and n_samples_range
+
+logging:
+  log_file: "logs/high_noise_experiment.log"

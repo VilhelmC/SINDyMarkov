@@ -1,0 +1,2692 @@
+2025-03-20 15:41:09,219 - SINDyMarkovModel - INFO - Initializing SINDy Markov Model
+2025-03-20 15:41:09,220 - SINDyMarkovModel - INFO - True term indices: [0]
+2025-03-20 15:41:09,221 - SINDyMarkovModel - INFO - 
+================================================================================
+STARTING THEORY VS SIMULATION COMPARISON
+================================================================================
+2025-03-20 15:41:09,222 - SINDyMarkovModel - INFO - Experiment Setup:
+2025-03-20 15:41:09,222 - SINDyMarkovModel - INFO -   Testing 5 data ranges: [0.1   0.575 1.05  1.525 2.   ]
+2025-03-20 15:41:09,223 - SINDyMarkovModel - INFO -   Testing 5 sample sizes: [ 50 100 200 300 500]
+2025-03-20 15:41:09,223 - SINDyMarkovModel - INFO -   Running 50 trials per configuration
+2025-03-20 15:41:09,224 - SINDyMarkovModel - INFO -   Lambda/Sigma Ratio: 0.5000
+2025-03-20 15:41:09,224 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+2025-03-20 15:41:09,224 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,225 - SINDyMarkovModel - INFO - CONFIGURATION 1/25
+2025-03-20 15:41:09,225 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 50
+2025-03-20 15:41:09,225 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,225 - SINDyMarkovModel - INFO - Computing Gram matrix with 50 sample points
+2025-03-20 15:41:09,226 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -48.9262
+2025-03-20 15:41:09,226 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,227 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,228 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,228 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,229 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,229 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,229 - SINDyMarkovModel - DEBUG - Transition {0, 1} -> {0}:
+2025-03-20 15:41:09,230 - SINDyMarkovModel - DEBUG -   Coefficient mean: [1. 0.]
+2025-03-20 15:41:09,230 - SINDyMarkovModel - DEBUG -   Eliminated indices: [1] (positions: [1])
+2025-03-20 15:41:09,230 - SINDyMarkovModel - DEBUG -   Retained indices: [0] (positions: [0])
+2025-03-20 15:41:09,230 - SINDyMarkovModel - DEBUG -   Independent term probabilities:
+2025-03-20 15:41:09,298 - SINDyMarkovModel - DEBUG -     Term 1: P(|coef| < 0.05) = 0.000069 (should be eliminated)
+2025-03-20 15:41:09,327 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,328 - SINDyMarkovModel - DEBUG - Transition {0, 2} -> {0}:
+2025-03-20 15:41:09,328 - SINDyMarkovModel - DEBUG -   Coefficient mean: [1. 0.]
+2025-03-20 15:41:09,328 - SINDyMarkovModel - DEBUG -   Eliminated indices: [2] (positions: [1])
+2025-03-20 15:41:09,328 - SINDyMarkovModel - DEBUG -   Retained indices: [0] (positions: [0])
+2025-03-20 15:41:09,328 - SINDyMarkovModel - DEBUG -   Independent term probabilities:
+2025-03-20 15:41:09,333 - SINDyMarkovModel - DEBUG -     Term 2: P(|coef| < 0.05) = 0.000138 (should be eliminated)
+2025-03-20 15:41:09,362 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,363 - SINDyMarkovModel - DEBUG - Transition {0, 1, 2} -> {0}:
+2025-03-20 15:41:09,363 - SINDyMarkovModel - DEBUG -   Coefficient mean: [1. 0. 0.]
+2025-03-20 15:41:09,363 - SINDyMarkovModel - DEBUG -   Eliminated indices: [1, 2] (positions: [1, 2])
+2025-03-20 15:41:09,364 - SINDyMarkovModel - DEBUG -   Retained indices: [0] (positions: [0])
+2025-03-20 15:41:09,364 - SINDyMarkovModel - DEBUG -   Independent term probabilities:
+2025-03-20 15:41:09,371 - SINDyMarkovModel - DEBUG -     Term 1: P(|coef| < 0.05) = 0.000000 (should be eliminated)
+2025-03-20 15:41:09,372 - SINDyMarkovModel - DEBUG -     Term 2: P(|coef| < 0.05) = 0.000000 (should be eliminated)
+2025-03-20 15:41:09,399 - SINDyMarkovModel - DEBUG - Transition {0, 1, 2} -> {0, 1}:
+2025-03-20 15:41:09,400 - SINDyMarkovModel - DEBUG -   Coefficient mean: [1. 0. 0.]
+2025-03-20 15:41:09,400 - SINDyMarkovModel - DEBUG -   Eliminated indices: [2] (positions: [2])
+2025-03-20 15:41:09,400 - SINDyMarkovModel - DEBUG -   Retained indices: [0, 1] (positions: [0, 1])
+2025-03-20 15:41:09,400 - SINDyMarkovModel - DEBUG -   Independent term probabilities:
+2025-03-20 15:41:09,413 - SINDyMarkovModel - DEBUG -     Term 2: P(|coef| < 0.05) = 0.000000 (should be eliminated)
+2025-03-20 15:41:09,442 - SINDyMarkovModel - DEBUG - Transition {0, 1, 2} -> {0, 2}:
+2025-03-20 15:41:09,442 - SINDyMarkovModel - DEBUG -   Coefficient mean: [1. 0. 0.]
+2025-03-20 15:41:09,442 - SINDyMarkovModel - DEBUG -   Eliminated indices: [1] (positions: [1])
+2025-03-20 15:41:09,442 - SINDyMarkovModel - DEBUG -   Retained indices: [0, 2] (positions: [0, 2])
+2025-03-20 15:41:09,442 - SINDyMarkovModel - DEBUG -   Independent term probabilities:
+2025-03-20 15:41:09,449 - SINDyMarkovModel - DEBUG -     Term 1: P(|coef| < 0.05) = 0.000000 (should be eliminated)
+2025-03-20 15:41:09,483 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,484 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,484 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,485 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,487 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,488 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,488 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,488 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,489 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,489 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,494 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,494 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,495 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,496 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,496 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,496 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,497 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,498 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,498 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,498 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,498 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,499 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,499 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,499 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,500 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,500 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,500 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,501 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,503 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,504 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,504 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 84930.675547, Diff: 84929.675547 (8492967.6%)
+2025-03-20 15:41:09,505 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -170222.102878, Diff: 170222.102878 (inf%)
+2025-03-20 15:41:09,505 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 85292.427912, Diff: 85292.427912 (inf%)
+2025-03-20 15:41:09,506 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,506 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 284552.242298, Empirical: 296387.934802, Ratio: 0.9601
+2025-03-20 15:41:09,507 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 571325.874706, Empirical: 594960.902952, Ratio: 0.9603
+2025-03-20 15:41:09,507 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 286774.717352, Empirical: 298573.820159, Ratio: 0.9605
+2025-03-20 15:41:09,508 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,508 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 50
+2025-03-20 15:41:09,509 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -48.9262
+2025-03-20 15:41:09,509 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,510 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0000
+2025-03-20 15:41:09,510 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0001
+2025-03-20 15:41:09,510 - SINDyMarkovModel - INFO - Average Discriminability: 0.0000
+2025-03-20 15:41:09,511 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,511 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,511 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,512 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,512 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,512 - SINDyMarkovModel - INFO - CONFIGURATION 2/25
+2025-03-20 15:41:09,512 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 100
+2025-03-20 15:41:09,513 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,513 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 15:41:09,513 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -46.5464
+2025-03-20 15:41:09,513 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,514 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,514 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,514 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,514 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,515 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,515 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,515 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,515 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,515 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,515 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,515 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,515 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,516 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,516 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,516 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,516 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,516 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,517 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,517 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,517 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,517 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,517 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,518 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,521 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,522 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,522 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,523 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,523 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,523 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,523 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,524 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,524 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,524 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,524 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,524 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,525 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,525 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,525 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,525 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,526 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,527 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,528 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,528 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,528 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 24497.747411, Diff: 24496.747411 (2449674.7%)
+2025-03-20 15:41:09,528 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -49192.805748, Diff: 49192.805748 (inf%)
+2025-03-20 15:41:09,529 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 24696.087638, Diff: 24696.087638 (inf%)
+2025-03-20 15:41:09,529 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,529 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 208374.114110, Empirical: 186390.646813, Ratio: 1.1179
+2025-03-20 15:41:09,529 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 418468.183950, Empirical: 374224.330459, Ratio: 1.1182
+2025-03-20 15:41:09,529 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 210094.914220, Empirical: 187834.363574, Ratio: 1.1185
+2025-03-20 15:41:09,530 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,530 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 100
+2025-03-20 15:41:09,530 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -46.5464
+2025-03-20 15:41:09,531 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,531 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0001
+2025-03-20 15:41:09,531 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0002
+2025-03-20 15:41:09,531 - SINDyMarkovModel - INFO - Average Discriminability: 0.0001
+2025-03-20 15:41:09,531 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,532 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,532 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,533 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,533 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,534 - SINDyMarkovModel - INFO - CONFIGURATION 3/25
+2025-03-20 15:41:09,534 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 200
+2025-03-20 15:41:09,534 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,535 - SINDyMarkovModel - INFO - Computing Gram matrix with 200 sample points
+2025-03-20 15:41:09,535 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -44.7388
+2025-03-20 15:41:09,535 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,536 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,536 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,536 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,536 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,537 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,537 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,537 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,538 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,538 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,538 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,539 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,539 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,539 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,539 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,539 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,540 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,541 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,541 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,541 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,542 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,542 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,542 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,543 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,545 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,546 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,546 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,547 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,547 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,547 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,547 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,548 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,548 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,548 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,548 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,548 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,549 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,549 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,549 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,549 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,550 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,551 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,551 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,554 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,554 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 13487.289914, Diff: 13486.289914 (1348629.0%)
+2025-03-20 15:41:09,554 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -27105.705756, Diff: 27105.705756 (inf%)
+2025-03-20 15:41:09,555 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 13619.437123, Diff: 13619.437123 (inf%)
+2025-03-20 15:41:09,555 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,555 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 151967.569311, Empirical: 134201.876048, Ratio: 1.1324
+2025-03-20 15:41:09,556 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 305146.298091, Empirical: 269498.198531, Ratio: 1.1323
+2025-03-20 15:41:09,556 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 153179.320947, Empirical: 135296.850806, Ratio: 1.1322
+2025-03-20 15:41:09,556 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,557 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 200
+2025-03-20 15:41:09,557 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -44.7388
+2025-03-20 15:41:09,557 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,558 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0001
+2025-03-20 15:41:09,559 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0003
+2025-03-20 15:41:09,559 - SINDyMarkovModel - INFO - Average Discriminability: 0.0002
+2025-03-20 15:41:09,560 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,560 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,561 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,561 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,562 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,562 - SINDyMarkovModel - INFO - CONFIGURATION 4/25
+2025-03-20 15:41:09,563 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 300
+2025-03-20 15:41:09,563 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,563 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 15:41:09,564 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -43.9265
+2025-03-20 15:41:09,564 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,564 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,565 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,565 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,565 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,566 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,566 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,566 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,566 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,566 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,566 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,567 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,567 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,568 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,568 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,568 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,568 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,569 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,569 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,570 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,570 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,570 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,571 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,572 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,575 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,576 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,576 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,576 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,577 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,577 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,577 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,578 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,578 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,578 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,578 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,578 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,578 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,579 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,579 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,579 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,579 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,581 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,581 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,581 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,581 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: -294.574338, Diff: 295.574338 (29557.4%)
+2025-03-20 15:41:09,581 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 570.648488, Diff: 570.648488 (inf%)
+2025-03-20 15:41:09,582 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -275.079582, Diff: 275.079582 (inf%)
+2025-03-20 15:41:09,582 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,582 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 140117.229567, Empirical: 141246.296752, Ratio: 0.9920
+2025-03-20 15:41:09,582 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 281298.700664, Empirical: 283623.320148, Ratio: 0.9918
+2025-03-20 15:41:09,582 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 141181.941845, Empirical: 142377.523570, Ratio: 0.9916
+2025-03-20 15:41:09,583 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,583 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 300
+2025-03-20 15:41:09,583 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -43.9265
+2025-03-20 15:41:09,583 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,583 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0001
+2025-03-20 15:41:09,584 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0004
+2025-03-20 15:41:09,584 - SINDyMarkovModel - INFO - Average Discriminability: 0.0003
+2025-03-20 15:41:09,584 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,584 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,584 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,584 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,585 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,585 - SINDyMarkovModel - INFO - CONFIGURATION 5/25
+2025-03-20 15:41:09,585 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 500
+2025-03-20 15:41:09,585 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,587 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 15:41:09,588 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -41.9718
+2025-03-20 15:41:09,588 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,589 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,589 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,589 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,590 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,590 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,590 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,590 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,590 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,590 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,590 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,590 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,591 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,591 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,591 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,591 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,592 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,592 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,593 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,593 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,593 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,593 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,593 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,594 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,598 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,598 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,599 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,600 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,600 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,600 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,601 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,601 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,601 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,601 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,602 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,603 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,603 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,604 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,605 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: -34492.028032, Diff: 34493.028032 (3449302.8%)
+2025-03-20 15:41:09,606 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 69292.149792, Diff: 69292.149792 (inf%)
+2025-03-20 15:41:09,606 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -34799.257375, Diff: 34799.257375 (inf%)
+2025-03-20 15:41:09,606 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,606 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 99866.514386, Empirical: 109821.119818, Ratio: 0.9094
+2025-03-20 15:41:09,607 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 200531.145555, Empirical: 220590.734963, Ratio: 0.9091
+2025-03-20 15:41:09,607 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 100665.008944, Empirical: 110770.056780, Ratio: 0.9088
+2025-03-20 15:41:09,607 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,607 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 500
+2025-03-20 15:41:09,608 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -41.9718
+2025-03-20 15:41:09,608 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,608 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0002
+2025-03-20 15:41:09,609 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0009
+2025-03-20 15:41:09,609 - SINDyMarkovModel - INFO - Average Discriminability: 0.0006
+2025-03-20 15:41:09,609 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,609 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,609 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,609 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,610 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,610 - SINDyMarkovModel - INFO - CONFIGURATION 6/25
+2025-03-20 15:41:09,611 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 50
+2025-03-20 15:41:09,611 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,611 - SINDyMarkovModel - INFO - Computing Gram matrix with 50 sample points
+2025-03-20 15:41:09,612 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -17.6589
+2025-03-20 15:41:09,612 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,612 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,612 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,612 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,613 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,613 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,613 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,613 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,613 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,613 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,613 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,613 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,614 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,614 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,614 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,614 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,614 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,614 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,615 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,615 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,615 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,615 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,616 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,616 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,619 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,621 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,621 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,621 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,622 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,622 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,623 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,623 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,623 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,623 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,623 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,623 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,624 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,624 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,624 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,624 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,624 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,626 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,626 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,626 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,627 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 12.432062, Diff: 11.432062 (1143.2%)
+2025-03-20 15:41:09,627 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -26.132462, Diff: 26.132462 (inf%)
+2025-03-20 15:41:09,627 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 14.742609, Diff: 14.742609 (inf%)
+2025-03-20 15:41:09,627 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,628 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 44.569116, Empirical: 36.496340, Ratio: 1.2212
+2025-03-20 15:41:09,628 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 101.957002, Empirical: 82.545418, Ratio: 1.2352
+2025-03-20 15:41:09,628 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 57.588250, Empirical: 46.162281, Ratio: 1.2475
+2025-03-20 15:41:09,628 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,628 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 50
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -17.6589
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.7134
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 2.4160
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO - Average Discriminability: 1.5647
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,629 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,630 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,630 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,630 - SINDyMarkovModel - INFO - CONFIGURATION 7/25
+2025-03-20 15:41:09,630 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 100
+2025-03-20 15:41:09,630 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,630 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 15:41:09,631 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -16.1517
+2025-03-20 15:41:09,631 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,631 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,632 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,632 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,632 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,633 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,633 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,633 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,633 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,633 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,633 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,633 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,634 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,634 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,634 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,634 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,634 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,635 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,640 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,640 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,641 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,641 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,641 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,642 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,642 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,643 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,643 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,643 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,644 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,644 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,644 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,644 - SINDyMarkovModel - INFO - Top 2 paths through state space:
+2025-03-20 15:41:09,644 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 49 occurrences (98.0% of trials)
+2025-03-20 15:41:09,644 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,645 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,645 - SINDyMarkovModel - INFO -   [0, 1, 2]: 49 occurrences (98.0% of failures)
+2025-03-20 15:41:09,645 - SINDyMarkovModel - INFO -   [0, 2]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,647 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,647 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,647 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,647 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: -4.860612, Diff: 5.860612 (586.1%)
+2025-03-20 15:41:09,648 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 13.977015, Diff: 13.977015 (inf%)
+2025-03-20 15:41:09,648 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -8.156452, Diff: 8.156452 (inf%)
+2025-03-20 15:41:09,648 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,648 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 37.759523, Empirical: 32.843179, Ratio: 1.1497
+2025-03-20 15:41:09,648 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 85.884760, Empirical: 74.967527, Ratio: 1.1456
+2025-03-20 15:41:09,648 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 48.271844, Empirical: 42.275960, Ratio: 1.1418
+2025-03-20 15:41:09,649 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,649 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 100
+2025-03-20 15:41:09,649 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -16.1517
+2025-03-20 15:41:09,649 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,649 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 1.3046
+2025-03-20 15:41:09,650 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 4.4246
+2025-03-20 15:41:09,650 - SINDyMarkovModel - INFO - Average Discriminability: 2.8646
+2025-03-20 15:41:09,650 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,651 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,651 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,651 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,651 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,653 - SINDyMarkovModel - INFO - CONFIGURATION 8/25
+2025-03-20 15:41:09,653 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 200
+2025-03-20 15:41:09,654 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,654 - SINDyMarkovModel - INFO - Computing Gram matrix with 200 sample points
+2025-03-20 15:41:09,654 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -14.0008
+2025-03-20 15:41:09,655 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,655 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,656 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,656 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,656 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,657 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,657 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,657 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,657 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,657 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,657 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,657 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,658 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,658 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,658 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,658 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,658 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,658 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,658 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,659 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,659 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,659 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,659 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,659 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,663 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,663 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,664 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,664 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,664 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,664 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,664 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,665 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,665 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,665 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,665 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,665 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,665 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,666 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,666 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,666 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,666 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,667 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,668 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,669 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,669 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 4.240747, Diff: 3.240747 (324.1%)
+2025-03-20 15:41:09,670 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -7.483200, Diff: 7.483200 (inf%)
+2025-03-20 15:41:09,670 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 4.245124, Diff: 4.245124 (inf%)
+2025-03-20 15:41:09,670 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,671 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 25.163301, Empirical: 26.917995, Ratio: 0.9348
+2025-03-20 15:41:09,671 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 57.500687, Empirical: 61.558781, Ratio: 0.9341
+2025-03-20 15:41:09,671 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 32.445385, Empirical: 34.760609, Ratio: 0.9334
+2025-03-20 15:41:09,671 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,672 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 200
+2025-03-20 15:41:09,672 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -14.0008
+2025-03-20 15:41:09,673 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,673 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 2.5896
+2025-03-20 15:41:09,673 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 8.7632
+2025-03-20 15:41:09,673 - SINDyMarkovModel - INFO - Average Discriminability: 5.6764
+2025-03-20 15:41:09,673 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,673 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,674 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,674 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,674 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,675 - SINDyMarkovModel - INFO - CONFIGURATION 9/25
+2025-03-20 15:41:09,675 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 300
+2025-03-20 15:41:09,675 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,675 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 15:41:09,675 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -12.3037
+2025-03-20 15:41:09,676 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,676 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,676 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,676 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,677 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,677 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,677 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,677 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,677 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,677 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,677 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,677 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,678 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,678 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,678 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,678 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,678 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,678 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,679 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,679 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,679 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,679 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,679 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,680 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,683 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,684 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,684 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,684 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,684 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,685 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,685 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,687 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,687 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,687 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,687 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,688 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,688 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,689 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,689 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,689 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,689 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,691 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,692 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,692 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,692 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: -9.267141, Diff: 10.267141 (1026.7%)
+2025-03-20 15:41:09,693 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 23.632031, Diff: 23.632031 (inf%)
+2025-03-20 15:41:09,693 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -13.401254, Diff: 13.401254 (inf%)
+2025-03-20 15:41:09,694 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,694 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 18.448619, Empirical: 14.695738, Ratio: 1.2554
+2025-03-20 15:41:09,694 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 42.321557, Empirical: 33.927222, Ratio: 1.2474
+2025-03-20 15:41:09,694 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 23.959740, Empirical: 19.314440, Ratio: 1.2405
+2025-03-20 15:41:09,694 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 300
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -12.3037
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 5.0142
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 16.9269
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Average Discriminability: 10.9706
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - CONFIGURATION 10/25
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 500
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -11.2725
+2025-03-20 15:41:09,695 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,699 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,699 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,699 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,699 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,699 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,699 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,700 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,700 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,700 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,700 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,700 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,700 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,700 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,700 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,700 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,701 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,701 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,702 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,702 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,704 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,704 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,705 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,705 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,709 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,709 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,710 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,710 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,710 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,710 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,711 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,711 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,711 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,711 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,712 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,712 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,712 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,712 - SINDyMarkovModel - INFO - Top 2 paths through state space:
+2025-03-20 15:41:09,712 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 49 occurrences (98.0% of trials)
+2025-03-20 15:41:09,712 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,713 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,713 - SINDyMarkovModel - INFO -   [0, 1, 2]: 49 occurrences (98.0% of failures)
+2025-03-20 15:41:09,713 - SINDyMarkovModel - INFO -   [0, 1]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,715 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,715 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,715 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,716 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: -2.802573, Diff: 3.802573 (380.3%)
+2025-03-20 15:41:09,716 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 8.217844, Diff: 8.217844 (inf%)
+2025-03-20 15:41:09,716 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -4.406947, Diff: 4.406947 (inf%)
+2025-03-20 15:41:09,716 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,716 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 16.304894, Empirical: 16.704224, Ratio: 0.9761
+2025-03-20 15:41:09,717 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 37.201269, Empirical: 38.159235, Ratio: 0.9749
+2025-03-20 15:41:09,717 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 20.963260, Empirical: 21.519853, Ratio: 0.9741
+2025-03-20 15:41:09,717 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,717 - SINDyMarkovModel - INFO - Data Range: 0.575, Samples: 500
+2025-03-20 15:41:09,718 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -11.2725
+2025-03-20 15:41:09,718 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,720 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 6.2157
+2025-03-20 15:41:09,720 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 21.0539
+2025-03-20 15:41:09,720 - SINDyMarkovModel - INFO - Average Discriminability: 13.6348
+2025-03-20 15:41:09,721 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,721 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,721 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,721 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,722 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,722 - SINDyMarkovModel - INFO - CONFIGURATION 11/25
+2025-03-20 15:41:09,722 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 50
+2025-03-20 15:41:09,722 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,723 - SINDyMarkovModel - INFO - Computing Gram matrix with 50 sample points
+2025-03-20 15:41:09,723 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -7.9774
+2025-03-20 15:41:09,723 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,723 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,724 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,724 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,724 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,724 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,724 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,724 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,724 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,725 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,725 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,725 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,725 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,725 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,725 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,725 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,726 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,726 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,727 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,727 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,727 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,727 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,727 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,728 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,731 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,731 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,732 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,732 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,732 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,732 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,732 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,732 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,733 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,733 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,733 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,733 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,733 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,733 - SINDyMarkovModel - INFO - Top 3 paths through state space:
+2025-03-20 15:41:09,734 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 48 occurrences (96.0% of trials)
+2025-03-20 15:41:09,734 - SINDyMarkovModel - INFO -   [1, 2] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,734 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,734 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,734 - SINDyMarkovModel - INFO -   [0, 1, 2]: 48 occurrences (96.0% of failures)
+2025-03-20 15:41:09,734 - SINDyMarkovModel - INFO -   [1, 2]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,735 - SINDyMarkovModel - INFO -   [0, 2]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,736 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,736 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 18 times):
+2025-03-20 15:41:09,737 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,738 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.660274, Diff: 0.339726 (34.0%)
+2025-03-20 15:41:09,738 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.893053, Diff: 0.893053 (inf%)
+2025-03-20 15:41:09,739 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.549815, Diff: 0.549815 (inf%)
+2025-03-20 15:41:09,739 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,740 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 2.028998, Empirical: 1.866508, Ratio: 1.0871
+2025-03-20 15:41:09,740 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 6.630128, Empirical: 6.371597, Ratio: 1.0406
+2025-03-20 15:41:09,741 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 4.724808, Empirical: 4.653059, Ratio: 1.0154
+2025-03-20 15:41:09,741 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,742 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 50
+2025-03-20 15:41:09,742 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -7.9774
+2025-03-20 15:41:09,742 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,742 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 26.7771
+2025-03-20 15:41:09,743 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 64.6550
+2025-03-20 15:41:09,743 - SINDyMarkovModel - INFO - Average Discriminability: 45.7161
+2025-03-20 15:41:09,743 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,743 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,743 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,743 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,744 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,744 - SINDyMarkovModel - INFO - CONFIGURATION 12/25
+2025-03-20 15:41:09,744 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 100
+2025-03-20 15:41:09,744 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,745 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 15:41:09,745 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -6.3011
+2025-03-20 15:41:09,745 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,745 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,746 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,746 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,747 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,747 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,747 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,747 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,747 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,747 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,748 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,748 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,748 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,749 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,749 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,749 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,749 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,749 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,752 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,754 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,755 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,755 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,755 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,755 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,755 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,756 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,756 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,756 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,756 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,756 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,756 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,757 - SINDyMarkovModel - INFO - Top 2 paths through state space:
+2025-03-20 15:41:09,757 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 49 occurrences (98.0% of trials)
+2025-03-20 15:41:09,757 - SINDyMarkovModel - INFO -   [1, 2] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,757 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,757 - SINDyMarkovModel - INFO -   [0, 1, 2]: 49 occurrences (98.0% of failures)
+2025-03-20 15:41:09,757 - SINDyMarkovModel - INFO -   [1, 2]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,759 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,759 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 19 times):
+2025-03-20 15:41:09,760 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,760 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.786004, Diff: 0.213996 (21.4%)
+2025-03-20 15:41:09,760 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.602823, Diff: 0.602823 (inf%)
+2025-03-20 15:41:09,760 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.392033, Diff: 0.392033 (inf%)
+2025-03-20 15:41:09,761 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,761 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.538591, Empirical: 1.327157, Ratio: 1.1593
+2025-03-20 15:41:09,762 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 5.018658, Empirical: 4.455807, Ratio: 1.1263
+2025-03-20 15:41:09,762 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 3.576881, Empirical: 3.219231, Ratio: 1.1111
+2025-03-20 15:41:09,762 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 100
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -6.3011
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 41.3103
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 101.6772
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO - Average Discriminability: 71.4938
+2025-03-20 15:41:09,763 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,764 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,764 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,764 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,764 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,765 - SINDyMarkovModel - INFO - CONFIGURATION 13/25
+2025-03-20 15:41:09,765 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 200
+2025-03-20 15:41:09,765 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,765 - SINDyMarkovModel - INFO - Computing Gram matrix with 200 sample points
+2025-03-20 15:41:09,766 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -4.0811
+2025-03-20 15:41:09,766 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,766 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,766 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,767 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,767 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,767 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,767 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,767 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,767 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,767 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,767 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,768 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,768 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,768 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,768 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,768 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,768 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,768 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,771 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,772 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,772 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,772 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,772 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,774 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,777 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,778 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,778 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,779 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,779 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,779 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,780 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,780 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,780 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,781 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,781 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,781 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,782 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,782 - SINDyMarkovModel - INFO - Top 1 paths through state space:
+2025-03-20 15:41:09,782 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 50 occurrences (100.0% of trials)
+2025-03-20 15:41:09,783 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,783 - SINDyMarkovModel - INFO -   [0, 1, 2]: 50 occurrences (100.0% of failures)
+2025-03-20 15:41:09,784 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,785 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 20 times):
+2025-03-20 15:41:09,785 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,787 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.153644, Diff: 0.153644 (15.4%)
+2025-03-20 15:41:09,787 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -0.518894, Diff: 0.518894 (inf%)
+2025-03-20 15:41:09,788 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 0.370450, Diff: 0.370450 (inf%)
+2025-03-20 15:41:09,788 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,789 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.082682, Empirical: 0.821674, Ratio: 1.3177
+2025-03-20 15:41:09,789 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 3.526057, Empirical: 2.772530, Ratio: 1.2718
+2025-03-20 15:41:09,789 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 2.510616, Empirical: 2.022156, Ratio: 1.2416
+2025-03-20 15:41:09,790 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,791 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 200
+2025-03-20 15:41:09,791 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -4.0811
+2025-03-20 15:41:09,791 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,792 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 94.6413
+2025-03-20 15:41:09,792 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 232.5130
+2025-03-20 15:41:09,792 - SINDyMarkovModel - INFO - Average Discriminability: 163.5771
+2025-03-20 15:41:09,793 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,793 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,794 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,794 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,795 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,795 - SINDyMarkovModel - INFO - CONFIGURATION 14/25
+2025-03-20 15:41:09,795 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 300
+2025-03-20 15:41:09,795 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,795 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 15:41:09,796 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -2.6319
+2025-03-20 15:41:09,796 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,797 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,797 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,798 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,798 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,798 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,798 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,798 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,798 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,798 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,798 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,798 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,799 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,799 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,799 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,799 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,799 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,799 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,800 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,800 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,800 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,800 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,800 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,801 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,806 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,807 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,807 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,807 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,808 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,808 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,808 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,809 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,809 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,809 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,809 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,809 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,810 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,810 - SINDyMarkovModel - INFO - Top 3 paths through state space:
+2025-03-20 15:41:09,810 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 46 occurrences (92.0% of trials)
+2025-03-20 15:41:09,810 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:09,810 - SINDyMarkovModel - INFO -   [1, 2] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:09,811 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,811 - SINDyMarkovModel - INFO -   [0, 1, 2]: 46 occurrences (92.0% of failures)
+2025-03-20 15:41:09,811 - SINDyMarkovModel - INFO -   [0, 2]: 2 occurrences (4.0% of failures)
+2025-03-20 15:41:09,812 - SINDyMarkovModel - INFO -   [1, 2]: 2 occurrences (4.0% of failures)
+2025-03-20 15:41:09,813 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,813 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 17 times):
+2025-03-20 15:41:09,814 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,814 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.187382, Diff: 0.187382 (18.7%)
+2025-03-20 15:41:09,814 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -0.590597, Diff: 0.590597 (inf%)
+2025-03-20 15:41:09,814 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 0.407020, Diff: 0.407020 (inf%)
+2025-03-20 15:41:09,814 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,814 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.831205, Empirical: 0.814182, Ratio: 1.0209
+2025-03-20 15:41:09,815 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 2.717127, Empirical: 2.647141, Ratio: 1.0264
+2025-03-20 15:41:09,815 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 1.938642, Empirical: 1.886715, Ratio: 1.0275
+2025-03-20 15:41:09,815 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,815 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 300
+2025-03-20 15:41:09,816 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -2.6319
+2025-03-20 15:41:09,816 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,816 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 169.0137
+2025-03-20 15:41:09,816 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 410.3690
+2025-03-20 15:41:09,816 - SINDyMarkovModel - INFO - Average Discriminability: 289.6913
+2025-03-20 15:41:09,816 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,817 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,817 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,817 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,817 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,817 - SINDyMarkovModel - INFO - CONFIGURATION 15/25
+2025-03-20 15:41:09,818 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 500
+2025-03-20 15:41:09,818 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,818 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 15:41:09,818 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -1.2041
+2025-03-20 15:41:09,818 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,818 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,819 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,819 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,819 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,820 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,820 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,820 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,820 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,820 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,820 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,821 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,821 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,822 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,822 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,822 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,822 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,823 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,826 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,827 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,827 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,827 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,827 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -     Trajectory: [0, 1] -> [STOP]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,828 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,829 - SINDyMarkovModel - INFO - Top 3 paths through state space:
+2025-03-20 15:41:09,829 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 45 occurrences (90.0% of trials)
+2025-03-20 15:41:09,829 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 4 occurrences (8.0% of trials)
+2025-03-20 15:41:09,829 - SINDyMarkovModel - INFO -   [1, 2] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,830 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,830 - SINDyMarkovModel - INFO -   [0, 1, 2]: 45 occurrences (90.0% of failures)
+2025-03-20 15:41:09,830 - SINDyMarkovModel - INFO -   [0, 1]: 4 occurrences (8.0% of failures)
+2025-03-20 15:41:09,830 - SINDyMarkovModel - INFO -   [1, 2]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,831 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,832 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 19 times):
+2025-03-20 15:41:09,832 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,832 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.044250, Diff: 0.044250 (4.4%)
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -0.146678, Diff: 0.146678 (inf%)
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 0.103125, Diff: 0.103125 (inf%)
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.668578, Empirical: 0.840125, Ratio: 0.7958
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 2.179932, Empirical: 2.705645, Ratio: 0.8057
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 1.551951, Empirical: 1.907189, Ratio: 0.8137
+2025-03-20 15:41:09,833 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,834 - SINDyMarkovModel - INFO - Data Range: 1.05, Samples: 500
+2025-03-20 15:41:09,834 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -1.2041
+2025-03-20 15:41:09,834 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,834 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 262.0971
+2025-03-20 15:41:09,834 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 636.3415
+2025-03-20 15:41:09,835 - SINDyMarkovModel - INFO - Average Discriminability: 449.2193
+2025-03-20 15:41:09,835 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,835 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,836 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,837 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,838 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,838 - SINDyMarkovModel - INFO - CONFIGURATION 16/25
+2025-03-20 15:41:09,838 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 50
+2025-03-20 15:41:09,838 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,839 - SINDyMarkovModel - INFO - Computing Gram matrix with 50 sample points
+2025-03-20 15:41:09,839 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -2.7669
+2025-03-20 15:41:09,839 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,839 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,840 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,840 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,841 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,841 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,842 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,842 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,842 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,842 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,842 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,843 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,843 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,844 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,844 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,845 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,845 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,846 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,849 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (1/50 successful, 0.0200)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,849 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,850 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,850 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,850 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,850 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,850 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,850 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO - Top 2 paths through state space:
+2025-03-20 15:41:09,851 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 49 occurrences (98.0% of trials)
+2025-03-20 15:41:09,852 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,854 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,854 - SINDyMarkovModel - INFO -   [0, 1, 2]: 49 occurrences (100.0% of failures)
+2025-03-20 15:41:09,856 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,856 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 19 times):
+2025-03-20 15:41:09,857 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,857 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.963009, Diff: 0.036991 (3.7%)
+2025-03-20 15:41:09,857 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.159297, Diff: 0.159297 (inf%)
+2025-03-20 15:41:09,857 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.135125, Diff: 0.135125 (inf%)
+2025-03-20 15:41:09,857 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,857 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.209112, Empirical: 0.216357, Ratio: 0.9665
+2025-03-20 15:41:09,858 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 1.415750, Empirical: 1.423325, Ratio: 0.9947
+2025-03-20 15:41:09,858 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 1.345248, Empirical: 1.318099, Ratio: 1.0206
+2025-03-20 15:41:09,858 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,858 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 50
+2025-03-20 15:41:09,858 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -2.7669
+2025-03-20 15:41:09,859 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,860 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 228.4116
+2025-03-20 15:41:09,860 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 390.0511
+2025-03-20 15:41:09,861 - SINDyMarkovModel - INFO - Average Discriminability: 309.2313
+2025-03-20 15:41:09,861 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,861 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0200
+2025-03-20 15:41:09,861 - SINDyMarkovModel - INFO - Difference: 0.0200
+2025-03-20 15:41:09,861 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,862 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,862 - SINDyMarkovModel - INFO - CONFIGURATION 17/25
+2025-03-20 15:41:09,862 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 100
+2025-03-20 15:41:09,862 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,862 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 15:41:09,863 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -0.3585
+2025-03-20 15:41:09,863 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,864 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,864 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,864 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,864 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,864 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,864 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,864 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,864 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,865 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,865 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,865 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,865 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,865 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,865 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,865 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,866 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,866 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,866 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,867 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,867 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,867 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,867 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,868 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,873 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (1/50 successful, 0.0200)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,874 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,874 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,875 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,875 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,875 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,875 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,875 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,875 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,876 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,876 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,876 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,876 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,876 - SINDyMarkovModel - INFO - Top 2 paths through state space:
+2025-03-20 15:41:09,876 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 49 occurrences (98.0% of trials)
+2025-03-20 15:41:09,877 - SINDyMarkovModel - INFO -   [0, 2] -> [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,877 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,877 - SINDyMarkovModel - INFO -   [0, 1, 2]: 49 occurrences (100.0% of failures)
+2025-03-20 15:41:09,879 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,880 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 19 times):
+2025-03-20 15:41:09,880 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,880 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.991503, Diff: 0.008497 (0.8%)
+2025-03-20 15:41:09,880 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.033173, Diff: 0.033173 (inf%)
+2025-03-20 15:41:09,880 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.023944, Diff: 0.023944 (inf%)
+2025-03-20 15:41:09,881 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,881 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.127518, Empirical: 0.136478, Ratio: 0.9344
+2025-03-20 15:41:09,882 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.911069, Empirical: 0.955382, Ratio: 0.9536
+2025-03-20 15:41:09,882 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.872264, Empirical: 0.905983, Ratio: 0.9628
+2025-03-20 15:41:09,882 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,883 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 100
+2025-03-20 15:41:09,883 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -0.3585
+2025-03-20 15:41:09,883 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,883 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 402.6525
+2025-03-20 15:41:09,883 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 665.3759
+2025-03-20 15:41:09,883 - SINDyMarkovModel - INFO - Average Discriminability: 534.0142
+2025-03-20 15:41:09,884 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,884 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0200
+2025-03-20 15:41:09,884 - SINDyMarkovModel - INFO - Difference: 0.0200
+2025-03-20 15:41:09,884 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,884 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,885 - SINDyMarkovModel - INFO - CONFIGURATION 18/25
+2025-03-20 15:41:09,885 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 200
+2025-03-20 15:41:09,885 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,886 - SINDyMarkovModel - INFO - Computing Gram matrix with 200 sample points
+2025-03-20 15:41:09,887 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 1.4739
+2025-03-20 15:41:09,888 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,888 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,889 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,889 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,889 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,890 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,890 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,890 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,890 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,890 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,890 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,890 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,890 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,891 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,891 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,891 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,891 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,891 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,891 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,892 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,892 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,892 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,892 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,893 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,897 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (1/50 successful, 0.0200)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,898 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,898 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,898 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,898 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,899 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,900 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,900 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,901 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1]
+2025-03-20 15:41:09,901 - SINDyMarkovModel - INFO -     Trajectory: [0, 1] -> [STOP]
+2025-03-20 15:41:09,902 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,902 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,903 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,903 - SINDyMarkovModel - INFO - Top 4 paths through state space:
+2025-03-20 15:41:09,904 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 46 occurrences (92.0% of trials)
+2025-03-20 15:41:09,904 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:09,905 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,905 - SINDyMarkovModel - INFO -   [0, 1] -> [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,906 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,906 - SINDyMarkovModel - INFO -   [0, 1, 2]: 46 occurrences (93.9% of failures)
+2025-03-20 15:41:09,907 - SINDyMarkovModel - INFO -   [0, 2]: 2 occurrences (4.1% of failures)
+2025-03-20 15:41:09,907 - SINDyMarkovModel - INFO -   [0, 1]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,911 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,912 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 18 times):
+2025-03-20 15:41:09,912 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,912 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.007881, Diff: 0.007881 (0.8%)
+2025-03-20 15:41:09,913 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.164875, Diff: 0.164875 (inf%)
+2025-03-20 15:41:09,913 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.185774, Diff: 0.185774 (inf%)
+2025-03-20 15:41:09,914 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,914 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.105805, Empirical: 0.129700, Ratio: 0.8158
+2025-03-20 15:41:09,914 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.666413, Empirical: 0.691608, Ratio: 0.9636
+2025-03-20 15:41:09,915 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.619561, Empirical: 0.617500, Ratio: 1.0033
+2025-03-20 15:41:09,915 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,916 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 200
+2025-03-20 15:41:09,916 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 1.4739
+2025-03-20 15:41:09,917 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,917 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 730.5993
+2025-03-20 15:41:09,917 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 1238.6508
+2025-03-20 15:41:09,918 - SINDyMarkovModel - INFO - Average Discriminability: 984.6251
+2025-03-20 15:41:09,918 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,918 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0200
+2025-03-20 15:41:09,919 - SINDyMarkovModel - INFO - Difference: 0.0200
+2025-03-20 15:41:09,919 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,920 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,920 - SINDyMarkovModel - INFO - CONFIGURATION 19/25
+2025-03-20 15:41:09,921 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 300
+2025-03-20 15:41:09,921 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,921 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 15:41:09,922 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 2.8369
+2025-03-20 15:41:09,922 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,923 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,924 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,924 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,924 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,924 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,925 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,925 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,925 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,925 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,925 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,925 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,926 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,926 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,926 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,926 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,926 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,926 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,926 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,927 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,927 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,927 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,927 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,928 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,931 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (0/50 successful, 0.0000)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,931 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,934 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,937 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,937 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,938 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,938 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,938 - SINDyMarkovModel - INFO - Top 3 paths through state space:
+2025-03-20 15:41:09,939 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 48 occurrences (96.0% of trials)
+2025-03-20 15:41:09,939 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,940 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,940 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,940 - SINDyMarkovModel - INFO -   [0, 1, 2]: 48 occurrences (96.0% of failures)
+2025-03-20 15:41:09,941 - SINDyMarkovModel - INFO -   [0, 2]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,942 - SINDyMarkovModel - INFO -   [0, 1]: 1 occurrences (2.0% of failures)
+2025-03-20 15:41:09,943 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,944 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 19 times):
+2025-03-20 15:41:09,944 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,944 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.004588, Diff: 0.004588 (0.5%)
+2025-03-20 15:41:09,945 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.044651, Diff: 0.044651 (inf%)
+2025-03-20 15:41:09,945 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.055742, Diff: 0.055742 (inf%)
+2025-03-20 15:41:09,945 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,945 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.081645, Empirical: 0.068651, Ratio: 1.1893
+2025-03-20 15:41:09,945 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.554330, Empirical: 0.423490, Ratio: 1.3090
+2025-03-20 15:41:09,946 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.520654, Empirical: 0.383505, Ratio: 1.3576
+2025-03-20 15:41:09,946 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,947 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 300
+2025-03-20 15:41:09,947 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 2.8369
+2025-03-20 15:41:09,947 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,947 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 1359.9536
+2025-03-20 15:41:09,947 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 2243.6429
+2025-03-20 15:41:09,948 - SINDyMarkovModel - INFO - Average Discriminability: 1801.7982
+2025-03-20 15:41:09,948 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,948 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000
+2025-03-20 15:41:09,948 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 15:41:09,948 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,948 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,949 - SINDyMarkovModel - INFO - CONFIGURATION 20/25
+2025-03-20 15:41:09,949 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 500
+2025-03-20 15:41:09,949 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,949 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 15:41:09,950 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 4.0603
+2025-03-20 15:41:09,950 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,950 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,950 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,950 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,951 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,951 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,951 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,951 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,951 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,951 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,951 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,951 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,951 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,951 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,952 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,952 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,952 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,954 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,954 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,954 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,955 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,955 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,955 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,956 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,960 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (9/50 successful, 0.1800)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,960 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,961 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,961 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,961 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,961 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,961 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,961 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,962 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,962 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,962 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,962 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO - Top 5 paths through state space:
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 38 occurrences (76.0% of trials)
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 6 occurrences (12.0% of trials)
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO -   [0, 1] -> [0] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:09,963 - SINDyMarkovModel - INFO -   [0, 2] -> [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,964 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,964 - SINDyMarkovModel - INFO -   [0, 1, 2]: 38 occurrences (92.7% of failures)
+2025-03-20 15:41:09,964 - SINDyMarkovModel - INFO -   [0, 1]: 2 occurrences (4.9% of failures)
+2025-03-20 15:41:09,964 - SINDyMarkovModel - INFO -   [0, 2]: 1 occurrences (2.4% of failures)
+2025-03-20 15:41:09,966 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,966 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 17 times):
+2025-03-20 15:41:09,966 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,967 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.993982, Diff: 0.006018 (0.6%)
+2025-03-20 15:41:09,967 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.086250, Diff: 0.086250 (inf%)
+2025-03-20 15:41:09,967 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.085221, Diff: 0.085221 (inf%)
+2025-03-20 15:41:09,967 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,967 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.072593, Empirical: 0.064319, Ratio: 1.1286
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.458531, Empirical: 0.416746, Ratio: 1.1003
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.422183, Empirical: 0.382242, Ratio: 1.1045
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO - 
+State [0] (observed 3 times):
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.002060, Diff: 0.002060 (0.2%)
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,968 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.005258, Empirical: 0.003140, Ratio: 1.6745
+2025-03-20 15:41:09,969 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,969 - SINDyMarkovModel - INFO - Data Range: 1.525, Samples: 500
+2025-03-20 15:41:09,970 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 4.0603
+2025-03-20 15:41:09,970 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,970 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 1913.6300
+2025-03-20 15:41:09,971 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 3227.8752
+2025-03-20 15:41:09,971 - SINDyMarkovModel - INFO - Average Discriminability: 2570.7526
+2025-03-20 15:41:09,971 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,972 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.1800
+2025-03-20 15:41:09,972 - SINDyMarkovModel - INFO - Large Discrepancy: 0.1800
+2025-03-20 15:41:09,972 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,972 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,973 - SINDyMarkovModel - INFO - CONFIGURATION 21/25
+2025-03-20 15:41:09,973 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 50
+2025-03-20 15:41:09,973 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,973 - SINDyMarkovModel - INFO - Computing Gram matrix with 50 sample points
+2025-03-20 15:41:09,973 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 1.1695
+2025-03-20 15:41:09,974 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,974 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,974 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,974 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,975 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,975 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,975 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,975 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,975 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,975 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,975 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,975 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,976 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,976 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,976 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,976 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,976 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,976 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,977 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,977 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,977 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,977 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,977 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,978 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:09,981 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (4/50 successful, 0.0800)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,982 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:09,982 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,982 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,983 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,983 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,983 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:09,983 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:09,983 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1]
+2025-03-20 15:41:09,983 - SINDyMarkovModel - INFO -     Trajectory: [0, 1] -> [STOP]
+2025-03-20 15:41:09,984 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 2]
+2025-03-20 15:41:09,984 - SINDyMarkovModel - INFO -     Trajectory: [0, 2] -> [STOP]
+2025-03-20 15:41:09,984 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:09,984 - SINDyMarkovModel - INFO - Top 5 paths through state space:
+2025-03-20 15:41:09,984 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 40 occurrences (80.0% of trials)
+2025-03-20 15:41:09,985 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 4 occurrences (8.0% of trials)
+2025-03-20 15:41:09,985 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 3 occurrences (6.0% of trials)
+2025-03-20 15:41:09,985 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:09,985 - SINDyMarkovModel - INFO -   [0, 2] -> [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:09,985 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:09,986 - SINDyMarkovModel - INFO -   [0, 1, 2]: 40 occurrences (87.0% of failures)
+2025-03-20 15:41:09,986 - SINDyMarkovModel - INFO -   [0, 2]: 4 occurrences (8.7% of failures)
+2025-03-20 15:41:09,986 - SINDyMarkovModel - INFO -   [0, 1]: 2 occurrences (4.3% of failures)
+2025-03-20 15:41:09,988 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:09,988 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 16 times):
+2025-03-20 15:41:09,988 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:09,989 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.998072, Diff: 0.001928 (0.2%)
+2025-03-20 15:41:09,989 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -0.100620, Diff: 0.100620 (inf%)
+2025-03-20 15:41:09,989 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 0.119868, Diff: 0.119868 (inf%)
+2025-03-20 15:41:09,989 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:09,990 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.084888, Empirical: 0.073216, Ratio: 1.1594
+2025-03-20 15:41:09,990 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.455162, Empirical: 0.348459, Ratio: 1.3062
+2025-03-20 15:41:09,990 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.583012, Empirical: 0.466558, Ratio: 1.2496
+2025-03-20 15:41:09,990 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,991 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 50
+2025-03-20 15:41:09,991 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 1.1695
+2025-03-20 15:41:09,991 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:09,992 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 1294.6309
+2025-03-20 15:41:09,992 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 1460.5918
+2025-03-20 15:41:09,992 - SINDyMarkovModel - INFO - Average Discriminability: 1377.6113
+2025-03-20 15:41:09,992 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:09,992 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0800
+2025-03-20 15:41:09,993 - SINDyMarkovModel - INFO - Difference: 0.0800
+2025-03-20 15:41:09,993 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:09,993 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:09,993 - SINDyMarkovModel - INFO - CONFIGURATION 22/25
+2025-03-20 15:41:09,994 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 100
+2025-03-20 15:41:09,994 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:09,994 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 15:41:09,994 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 2.5453
+2025-03-20 15:41:09,994 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,995 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:09,995 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:09,995 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:09,995 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:09,995 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:09,995 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:09,995 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:09,995 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:09,996 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:09,996 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,996 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:09,996 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:09,996 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:09,996 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:09,996 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:09,997 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:09,997 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:09,997 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:09,997 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:09,997 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:09,997 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:09,998 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:09,998 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:10,001 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (3/50 successful, 0.0600)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,001 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:10,002 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,002 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,002 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,003 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,003 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1]
+2025-03-20 15:41:10,003 - SINDyMarkovModel - INFO -     Trajectory: [0, 1] -> [STOP]
+2025-03-20 15:41:10,004 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,004 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,004 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,004 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,004 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:10,004 - SINDyMarkovModel - INFO - Top 4 paths through state space:
+2025-03-20 15:41:10,005 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 43 occurrences (86.0% of trials)
+2025-03-20 15:41:10,005 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 3 occurrences (6.0% of trials)
+2025-03-20 15:41:10,005 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:10,005 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:10,006 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:10,006 - SINDyMarkovModel - INFO -   [0, 1, 2]: 43 occurrences (91.5% of failures)
+2025-03-20 15:41:10,006 - SINDyMarkovModel - INFO -   [0, 1]: 2 occurrences (4.3% of failures)
+2025-03-20 15:41:10,006 - SINDyMarkovModel - INFO -   [0, 2]: 2 occurrences (4.3% of failures)
+2025-03-20 15:41:10,008 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:10,008 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 17 times):
+2025-03-20 15:41:10,008 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,009 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.003981, Diff: 0.003981 (0.4%)
+2025-03-20 15:41:10,009 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.050363, Diff: 0.050363 (inf%)
+2025-03-20 15:41:10,009 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.060084, Diff: 0.060084 (inf%)
+2025-03-20 15:41:10,009 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,009 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.056488, Empirical: 0.041091, Ratio: 1.3747
+2025-03-20 15:41:10,010 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.370701, Empirical: 0.347340, Ratio: 1.0673
+2025-03-20 15:41:10,010 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.441837, Empirical: 0.413412, Ratio: 1.0688
+2025-03-20 15:41:10,010 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,011 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 100
+2025-03-20 15:41:10,011 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 2.5453
+2025-03-20 15:41:10,011 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:10,012 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 1448.7664
+2025-03-20 15:41:10,012 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 1748.0521
+2025-03-20 15:41:10,012 - SINDyMarkovModel - INFO - Average Discriminability: 1598.4093
+2025-03-20 15:41:10,012 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:10,012 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0600
+2025-03-20 15:41:10,013 - SINDyMarkovModel - INFO - Difference: 0.0600
+2025-03-20 15:41:10,013 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:10,013 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:10,014 - SINDyMarkovModel - INFO - CONFIGURATION 23/25
+2025-03-20 15:41:10,014 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 200
+2025-03-20 15:41:10,014 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:10,014 - SINDyMarkovModel - INFO - Computing Gram matrix with 200 sample points
+2025-03-20 15:41:10,014 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 4.9118
+2025-03-20 15:41:10,015 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:10,015 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:10,015 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:10,015 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:10,015 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:10,016 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:10,016 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:10,016 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:10,016 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:10,016 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:10,016 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:10,016 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:10,016 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:10,016 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:10,017 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:10,017 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:10,017 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:10,017 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,017 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:10,018 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:10,018 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:10,018 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:10,018 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:10,019 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:10,022 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (8/50 successful, 0.1600)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,022 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:10,023 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,024 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,024 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,024 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,024 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,024 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,025 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,025 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,025 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 2]
+2025-03-20 15:41:10,025 - SINDyMarkovModel - INFO -     Trajectory: [0, 2] -> [STOP]
+2025-03-20 15:41:10,025 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:10,025 - SINDyMarkovModel - INFO - Top 5 paths through state space:
+2025-03-20 15:41:10,026 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 39 occurrences (78.0% of trials)
+2025-03-20 15:41:10,026 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 5 occurrences (10.0% of trials)
+2025-03-20 15:41:10,026 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 3 occurrences (6.0% of trials)
+2025-03-20 15:41:10,026 - SINDyMarkovModel - INFO -   [0, 2] -> [0] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:10,026 - SINDyMarkovModel - INFO -   [0, 1] -> [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:10,026 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:10,027 - SINDyMarkovModel - INFO -   [0, 1, 2]: 39 occurrences (92.9% of failures)
+2025-03-20 15:41:10,027 - SINDyMarkovModel - INFO -   [0, 2]: 3 occurrences (7.1% of failures)
+2025-03-20 15:41:10,028 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:10,028 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 15 times):
+2025-03-20 15:41:10,029 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,029 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.009898, Diff: 0.009898 (1.0%)
+2025-03-20 15:41:10,029 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.050354, Diff: 0.050354 (inf%)
+2025-03-20 15:41:10,029 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.070447, Diff: 0.070447 (inf%)
+2025-03-20 15:41:10,030 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,030 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.039652, Empirical: 0.042373, Ratio: 0.9358
+2025-03-20 15:41:10,030 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.262707, Empirical: 0.331329, Ratio: 0.7929
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.319890, Empirical: 0.409675, Ratio: 0.7808
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO - 
+State [0, 2] (observed 3 times):
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.018976, Diff: 0.018976 (1.9%)
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -0.033478, Diff: 0.033478 (inf%)
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,031 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.032745, Empirical: 0.022421, Ratio: 1.4605
+2025-03-20 15:41:10,032 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.052540, Empirical: 0.042899, Ratio: 1.2247
+2025-03-20 15:41:10,032 - SINDyMarkovModel - INFO - 
+State [0] (observed 3 times):
+2025-03-20 15:41:10,032 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,032 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.997539, Diff: 0.002461 (0.2%)
+2025-03-20 15:41:10,032 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,032 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.006215, Empirical: 0.006113, Ratio: 1.0167
+2025-03-20 15:41:10,033 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,033 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 200
+2025-03-20 15:41:10,033 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 4.9118
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 3710.9926
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 4261.4530
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO - Average Discriminability: 3986.2228
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.1600
+2025-03-20 15:41:10,034 - SINDyMarkovModel - INFO - Large Discrepancy: 0.1600
+2025-03-20 15:41:10,035 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:10,035 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:10,035 - SINDyMarkovModel - INFO - CONFIGURATION 24/25
+2025-03-20 15:41:10,035 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 300
+2025-03-20 15:41:10,035 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:10,036 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 15:41:10,036 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 6.2881
+2025-03-20 15:41:10,036 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:10,037 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:10,037 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:10,037 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:10,038 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:10,038 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:10,038 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:10,038 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:10,038 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:10,038 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:10,038 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:10,039 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:10,039 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:10,039 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:10,039 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:10,039 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:10,039 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:10,040 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,040 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:10,040 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:10,040 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:10,041 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:10,041 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:10,042 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:10,045 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (11/50 successful, 0.2200)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,045 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:10,045 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,046 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,046 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,046 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,046 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,046 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,047 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,047 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,047 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,048 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,048 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:10,048 - SINDyMarkovModel - INFO - Top 5 paths through state space:
+2025-03-20 15:41:10,048 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 36 occurrences (72.0% of trials)
+2025-03-20 15:41:10,048 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 10 occurrences (20.0% of trials)
+2025-03-20 15:41:10,048 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:10,049 - SINDyMarkovModel - INFO -   [0, 1] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:10,049 - SINDyMarkovModel - INFO -   [0, 1] -> [0] -> [STOP]: 1 occurrences (2.0% of trials)
+2025-03-20 15:41:10,050 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:10,050 - SINDyMarkovModel - INFO -   [0, 1, 2]: 36 occurrences (92.3% of failures)
+2025-03-20 15:41:10,050 - SINDyMarkovModel - INFO -   [0, 2]: 2 occurrences (5.1% of failures)
+2025-03-20 15:41:10,050 - SINDyMarkovModel - INFO -   [0, 1]: 1 occurrences (2.6% of failures)
+2025-03-20 15:41:10,052 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:10,052 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 17 times):
+2025-03-20 15:41:10,052 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,053 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.017796, Diff: 0.017796 (1.8%)
+2025-03-20 15:41:10,053 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: 0.096566, Diff: 0.096566 (inf%)
+2025-03-20 15:41:10,053 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: -0.132396, Diff: 0.132396 (inf%)
+2025-03-20 15:41:10,054 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,054 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.031267, Empirical: 0.032848, Ratio: 0.9519
+2025-03-20 15:41:10,056 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.198540, Empirical: 0.197866, Ratio: 1.0034
+2025-03-20 15:41:10,057 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.241018, Empirical: 0.257275, Ratio: 0.9368
+2025-03-20 15:41:10,058 - SINDyMarkovModel - INFO - 
+State [0] (observed 3 times):
+2025-03-20 15:41:10,058 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,058 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 1.002684, Diff: 0.002684 (0.3%)
+2025-03-20 15:41:10,058 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,059 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.005041, Empirical: 0.004646, Ratio: 1.0850
+2025-03-20 15:41:10,059 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,059 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 300
+2025-03-20 15:41:10,059 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 6.2881
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 5465.4824
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 6359.3717
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO - Average Discriminability: 5912.4270
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.2200
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO - Large Discrepancy: 0.2200
+2025-03-20 15:41:10,060 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:10,061 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 15:41:10,061 - SINDyMarkovModel - INFO - CONFIGURATION 25/25
+2025-03-20 15:41:10,062 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 500
+2025-03-20 15:41:10,062 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 15:41:10,062 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 15:41:10,062 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 7.8217
+2025-03-20 15:41:10,062 - SINDyMarkovModel - INFO - 
+================================================================================
+BEGINNING SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:10,063 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 15:41:10,063 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 15:41:10,063 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 15:41:10,064 - SINDyMarkovModel - INFO - Generated 4 valid states:
+2025-03-20 15:41:10,064 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 15:41:10,064 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 15:41:10,064 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 15:41:10,064 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 15:41:10,064 - SINDyMarkovModel - INFO - 
+TRUE MODEL STATE TRANSITIONS
+2025-03-20 15:41:10,064 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:10,064 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 15:41:10,065 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> {0}: 0.000070
+    -> [STOP]: 0.999930
+2025-03-20 15:41:10,065 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> {0}: 0.000190
+    -> [STOP]: 0.999810
+2025-03-20 15:41:10,065 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 15:41:10,065 - SINDyMarkovModel - INFO - 
+State Reachability Probabilities:
+2025-03-20 15:41:10,065 - SINDyMarkovModel - INFO -   State {0, 1, 2}: 1.000000
+2025-03-20 15:41:10,065 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+SUCCESS PROBABILITY CALCULATION
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,066 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 15:41:10,066 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 15:41:10,066 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 15:41:10,066 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 15:41:10,066 - SINDyMarkovModel - INFO - 
+================================================================================
+END OF SUCCESS PROBABILITY CALCULATION
+================================================================================
+2025-03-20 15:41:10,066 - SINDyMarkovModel - INFO - 
+Running STLSQ simulation with 50 trials...
+2025-03-20 15:41:10,070 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+STLSQ SIMULATION RESULTS (8/50 successful, 0.1600)
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,071 - SINDyMarkovModel - INFO - 
+Sample of 5 trials:
+2025-03-20 15:41:10,071 - SINDyMarkovModel - INFO -   Trial 1: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,071 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,072 - SINDyMarkovModel - INFO -   Trial 2: FAILURE, Identified terms: [0, 2]
+2025-03-20 15:41:10,072 - SINDyMarkovModel - INFO -     Trajectory: [0, 2] -> [STOP]
+2025-03-20 15:41:10,072 - SINDyMarkovModel - INFO -   Trial 3: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,072 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,073 - SINDyMarkovModel - INFO -   Trial 4: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,073 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,073 - SINDyMarkovModel - INFO -   Trial 5: FAILURE, Identified terms: [0, 1, 2]
+2025-03-20 15:41:10,073 - SINDyMarkovModel - INFO -     Trajectory: [0, 1, 2] -> [STOP]
+2025-03-20 15:41:10,073 - SINDyMarkovModel - INFO - 
+Path Analysis:
+2025-03-20 15:41:10,074 - SINDyMarkovModel - INFO - Top 4 paths through state space:
+2025-03-20 15:41:10,074 - SINDyMarkovModel - INFO -   [0, 1, 2] -> [STOP]: 39 occurrences (78.0% of trials)
+2025-03-20 15:41:10,074 - SINDyMarkovModel - INFO -   [0] -> [STOP]: 6 occurrences (12.0% of trials)
+2025-03-20 15:41:10,074 - SINDyMarkovModel - INFO -   [0, 2] -> [STOP]: 3 occurrences (6.0% of trials)
+2025-03-20 15:41:10,074 - SINDyMarkovModel - INFO -   [0, 2] -> [0] -> [STOP]: 2 occurrences (4.0% of trials)
+2025-03-20 15:41:10,075 - SINDyMarkovModel - INFO - 
+Most common failure patterns:
+2025-03-20 15:41:10,075 - SINDyMarkovModel - INFO -   [0, 1, 2]: 39 occurrences (92.9% of failures)
+2025-03-20 15:41:10,075 - SINDyMarkovModel - INFO -   [0, 2]: 3 occurrences (7.1% of failures)
+2025-03-20 15:41:10,077 - SINDyMarkovModel - INFO - 
+Coefficient Distribution Analysis:
+2025-03-20 15:41:10,077 - SINDyMarkovModel - INFO - 
+State [0, 1, 2] (observed 16 times):
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO - Coefficient means:
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 1.000000, Empirical: 0.993481, Diff: 0.006519 (0.7%)
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.000000, Empirical: -0.073786, Diff: 0.073786 (inf%)
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.000000, Empirical: 0.090221, Diff: 0.090221 (inf%)
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO - 
+Coefficient standard deviations:
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO -   Coef 0: Theoretical: 0.025200, Empirical: 0.027120, Ratio: 0.9292
+2025-03-20 15:41:10,078 - SINDyMarkovModel - INFO -   Coef 1: Theoretical: 0.152406, Empirical: 0.144727, Ratio: 1.0531
+2025-03-20 15:41:10,079 - SINDyMarkovModel - INFO -   Coef 2: Theoretical: 0.187700, Empirical: 0.185089, Ratio: 1.0141
+2025-03-20 15:41:10,079 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 15:41:10,079 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 500
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 7.8217
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 9750.4851
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 11328.8907
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO - Average Discriminability: 10539.6879
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 15:41:10,080 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.1600
+2025-03-20 15:41:10,081 - SINDyMarkovModel - INFO - Large Discrepancy: 0.1600
+2025-03-20 15:41:10,081 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 15:41:10,081 - SINDyMarkovModel - INFO - 
+================================================================================
+THEORY VS SIMULATION COMPARISON COMPLETE
+================================================================================
+2025-03-20 15:41:11,588 - experiments - INFO - 
+============================================================
+2025-03-20 15:41:11,589 - experiments - INFO - EXPERIMENT 2: Lambda/Sigma Ratio Experiment
+2025-03-20 15:41:11,589 - experiments - INFO - ============================================================

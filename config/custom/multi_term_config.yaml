@@ -1,0 +1,27 @@
+# Multi-term experiment configuration
+
+experiment:
+  name: "multi_term_experiment"
+  description: "Experiment with multiple active terms"
+  save_path: "results/multi_term_experiment"
+
+model:
+  library_functions:
+    - name: "linear"      # x
+    - name: "quadratic"   # x^2
+    - name: "cubic"       # x^3
+    - name: "sin"         # sin(x)
+    - name: "exp"         # exp(x)
+  true_coefficients: [1.0, 0.5, 0.0, 0.0, 0.0]  # First and second terms are active
+  sigma: 0.15
+  threshold: 0.075
+
+simulation:
+  n_trials: 75
+  # Use smaller set of parameter combinations to speed up multi-term experiment
+  x_range: [0.5, 1.0, 1.5]
+  n_samples_range: [100, 300, 500]
+
+logging:
+  log_file: "logs/multi_term_experiment.log"
+  diagnose_transitions: true

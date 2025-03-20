@@ -1,0 +1,28 @@
+# Discriminability experiment configuration
+
+experiment:
+  name: "discriminability_experiment"
+  description: "Experiment with varying discriminability between terms"
+  save_path: "results/discriminability_experiment"
+
+model:
+  library_functions:
+    - name: "linear"    # x
+    - name: "quadratic" # x^2 (similar behavior to x in small ranges)
+    - name: "cubic"     # x^3 (similar behavior to x in small ranges)
+  true_coefficients: [1.0, 0.0, 0.0]  # Only first term is active
+  sigma: 0.1
+  threshold: 0.05
+
+simulation:
+  n_trials: 50
+  # Test with very small data ranges to create low discriminability
+  x_range: [0.01, 0.05, 0.1, 0.2, 0.5, 1.0]
+  n_samples_range: [100, 200, 500]
+  analyze_coefficients: true
+
+logging:
+  log_file: "logs/discriminability_experiment.log"
+  console_level: "INFO"
+  file_level: "DEBUG"
+  diagnose_transitions: true

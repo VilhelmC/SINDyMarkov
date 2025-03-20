@@ -9,7 +9,11 @@ from models.logging_config import get_logger, header, section
 from models.logging_config import bold, green, yellow, red, cyan
 from models.logging_config import bold_green, bold_yellow, bold_red
 
-def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
+# Update the compare_theory_to_simulation function in markov_analysis.py:
+
+def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100, 
+                                adaptive_trials=False, max_trials=500, min_trials=30, 
+                                confidence=0.95, margin=0.05, batch_size=10):
     """
     Compare theoretical success probability to simulation results.
     
@@ -22,7 +26,19 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
     n_samples_range : array
         Different numbers of samples to test
     n_trials : int
-        Number of simulation trials for each parameter combination
+        Number of simulation trials for each parameter combination (if not using adaptive trials)
+    adaptive_trials : bool
+        Whether to use adaptive trial count determination
+    max_trials : int
+        Maximum number of trials when using adaptive approach
+    min_trials : int
+        Minimum number of trials when using adaptive approach
+    confidence : float
+        Confidence level for adaptive approach
+    margin : float
+        Maximum margin of error for adaptive approach
+    batch_size : int
+        Batch size for adaptive approach
             
     Returns:
     --------
@@ -36,7 +52,13 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
     logger.info(bold("Experiment Setup:"))
     logger.info(f"  {bold('Testing')} {len(x_range)} {bold('data ranges:')} {x_range}")
     logger.info(f"  {bold('Testing')} {len(n_samples_range)} {bold('sample sizes:')} {n_samples_range}")
-    logger.info(f"  {bold('Running')} {n_trials} {bold('trials per configuration')}")
+    
+    if adaptive_trials:
+        logger.info(f"  {bold('Using adaptive trial count')} (max: {max_trials}, min: {min_trials})")
+        logger.info(f"  {bold('Confidence level:')} {confidence*100:.0f}%, {bold('Margin:')} {margin*100:.1f}%")
+    else:
+        logger.info(f"  {bold('Running')} {n_trials} {bold('trials per configuration')}")
+        
     logger.info(f"  {bold('Lambda/Sigma Ratio:')} {model.threshold/model.sigma:.4f}")
     logger.info("-"*80)
     
@@ -63,7 +85,19 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
             theoretical_prob = model.calculate_success_probability()
             
             # Simulate STLSQ
-            empirical_prob = model.simulate_stlsq(x_data, n_trials)
+            if adaptive_trials:
+                empirical_prob, trials_used = model.simulate_stlsq_adaptive(
+                    x_data, 
+                    max_trials=max_trials,
+                    min_trials=min_trials,
+                    confidence=confidence,
+                    margin=margin,
+                    batch_size=batch_size
+                )
+                logger.info(f"{bold('Trials used:')} {trials_used} {bold('(adaptive)')}")
+            else:
+                empirical_prob = model.simulate_stlsq(x_data, n_trials)
+                trials_used = n_trials
             
             # Calculate discriminability
             discriminabilities = []
@@ -96,6 +130,7 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
                 'n_samples': n_samples,
                 'theoretical_prob': theoretical_prob,
                 'empirical_prob': empirical_prob,
+                'trials_used': trials_used,
                 'discriminability': avg_discriminability,
                 'lambda_sigma_ratio': model.threshold / model.sigma,
                 'log_gram_det': model.log_gram_det,
@@ -118,7 +153,7 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
             
             # Log success probabilities with highlighting for discrepancies
             logger.info(f"{bold('Theoretical Success Probability:')} {theoretical_prob:.4f}")
-            logger.info(f"{bold('Empirical Success Probability:')} {empirical_prob:.4f}")
+            logger.info(f"{bold('Empirical Success Probability:')} {empirical_prob:.4f} (from {trials_used} trials)")
             
             discrepancy = abs(theoretical_prob - empirical_prob)
             if discrepancy > 0.1:
@@ -129,154 +164,6 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
             logger.info("-"*80 + "\n\n")
     
     logger.info(header("THEORY VS SIMULATION COMPARISON COMPLETE"))
-    
-    return pd.DataFrame(results)import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
-from sklearn.metrics import r2_score, mean_squared_error
-
-def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100):
-    """
-    Compare theoretical success probability to simulation results.
-    
-    Parameters:
-    -----------
-    model : SINDyMarkovModel
-        Model instance to use for comparison
-    x_range : array
-        Different data ranges to test (widths of sampling)
-    n_samples_range : array
-        Different numbers of samples to test
-    n_trials : int
-        Number of simulation trials for each parameter combination
-            
-    Returns:
-    --------
-    results : DataFrame
-        DataFrame with theoretical and empirical results
-    """
-    logger = model.logger
-    
-    # Import enhanced logger utilities if available
-    try:
-        from enhanced_logger import cyan, green, yellow, red, bold, header
-        use_enhanced_logger = True
-    except ImportError:
-        use_enhanced_logger = False
-        
-        # Define simple functions as fallback
-        def cyan(text, bright=False): return text
-        def green(text, bright=False): return text
-        def yellow(text, bright=False): return text
-        def red(text, bright=False): return text
-        def bold(text): return text
-        def header(text, width=80, char='='): return char*width
-    
-    # Create a colorful header for the experiment
-    logger.info("\n\n" + "="*80)
-    logger.info(cyan(bold("STARTING THEORY VS SIMULATION COMPARISON"), True))
-    logger.info("="*80)
-    logger.info(bold("Experiment Setup:"))
-    logger.info(f"  {bold('Testing')} {len(x_range)} {bold('data ranges:')} {x_range}")
-    logger.info(f"  {bold('Testing')} {len(n_samples_range)} {bold('sample sizes:')} {n_samples_range}")
-    logger.info(f"  {bold('Running')} {n_trials} {bold('trials per configuration')}")
-    logger.info(f"  {bold('Lambda/Sigma Ratio:')} {model.threshold/model.sigma:.4f}")
-    logger.info("-"*80)
-    
-    results = []
-    
-    total_combinations = len(x_range) * len(n_samples_range)
-    progress_counter = 0
-    
-    for data_range in x_range:
-        for n_samples in n_samples_range:
-            progress_counter += 1
-            logger.info(f"\n{yellow('='*60, True)}")
-            logger.info(yellow(bold(f"CONFIGURATION {progress_counter}/{total_combinations}"), True))
-            logger.info(yellow(bold(f"Data Range: {data_range}, Samples: {n_samples}"), True))
-            logger.info(yellow('='*60, True))
-            
-            # Generate sample points
-            x_data = np.random.uniform(-data_range, data_range, n_samples)
-            
-            # Compute Gram matrix
-            model.compute_gram_matrix(x_data)
-            
-            # Calculate theoretical success probability
-            theoretical_prob = model.calculate_success_probability()
-            
-            # Simulate STLSQ
-            empirical_prob = model.simulate_stlsq(x_data, n_trials)
-            
-            # Calculate discriminability
-            discriminabilities = []
-            if model.n_terms >= 2:
-                # Calculate discriminability between each pair of true and false terms
-                true_indices = model.normalize_state(model.true_term_indices)
-                false_indices = model.normalize_state(set(range(model.n_terms)) - true_indices)
-                
-                # If there are both true and false terms
-                if true_indices and false_indices:
-                    for true_idx in true_indices:
-                        for false_idx in false_indices:
-                            # Evaluate terms at sample points
-                            theta_true = model.library_functions[true_idx](x_data)
-                            theta_false = model.library_functions[false_idx](x_data)
-                            
-                            # Calculate discriminability
-                            disc = np.sum((theta_true - theta_false)**2) / model.sigma**2
-                            discriminabilities.append((true_idx, false_idx, disc))
-            
-            # Use average discriminability if available, otherwise NaN
-            if discriminabilities:
-                avg_discriminability = np.mean([d[2] for d in discriminabilities])
-            else:
-                avg_discriminability = np.nan
-            
-            # Save results
-            results.append({
-                'data_range': data_range,
-                'n_samples': n_samples,
-                'theoretical_prob': theoretical_prob,
-                'empirical_prob': empirical_prob,
-                'discriminability': avg_discriminability,
-                'lambda_sigma_ratio': model.threshold / model.sigma,
-                'log_gram_det': model.log_gram_det,
-                'discrepancy': abs(theoretical_prob - empirical_prob)
-            })
-            
-            # Log summary of this configuration
-            logger.info("\n" + "-"*80)
-            logger.info(green(bold("CONFIGURATION SUMMARY")))
-            logger.info("-"*80)
-            logger.info(f"{bold('Data Range:')} {data_range}, {bold('Samples:')} {n_samples}")
-            logger.info(f"{bold('Log Determinant of Gram Matrix:')} {model.log_gram_det:.4f}")
-            
-            # Log discriminability information
-            if discriminabilities:
-                logger.info(f"{bold('Discriminability Details:')}")
-                for true_idx, false_idx, disc in discriminabilities:
-                    logger.info(f"  Term {true_idx}(true) vs Term {false_idx}(false): {disc:.4f}")
-                logger.info(f"{bold('Average Discriminability:')} {avg_discriminability:.4f}")
-            else:
-                logger.info(f"{bold('Discriminability:')} {avg_discriminability:.4f}")
-            
-            # Log success probabilities with highlighting for discrepancies
-            logger.info(f"{bold('Theoretical Success Probability:')} {theoretical_prob:.4f}")
-            logger.info(f"{bold('Empirical Success Probability:')} {empirical_prob:.4f}")
-            
-            discrepancy = abs(theoretical_prob - empirical_prob)
-            if discrepancy > 0.1:
-                logger.info(f"{bold(red('Large Discrepancy:'))} {discrepancy:.4f}")
-            else:
-                logger.info(f"{bold('Difference:')} {discrepancy:.4f}")
-            
-            logger.info("-"*80 + "\n\n")
-    
-    logger.info("="*80)
-    logger.info(cyan(bold("THEORY VS SIMULATION COMPARISON COMPLETE")))
-    logger.info("="*80 + "\n\n")
     
     return pd.DataFrame(results)
 
@@ -298,15 +185,32 @@ def plot_comparison(results_df, x_axis='log_gram_det'):
     """
     fig, ax = plt.subplots(figsize=(10, 6))
     
+    # Determine if we're using adaptive trials (trials_used column exists)
+    adaptive_trials = 'trials_used' in results_df.columns
+    
+    # Scale marker sizes based on trials_used if available
+    if adaptive_trials:
+        # Normalize to reasonable marker sizes (30-200)
+        min_trials = results_df['trials_used'].min()
+        max_trials = results_df['trials_used'].max()
+        
+        if min_trials < max_trials:  # Avoid division by zero
+            size_scale = (results_df['trials_used'] - min_trials) / (max_trials - min_trials)
+            marker_sizes = 30 + size_scale * 170
+        else:
+            marker_sizes = 80  # Default size if all trials_used are equal
+    else:
+        marker_sizes = 80  # Default size for fixed trials
+    
     # Plot empirical data
-    sns.scatterplot(
+    scatter = sns.scatterplot(
         data=results_df, 
         x=x_axis, 
         y='empirical_prob',
         color='blue',
         label='Empirical',
         alpha=0.7,
-        s=80
+        s=marker_sizes if adaptive_trials else 80
     )
     
     # Plot theoretical predictions
@@ -318,6 +222,17 @@ def plot_comparison(results_df, x_axis='log_gram_det'):
         label='Theoretical',
         marker='o'
     )
+    
+    # Add legend for marker sizes if using adaptive trials
+    if adaptive_trials:
+        # Create a legend for marker sizes
+        handles, labels = ax.get_legend_handles_labels()
+        
+        # Create ghost scatters for the legend
+        size_levels = [min_trials, (min_trials + max_trials) // 2, max_trials]
+        for size in size_levels:
+            ax.scatter([], [], s=(30 + (size - min_trials) / (max_trials - min_trials) * 170 if max_trials > min_trials else 80),
+                      color='blue', alpha=0.5, label=f'{size} trials')
     
     # Set axis properties based on x_axis choice
     if x_axis == 'log_gram_det':

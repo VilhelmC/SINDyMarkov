@@ -5,6 +5,15 @@ import seaborn as sns
 from sklearn.metrics import r2_score, mean_squared_error
 import os
 
+# Import centralized logging
+from models.logging_config import setup_logging, get_logger
+from models.logging_config import bold, green, yellow, red, cyan, header, section
+from models.logging_config import bold_green, bold_yellow, bold_red
+
+# Set up logger
+setup_logging('logs/analyze_results.log')
+logger = get_logger('analyze_results')
+
 # Set up visualization
 plt.style.use('seaborn-v0_8-whitegrid')
 sns.set_context("notebook", font_scale=1.2)

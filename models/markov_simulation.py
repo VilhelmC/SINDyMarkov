@@ -1,6 +1,15 @@
+# Make sure the import is at the top
 import numpy as np
 import pandas as pd
 from itertools import combinations
+
+# Import centralized logging utilities
+from models.logging_config import setup_logging, get_logger
+from models.logging_config import bold, green, yellow, red, cyan, header, section
+from models.logging_config import bold_green, bold_yellow, bold_red
+
+# Setup logger
+logger = get_logger('markov_simulation')
 
 def run_lambda_sigma_experiment(model_class, library_functions, true_coefs, sigma=0.1, 
                                 lambda_sigma_ratios=None, x_range=None, n_samples_range=None, 
@@ -43,16 +52,16 @@ def run_lambda_sigma_experiment(model_class, library_functions, true_coefs, sigm
     if n_samples_range is None:
         n_samples_range = np.array([100, 200, 500])
     
-    print(f"\nRunning lambda/sigma ratio experiment")
-    print(f"Testing ratios: {lambda_sigma_ratios}")
-    print(f"Data ranges: {x_range}")
-    print(f"Sample sizes: {n_samples_range}")
+    print(f"\n{bold_green('Running lambda/sigma ratio experiment')}")
+    print(f"{bold('Testing ratios:')} {lambda_sigma_ratios}")
+    print(f"{bold('Data ranges:')} {x_range}")
+    print(f"{bold('Sample sizes:')} {n_samples_range}")
     
     all_results = []
     
     for ratio in lambda_sigma_ratios:
         threshold = ratio * sigma
-        print(f"\nTesting lambda/sigma ratio: {ratio} (λ={threshold:.4f}, σ={sigma})")
+        print(f"\n{bold_yellow(f'Testing lambda/sigma ratio: {ratio} (λ={threshold:.4f}, σ={sigma})')}")
         
         log_file = log_file_template.format(ratio)
         model = model_class(library_functions, true_coefs, sigma, threshold, log_file=log_file)
@@ -88,7 +97,7 @@ def run_multiterm_experiment(model_class, n_trials=30, log_file='logs/multiterm_
     results : DataFrame
         Results from the experiment
     """
-    print("\nRunning experiment with multiple true terms")
+    print(f"\n{bold_green('Running experiment with multiple true terms')}")
     
     # Define library functions
     def f1(x): return x          # Term 1: x
@@ -111,7 +120,7 @@ def run_multiterm_experiment(model_class, n_trials=30, log_file='logs/multiterm_
     x_range = np.linspace(0.2, 1.0, 3)
     n_samples_range = np.array([100, 300, 500])
     
-    print(f"Running comparison with {len(x_range)} data ranges and {len(n_samples_range)} sample sizes")
+    print(f"{bold(f'Running comparison with {len(x_range)} data ranges and {len(n_samples_range)} sample sizes')}")
     
     # Import analysis functions from markov_analysis
     from markov_analysis import compare_theory_to_simulation
@@ -138,7 +147,7 @@ def run_simple_example(model_class, n_trials=50, log_file='logs/simple_example.l
     results : DataFrame
         Results from the experiment
     """
-    print("Running simple example with 3 library terms")
+    print(f"{bold_green('Running simple example with 3 library terms')}")
     
     # Define library functions
     def f1(x): return x           # Term 1: x
@@ -159,7 +168,7 @@ def run_simple_example(model_class, n_trials=50, log_file='logs/simple_example.l
     x_range = np.linspace(0.1, 2.0, 5)  # Different data ranges
     n_samples_range = np.array([50, 100, 200, 300, 500])  # Different sample counts
     
-    print(f"Running comparison with {len(x_range)} data ranges and {len(n_samples_range)} sample sizes")
+    print(f"{bold(f'Running comparison with {len(x_range)} data ranges and {len(n_samples_range)} sample sizes')}")
     
     # Import analysis functions from markov_analysis
     from markov_analysis import compare_theory_to_simulation
@@ -191,6 +200,8 @@ def generate_true_dynamics(x, true_coefs, library_functions):
         if abs(coef) > 1e-10:
             y += coef * library_functions[i](x)
     return y
+
+# In markov_simulation.py, update the run_stlsq_simulation function:
 
 def run_stlsq_simulation(model, x_data, n_trials=100, return_details=False):
     """
@@ -238,7 +249,7 @@ def run_stlsq_simulation(model, x_data, n_trials=100, return_details=False):
         xi, trajectory = model.run_stlsq_with_trajectory(theta, y_noisy)
         
         # Convert trajectory to a string representation for counting
-        trajectory_str = ' -> '.join([str(sorted(list(state))) for state in trajectory])
+        trajectory_str = ' -> '.join([str(sorted(list(state))) for state in trajectory]) + " -> [STOP]"
         trajectory_counts[trajectory_str] = trajectory_counts.get(trajectory_str, 0) + 1
         
         # Check for success

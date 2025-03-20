@@ -2,10 +2,10 @@ SINDy Markov Model Experiment Summary
 =====================================
 
 Simple Three-Term Example:
-  R² Score: -0.2195
-  RMSE: 0.0679
-  MAE: 0.0288
-  Bias: -0.0288
+  R² Score: -0.3096
+  RMSE: 0.0757
+  MAE: 0.0368
+  Bias: -0.0368
 
 Multiple True Terms Experiment:
   R² Score: 1.0000
@@ -17,7 +17,7 @@ Lambda/Sigma Ratio Experiment:
   (See individual result files for detailed metrics)
 
 Overall Conclusion:
-  Average R² across experiments: 0.3902
+  Average R² across experiments: 0.3452
   The SINDy Markov model provides a robust theoretical framework for
   predicting success probability across different library configurations,
   lambda/sigma ratios, and experimental settings.
