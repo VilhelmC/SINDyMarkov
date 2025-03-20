@@ -12,7 +12,13 @@ import matplotlib.pyplot as plt
 import os
 import sys
 import importlib.util
+import json
 from pathlib import Path
+
+# Import centralized logging configuration
+from models.logging_config import setup_logging, get_logger
+from models.logging_config import bold, green, yellow, red, cyan, header, section
+from models.logging_config import bold_green, bold_yellow, bold_red
 
 def discover_and_import_module(module_name, possible_locations=None):
     """
@@ -58,9 +64,19 @@ def discover_and_import_module(module_name, possible_locations=None):
     print(f"Successfully imported {module_name} from {found_path}")
     return module
 
-# Import the SINDy Markov model
-sindy_markov_module = discover_and_import_module("sindy_markov_model")
-SINDyMarkovModel = sindy_markov_module.SINDyMarkovModel
+# Import necessary modules
+def import_modules():
+    """Import SINDy model and diagnostics modules."""
+    # Import core model
+    sindy_markov_module = discover_and_import_module("sindy_markov_model")
+    
+    # Import diagnostics module
+    diagnostics_module = discover_and_import_module("markov_diagnostics")
+    
+    return {
+        'model': sindy_markov_module.SINDyMarkovModel,
+        'diagnostics': diagnostics_module
+    }
 
 def run_diagnostics(data_range=1.0, n_samples=300, n_trials=100, sigma=0.1, threshold=0.05):
     """
@@ -79,11 +95,29 @@ def run_diagnostics(data_range=1.0, n_samples=300, n_trials=100, sigma=0.1, thre
     threshold : float
         STLSQ threshold
     """
-    print(f"Running diagnostics with data_range={data_range}, n_samples={n_samples}, n_trials={n_trials}")
+    # Set up logging
+    log_file = 'logs/diagnostics.log'
+    setup_logging(log_file)
+    logger = get_logger('diagnostics')
+    
+    # Print colorful header
+    logger.info(header(f"RUNNING SINDY MARKOV MODEL DIAGNOSTICS", width=80))
+    logger.info(bold("Settings:"))
+    logger.info(f"  {yellow('Data Range:')} {data_range}")
+    logger.info(f"  {yellow('Number of Samples:')} {n_samples}")
+    logger.info(f"  {yellow('Number of Trials:')} {n_trials}")
+    logger.info(f"  {yellow('Noise Level (σ):')} {sigma}")
+    logger.info(f"  {yellow('Threshold (λ):')} {threshold}")
+    logger.info(f"  {yellow('λ/σ Ratio:')} {threshold/sigma:.2f}")
     
     # Create output directories
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
+    
+    # Import modules
+    modules = import_modules()
+    SINDyMarkovModel = modules['model']
+    diagnostics = modules['diagnostics']
     
     # Define simple library functions
     def f1(x): return x          # Term 1: x
@@ -95,76 +129,107 @@ def run_diagnostics(data_range=1.0, n_samples=300, n_trials=100, sigma=0.1, thre
     # Define true model: only the first term is present
     true_coefs = np.array([1.0, 0.0, 0.0])
     
-    # Create model instance
-    model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold, log_file='logs/diagnostics.log')
+    # Create model instance with detailed logging
+    model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold, log_file=log_file)
     
     # Generate sample points
+    logger.info(f"\n{green(bold('Generating ' + str(n_samples) + ' sample points in range [-' + str(data_range) + ', ' + str(data_range) + ']'))}")
     x_data = np.random.uniform(-data_range, data_range, n_samples)
     
     # Compute Gram matrix
+    logger.info(f"{green(bold('Computing Gram matrix'))}")
     model.compute_gram_matrix(x_data)
     
     # Step 1: Calculate theoretical success probability
+    logger.info(header("1. THEORETICAL SUCCESS PROBABILITY ANALYSIS"))
     theoretical_prob = model.calculate_success_probability()
     
     # Step 2: Calculate empirical success probability
+    logger.info(header("2. EMPIRICAL SUCCESS PROBABILITY SIMULATION"))
     empirical_prob = model.simulate_stlsq(x_data, n_trials)
     
-    print(f"\nSuccess Probability Summary:")
-    print(f"  Theoretical: {theoretical_prob:.4f}")
-    print(f"  Empirical: {empirical_prob:.4f}")
-    print(f"  Difference: {abs(theoretical_prob - empirical_prob):.4f}")
+    logger.info(f"\n{bold_green('Success Probability Summary:')}")
+    logger.info(f"  {yellow('Theoretical:')} {theoretical_prob:.4f}")
+    logger.info(f"  {yellow('Empirical:')} {empirical_prob:.4f}")
+    difference = abs(theoretical_prob - empirical_prob)
+    if difference > 0.1:
+        logger.info(f"  {red('Difference:')} {difference:.4f} {red('(Significant)')}")
+    else:
+        logger.info(f"  {yellow('Difference:')} {difference:.4f}")
     
     # Step 3: Run transition probability comparison
-    print("\nRunning transition probability comparison...")
-    comparison_data = model.compare_theory_to_simulation_transitions(x_data, n_trials)
+    logger.info(header("3. TRANSITION PROBABILITY ANALYSIS"))
+    comparison_data = diagnostics.compare_theory_to_simulation_transitions(model, x_data, n_trials)
     
     # Step 4: Analyze coefficient distributions
-    print("\nAnalyzing coefficient distributions...")
-    distribution_data = model.analyze_coefficient_distributions(x_data, min(50, n_trials))
+    logger.info(header("4. COEFFICIENT DISTRIBUTION ANALYSIS"))
+    distribution_data = diagnostics.analyze_coefficient_distributions(model, x_data, min(50, n_trials))
     
     # Step 5: Test independence assumption
-    print("\nTesting independence assumption...")
-    independence_metrics = model.test_independence_assumption(x_data, min(50, n_trials))
+    logger.info(header("5. INDEPENDENCE ASSUMPTION TESTING"))
+    independence_metrics = diagnostics.test_independence_assumption(model, x_data, min(50, n_trials))
     
-    # Step 6: Debug specific transitions with high discrepancy
-    print("\nDebugging most problematic transitions...")
-    # Identify the true state and initial state
-    true_indices = set(model.true_term_indices.tolist())
-    all_indices = set(range(model.n_terms))
+    # Step 6: Verify coefficient distributions
+    logger.info(header("6. COEFFICIENT DISTRIBUTION VERIFICATION"))
+    verification_results = diagnostics.verify_coefficient_distributions(model, x_data, min(50, n_trials))
     
-    # Debug direct transition from initial to true state
-    debug_results = model.debug_calculate_transition_probability(all_indices, true_indices, samples=100000)
-    empirical_results = model.debug_calculate_transition_probability_with_data(all_indices, true_indices, x_data, n_trials=min(100, n_trials))
-    
-    # Step 7: Verify distribution recalculation
-    print("\nVerifying distribution recalculation...")
-    verification = model.verify_distribution_recalculation(all_indices, x_data)
+    # Compile all diagnostic results
+    all_diagnostics = {
+        'model_settings': {
+            'data_range': data_range,
+            'n_samples': n_samples,
+            'n_trials': n_trials,
+            'sigma': sigma,
+            'threshold': threshold,
+            'lambda_sigma_ratio': threshold/sigma
+        },
+        'gram_matrix': {
+            'log_determinant': model.log_gram_det
+        },
+        'success_probability': {
+            'theoretical': theoretical_prob,
+            'empirical': empirical_prob,
+            'difference': difference
+        },
+        'transitions': comparison_data,
+        'distributions': distribution_data,
+        'independence': independence_metrics,
+        'verification': verification_results
+    }
     
     # Print summary of findings
-    print("\n" + "="*80)
-    print("DIAGNOSTIC SUMMARY")
-    print("="*80)
-    print(f"Data Range: {data_range}, Samples: {n_samples}, Trials: {n_trials}")
-    print(f"Sigma: {sigma}, Threshold: {threshold}")
-    print(f"Log Determinant of Gram Matrix: {model.log_gram_det:.4f}")
-    print(f"Success Probability: Theoretical={theoretical_prob:.4f}, Empirical={empirical_prob:.4f}")
+    logger.info(header("DIAGNOSTIC SUMMARY"))
+    logger.info(f"{bold_green('Model Parameters:')}")
+    logger.info(f"  Data Range: {data_range}, Samples: {n_samples}, Trials: {n_trials}")
+    logger.info(f"  Sigma: {sigma}, Threshold: {threshold}, λ/σ Ratio: {threshold/sigma:.4f}")
+    logger.info(f"  Log Determinant of Gram Matrix: {model.log_gram_det:.4f}")
+    
+    logger.info(f"\n{bold_green('Success Probability:')}")
+    logger.info(f"  Theoretical: {theoretical_prob:.4f}, Empirical: {empirical_prob:.4f}")
+    if difference > 0.1:
+        logger.info(f"  {bold_red('Large discrepancy: ' + f'{difference:.4f}')}")
+    else:
+        logger.info(f"  Difference: {difference:.4f}")
     
     # Look for significant issues
-    print("\nSignificant Issues Identified:")
+    logger.info(f"\n{bold_green('Significant Issues Identified:')}")
+    
+    issues_found = False
     
     # Check success probability discrepancy
-    if abs(theoretical_prob - empirical_prob) > 0.1:
-        print(f"- Large discrepancy in success probability ({abs(theoretical_prob - empirical_prob):.4f})")
+    if difference > 0.1:
+        issues_found = True
+        logger.info(f"  {bold_red('- Large discrepancy in success probability (' + f'{difference:.4f}' + ')')}")
     
     # Check for significant transition probability differences
     significant_diffs = [(k, v) for k, v in comparison_data.items() if v['significant']]
     if significant_diffs:
-        print(f"- {len(significant_diffs)} transitions with significant probability differences")
-        print("  Top 3 most significant:")
+        issues_found = True
+        logger.info(f"  {bold_red('- ' + str(len(significant_diffs)) + ' transitions with significant probability differences')}")
+        logger.info("    Top 3 most significant:")
         significant_diffs.sort(key=lambda x: abs(x[1]['difference']), reverse=True)
-        for i, ((from_str, to_str), data) in enumerate(significant_diffs[:3]):
-            print(f"    {from_str} -> {to_str}: Diff={data['difference']:+.4f}")
+        for i, (key, data) in enumerate(significant_diffs[:3]):
+            logger.info(f"      {data['from_state']} → {data['to_state']}: Diff={data['difference']:+.4f}")
     
     # Check for independence assumption violations
     independence_issues = False
@@ -175,16 +240,64 @@ def run_diagnostics(data_range=1.0, n_samples=300, n_trials=100, sigma=0.1, thre
             break
     
     if independence_issues:
-        print("- Violations of independence assumption in coefficient thresholding")
+        issues_found = True
+        logger.info(f"  {bold_red('- Violations of independence assumption in coefficient thresholding')}")
+    
+    # Distribution verification issues
+    try:
+        mean_diff = np.max(np.abs(verification_results['theoretical']['mean'] - verification_results['empirical']['mean']))
+        if mean_diff > 0.1:
+            issues_found = True
+            logger.info(f"  {bold_red('- Large difference in coefficient means (max diff: ' + f'{mean_diff:.6f}' + ')')}")
+    except Exception as e:
+        logger.warning(f"Could not compute mean difference: {e}")
+    
+    if not issues_found:
+        logger.info(f"  {bold_green('No significant issues detected.')}")
     
     # Print possible solutions
-    print("\nPossible Solutions to Consider:")
-    if abs(theoretical_prob - empirical_prob) > 0.1:
-        print("1. Revise transition probability calculation to account for dependencies")
-        print("2. Consider conditional probabilities instead of independence assumption")
-        print("3. Develop an empirical correction factor for specific transitions")
+    if issues_found:
+        logger.info(f"\n{bold_green('Possible Solutions to Consider:')}")
+        if difference > 0.1 or independence_issues:
+            logger.info("  1. Revise transition probability calculation to account for dependencies")
+            logger.info("  2. Consider conditional probabilities instead of independence assumption")
+            logger.info("  3. Develop an empirical correction factor for specific transitions")
+        if mean_diff > 0.1:
+            logger.info("  4. Improve coefficient distribution modeling")
+            logger.info("  5. Consider using regularization to stabilize coefficient estimates")
     
-    print("\nSee detailed logs in logs/diagnostics.log for more information.")
+    logger.info(f"\n{yellow('See detailed logs in ' + log_file + ' for more information.')}")
+    
+    # Save diagnostic results
+    results_file = 'results/diagnostics_results.json'
+    try:
+        # Convert NumPy arrays to lists for JSON serialization
+        def prepare_for_json(obj):
+            if isinstance(obj, dict):
+                return {k: prepare_for_json(v) for k, v in obj.items()}
+            elif isinstance(obj, list) or isinstance(obj, tuple):
+                return [prepare_for_json(item) for item in obj]
+            elif isinstance(obj, np.ndarray):
+                return obj.tolist()
+            elif isinstance(obj, np.int64) or isinstance(obj, np.int32):
+                return int(obj)
+            elif isinstance(obj, np.float64) or isinstance(obj, np.float32):
+                return float(obj)
+            else:
+                return obj
+        
+        # Filter and prepare data for JSON
+        json_data = prepare_for_json(all_diagnostics)
+        
+        # Save to file
+        with open(results_file, 'w') as f:
+            json.dump(json_data, f, indent=2)
+        
+        logger.info(f"{green('Diagnostic results saved to ' + results_file)}")
+    except Exception as e:
+        logger.error(f"{red('Error saving diagnostic results: ' + str(e))}")
+    
+    return all_diagnostics
 
 if __name__ == "__main__":
     # Parse command line arguments if provided
