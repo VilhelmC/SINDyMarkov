@@ -55,6 +55,8 @@ class SINDyMarkovModel:
         # Cache for transition probabilities
         self._transition_cache = {}
     
+    # Removed _setup_logging as it's now handled by the centralized system
+    
     def set_library(self, library_functions, true_coefs):
         """Set the library functions and true coefficients."""
         self.logger.info("Setting new library functions and coefficients")
@@ -107,7 +109,6 @@ class SINDyMarkovModel:
     def get_coef_distribution(self, active_indices):
         """
         Get the mean and covariance of coefficient distribution for active terms.
-        Uses the same regularization as the actual STLSQ implementation for consistency.
         
         Parameters:
         -----------
@@ -132,32 +133,13 @@ class SINDyMarkovModel:
         # Get true coefficients for these terms
         sub_true_coefs = self.true_coefs[active_indices]
         
-        # Use the same regularization approach as in the STLSQ implementation
+        # Compute inverse of sub_gram (handle potential numerical issues)
         try:
-            # Check condition number to decide on regularization
-            cond_num = np.linalg.cond(sub_gram)
-            
-            if cond_num > 1e10:  # Highly ill-conditioned
-                # Add stronger regularization
-                ridge_lambda = 1e-4
-                regularized_gram = sub_gram + ridge_lambda * np.eye(sub_gram.shape[0])
-                sub_gram_inv = np.linalg.inv(regularized_gram)
-                self.logger.debug(f"Using strong regularization (lambda={ridge_lambda}) due to high condition number: {cond_num:.2e}")
-            elif cond_num > 1e6:  # Moderately ill-conditioned
-                # Add mild regularization
-                ridge_lambda = 1e-6
-                regularized_gram = sub_gram + ridge_lambda * np.eye(sub_gram.shape[0])
-                sub_gram_inv = np.linalg.inv(regularized_gram)
-                self.logger.debug(f"Using mild regularization (lambda={ridge_lambda}) due to condition number: {cond_num:.2e}")
-            else:
-                # No regularization needed
-                sub_gram_inv = np.linalg.inv(sub_gram)
+            sub_gram_inv = np.linalg.inv(sub_gram)
         except np.linalg.LinAlgError:
-            # If inversion fails, use pseudoinverse with regularization
-            self.logger.warning("Singular sub-Gram matrix detected, using pseudoinverse with regularization")
-            ridge_lambda = 1e-4
-            regularized_gram = sub_gram + ridge_lambda * np.eye(sub_gram.shape[0])
-            sub_gram_inv = np.linalg.inv(regularized_gram)
+            self.logger.warning("Singular sub-Gram matrix detected, using pseudoinverse")
+            # Use pseudoinverse if matrix is singular
+            sub_gram_inv = np.linalg.pinv(sub_gram)
         
         # Coefficient distribution parameters
         mean = sub_true_coefs
@@ -403,7 +385,7 @@ class SINDyMarkovModel:
         
         self.logger.info(f"Generated {len(valid_states)} valid states:")
         for i, state in enumerate(valid_states):
-            self.logger.info(f"  State {i+1}: {state}")
+            self.logger.debug(f"  State {i+1}: {state}")
         
         # Calculate all possible transitions between states
         transition_probs = {}
@@ -430,10 +412,6 @@ class SINDyMarkovModel:
             
             # Calculate stopping probability (probability that this is the final state)
             stopping_prob = 1.0 - total_outgoing
-            
-            # Fix: Ensure stopping probability is non-negative
-            stopping_prob = max(0.0, stopping_prob)
-            
             from_state_log += f"\n    -> [STOP]: {stopping_prob:.6f}"
             
             # Highlight if this is the true model state
@@ -442,7 +420,7 @@ class SINDyMarkovModel:
                 self.logger.info(from_state_log)
                 self.logger.info(f"{bold_yellow(f'TRUE MODEL STATE STOPPING PROBABILITY: {stopping_prob:.6f}')}\n")
             else:
-                self.logger.info(from_state_log)
+                self.logger.debug(from_state_log)
         
         # Calculate reachability probabilities using dynamic programming on the DAG
         # For each state, calculate the probability of reaching that state from the initial state
@@ -474,9 +452,6 @@ class SINDyMarkovModel:
             # Calculate stopping probability for this state
             outgoing_prob = sum(prob for (from_s, _), prob in transition_probs.items() if from_s == state_frozen)
             stopping_prob = 1.0 - outgoing_prob
-            
-            # Fix: Ensure stopping probability is non-negative
-            stopping_prob = max(0.0, stopping_prob)
             
             # If this state has a non-zero probability of being reached and stopped at
             if reach_prob > 0 and stopping_prob > 0:
@@ -511,10 +486,6 @@ class SINDyMarkovModel:
         true_state_outgoing_prob = sum(prob for (from_s, _), prob in transition_probs.items() 
                                    if from_s == true_state_frozen)
         true_state_stopping_prob = 1.0 - true_state_outgoing_prob
-        
-        # Fix: Ensure stopping probability is non-negative
-        true_state_stopping_prob = max(0.0, true_state_stopping_prob)
-        
         direct_success_prob = true_state_reach_prob * true_state_stopping_prob
         
         self.logger.info(section("SUCCESS PROBABILITY CALCULATION"))
@@ -766,13 +737,14 @@ class SINDyMarkovModel:
                     theoretical_trans[key] = prob
         
         # Prepare to run trials
-        def true_dynamics(x):
+        if true_dynamics is None:
             # Generate true dynamics using true_coefs
-            y = np.zeros_like(x)
-            for i, coef in enumerate(self.true_coefs):
-                if abs(coef) > 1e-10:
-                    y += coef * self.library_functions[i](x)
-            return y
+            def true_dynamics(x):
+                y = np.zeros_like(x)
+                for i, coef in enumerate(self.true_coefs):
+                    if abs(coef) > 1e-10:
+                        y += coef * self.library_functions[i](x)
+                return y
         
         # Build library matrix
         theta = np.zeros((len(x_data), self.n_terms))

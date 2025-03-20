@@ -1,7 +1,8 @@
 """
 Configuration loader for SINDy Markov Chain Model experiments.
 
-This module handles loading, validation, and merging of configuration files.
+This module handles loading, validation, and merging of configuration files
+and creates timestamp-based directories for results organization.
 """
 
 import os
@@ -9,6 +10,7 @@ import yaml
 import numpy as np
 from pathlib import Path
 import logging
+import datetime
 
 # Function registry to map string names to actual functions
 FUNCTION_REGISTRY = {
@@ -153,6 +155,39 @@ def prepare_library_functions(config):
     
     return functions
 
+def create_timestamp_directory(base_path, identifier=None):
+    """
+    Create a timestamped directory for experiment results.
+    
+    Parameters:
+    -----------
+    base_path : str
+        Base path for the directory
+    identifier : str, optional
+        Optional identifier to add to the directory name
+        
+    Returns:
+    --------
+    dir_path : str
+        Path to the created directory
+    """
+    # Create timestamp
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    # Create directory name
+    if identifier:
+        dir_name = f"{identifier}_{timestamp}"
+    else:
+        dir_name = timestamp
+    
+    # Create full path
+    dir_path = os.path.join(base_path, dir_name)
+    
+    # Create directory
+    os.makedirs(dir_path, exist_ok=True)
+    
+    return dir_path
+
 def load_config(custom_config_path=None):
     """
     Load and validate configuration.
@@ -182,7 +217,7 @@ def load_config(custom_config_path=None):
 
 def setup_experiment_from_config(config):
     """
-    Set up an experiment based on configuration.
+    Set up an experiment based on configuration with timestamp-based directories.
     
     Parameters:
     -----------
@@ -194,9 +229,18 @@ def setup_experiment_from_config(config):
     experiment_params : dict
         Dictionary containing all parameters needed to run the experiment
     """
-    # Create necessary directories
-    os.makedirs(os.path.dirname(config['experiment']['save_path']), exist_ok=True)
-    os.makedirs(os.path.dirname(config['logging']['log_file']), exist_ok=True)
+    # Extract base paths
+    base_results_path = os.path.dirname(config['experiment']['save_path'])
+    base_logs_path = os.path.dirname(config['logging']['log_file'])
+    
+    # Create timestamp directories
+    experiment_id = config['experiment'].get('id', config['experiment']['name'].replace(' ', '_').lower())
+    results_dir = create_timestamp_directory(base_results_path, experiment_id)
+    logs_dir = create_timestamp_directory(base_logs_path, experiment_id)
+    
+    # Update paths in config
+    save_path = os.path.join(results_dir, os.path.basename(config['experiment']['save_path']))
+    log_file = os.path.join(logs_dir, os.path.basename(config['logging']['log_file']))
     
     # Setup logging
     log_level_map = {
@@ -219,8 +263,11 @@ def setup_experiment_from_config(config):
     # Prepare experiment parameters
     experiment_params = {
         'name': config['experiment']['name'],
+        'id': experiment_id,
         'description': config['experiment'].get('description', ''),
-        'save_path': config['experiment']['save_path'],
+        'save_path': save_path,
+        'results_dir': results_dir,
+        'logs_dir': logs_dir,
         'library_functions': library_functions,
         'true_coefficients': true_coefficients,
         'sigma': config['model'].get('sigma', 0.1),
@@ -241,10 +288,13 @@ def setup_experiment_from_config(config):
         'x_range': np.array(config['simulation'].get('x_range', [0.5, 1.0, 1.5])),
         'n_samples_range': np.array(config['simulation'].get('n_samples_range', [100, 200, 300])),
         'analyze_coefficients': config['simulation'].get('analyze_coefficients', True),
-        'log_file': config['logging']['log_file'],
+        'log_file': log_file,
         'console_level': console_level,
         'file_level': file_level,
-        'diagnose_transitions': config['logging'].get('diagnose_transitions', False)
+        'diagnose_transitions': config['logging'].get('diagnose_transitions', False),
+        
+        # Save original config
+        'config': config
     }
     
     return experiment_params
