@@ -535,16 +535,8 @@ def simulate_stlsq_adaptive(model, x_data, max_trials=500, confidence=0.95, marg
             current_success_rate * (1 - current_success_rate) / total_trials + factor / 4
         ) / (1 + 2 * factor)
         
-        # Log progress for batch milestones or the first batch to show a sample
-        if total_trials == batch_size:
-            logger.info(f"After {total_trials} trials: Success rate = {current_success_rate:.4f}, Margin of error = ±{wilson_error_margin:.4f} (target: {margin:.4f})")
-            # Display sample trial from the first batch
-            for i, trial in enumerate(batch_trials):
-                if i == 0:  # Just show the first trial
-                    status = "SUCCESS" if trial['success'] else "FAILURE"
-                    logger.debug(f"  Sample trial: {status}, Identified terms: {trial['identified_terms']}")
-                    break
-        elif total_trials % (5 * batch_size) == 0 or total_trials == max_trials:
+        # Log progress for important milestones
+        if total_trials == 20 or total_trials % 100 == 0 or total_trials == max_trials:
             logger.info(f"After {total_trials} trials: Success rate = {current_success_rate:.4f}, Margin of error = ±{wilson_error_margin:.4f} (target: {margin:.4f})")
         
         # Check if we've reached the desired margin of error and minimum trials
@@ -623,7 +615,7 @@ def simulate_stlsq_adaptive(model, x_data, max_trials=500, confidence=0.95, marg
         return success_rate, total_trials, details
     else:
         return success_rate, total_trials
-    
+
 def run_stlsq_with_coefficient_analysis(model, x_data, n_trials=50):
     """
     Run STLSQ simulations and analyze coefficient distributions at different states.

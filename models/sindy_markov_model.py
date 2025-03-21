@@ -464,7 +464,7 @@ class SINDyMarkovModel:
                     prob = self.calculate_transition_probability(from_state, to_state)
                     total_outgoing += prob
                     
-                    if prob > 0:
+                    if prob > 0.0001:  # Only show significant transitions
                         key = (from_frozen, frozenset(to_state))
                         transition_probs[key] = prob
                         state_transitions[from_frozen].append((frozenset(to_state), prob))

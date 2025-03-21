@@ -154,31 +154,33 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100,
                 'discrepancy': abs(theoretical_prob - empirical_prob)
             })
             
-            # Log summary of this configuration
-            logger.info(section("CONFIGURATION SUMMARY"))
-            logger.info(f"{bold('Data Range:')} {data_range}, {bold('Samples:')} {n_samples}")
-            logger.info(f"{bold('Log Determinant of Gram Matrix:')} {model.log_gram_det:.4f}")
-            
+            # Configuration summary section in compare_theory_to_simulation function
+            logger.info("\n--------------------------------------------------------------------------------")
+            logger.info("CONFIGURATION SUMMARY")
+            logger.info("--------------------------------------------------------------------------------")
+            logger.info(f"Data Range: {data_range}, Samples: {n_samples}")
+            logger.info(f"Log Determinant of Gram Matrix: {model.log_gram_det:.4f}")
+
             # Log discriminability information
             if discriminabilities:
-                logger.info(f"{bold('Discriminability Details:')}")
+                logger.info("Discriminability Details:")
                 for true_idx, false_idx, disc in discriminabilities:
                     logger.info(f"  Term {true_idx}(true) vs Term {false_idx}(false): {disc:.4f}")
-                logger.info(f"{bold('Average Discriminability:')} {avg_discriminability:.4f}")
+                logger.info(f"Average Discriminability: {avg_discriminability:.4f}")
             else:
-                logger.info(f"{bold('Discriminability:')} {avg_discriminability:.4f}")
-            
+                logger.info(f"Discriminability: {avg_discriminability:.4f}")
+
             # Log success probabilities with highlighting for discrepancies
-            logger.info(f"{bold('Theoretical Success Probability:')} {theoretical_prob:.4f}")
-            logger.info(f"{bold('Empirical Success Probability:')} {empirical_prob:.4f} (from {trials_used} trials)")
-            
+            logger.info(f"Theoretical Success Probability: {theoretical_prob:.4f}")
+            logger.info(f"Empirical Success Probability: {empirical_prob:.4f} (from {trials_used} trials)")
+
             discrepancy = abs(theoretical_prob - empirical_prob)
             if discrepancy > 0.1:
-                logger.info(bold_red(f"Large Discrepancy: {discrepancy:.4f}"))
+                logger.info(f"Large Discrepancy: {discrepancy:.4f}")
             else:
-                logger.info(f"{bold('Difference:')} {discrepancy:.4f}")
-            
-            logger.info("-"*80 + "\n\n")
+                logger.info(f"Difference: {discrepancy:.4f}")
+
+            logger.info("--------------------------------------------------------------------------------")
     
     logger.info(header("THEORY VS SIMULATION COMPARISON COMPLETE"))
     
