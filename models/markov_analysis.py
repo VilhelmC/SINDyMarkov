@@ -9,6 +9,8 @@ from models.logging_config import get_logger, header, section
 from models.logging_config import bold, green, yellow, red, cyan
 from models.logging_config import bold_green, bold_yellow, bold_red
 
+from models.simulation_utils import simulate_stlsq, simulate_stlsq_adaptive
+
 # Update the compare_theory_to_simulation function in markov_analysis.py:
 
 def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100, 
@@ -84,19 +86,34 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100,
             # Calculate theoretical success probability
             theoretical_prob = model.calculate_success_probability()
             
+            # Import needed functions from simulation_utils
+            from models.simulation_utils import (
+                simulate_stlsq, 
+                simulate_stlsq_adaptive,
+                analyze_transition_probabilities,
+                run_stlsq_with_coefficient_analysis
+            )
+            
+            # Add the detailed coefficient and transition analysis here
+            if progress_counter == 1 or progress_counter == total_combinations:
+                # Only do detailed analysis for first and last configuration to save time
+                transition_analysis = analyze_transition_probabilities(model, x_data, n_trials=30)
+                coefficient_analysis = run_stlsq_with_coefficient_analysis(model, x_data, n_trials=30)
+            
             # Simulate STLSQ
             if adaptive_trials:
-                empirical_prob, trials_used = model.simulate_stlsq_adaptive(
+                empirical_prob, trials_used = simulate_stlsq_adaptive(
+                    model, 
                     x_data, 
                     max_trials=max_trials,
-                    min_trials=min_trials,
                     confidence=confidence,
                     margin=margin,
+                    min_trials=min_trials,
                     batch_size=batch_size
                 )
-                logger.info(f"{bold('Trials used:')} {trials_used} {bold('(adaptive)')}")
+                logger.info(f"Adaptive simulation used {trials_used} trials")
             else:
-                empirical_prob = model.simulate_stlsq(x_data, n_trials)
+                empirical_prob = simulate_stlsq(model, x_data, n_trials)
                 trials_used = n_trials
             
             # Calculate discriminability
@@ -138,7 +155,7 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100,
             })
             
             # Log summary of this configuration
-            logger.info(section("CONFIGURATION SUMMARY", color_func=bold_green))
+            logger.info(section("CONFIGURATION SUMMARY"))
             logger.info(f"{bold('Data Range:')} {data_range}, {bold('Samples:')} {n_samples}")
             logger.info(f"{bold('Log Determinant of Gram Matrix:')} {model.log_gram_det:.4f}")
             
@@ -157,7 +174,7 @@ def compare_theory_to_simulation(model, x_range, n_samples_range, n_trials=100,
             
             discrepancy = abs(theoretical_prob - empirical_prob)
             if discrepancy > 0.1:
-                logger.info(f"{bold_red('Large Discrepancy:')} {discrepancy:.4f}")
+                logger.info(bold_red(f"Large Discrepancy: {discrepancy:.4f}"))
             else:
                 logger.info(f"{bold('Difference:')} {discrepancy:.4f}")
             

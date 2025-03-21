@@ -1,0 +1,44 @@
+2025-03-20 22:40:29,147 - SINDyMarkovModel - INFO - Initializing SINDy Markov Model
+2025-03-20 22:40:29,149 - SINDyMarkovModel - INFO - True term indices: [0]
+2025-03-20 22:40:29,163 - SINDyMarkovModel - INFO - Computing Gram matrix with 200 sample points
+2025-03-20 22:40:29,166 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -5.0778
+2025-03-20 22:40:29,167 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:40:29,168 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:40:29,169 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:40:29,170 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:40:29,170 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:40:29,171 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:40:29,172 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:40:29,174 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:40:29,174 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:40:29,176 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:40:29,176 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:40:29,177 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:40:29,177 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:40:29,179 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:40:29,179 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:40:29,181 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:40:29,181 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:40:29,183 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:40:29,183 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:40:29,184 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:40:29,184 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:40:29,185 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:40:29,199 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:40:29,205 - SINDyMarkovModel - INFO - After 30 trials: Success rate = 0.0000, Margin of error = ±0.2198 (target: 0.0300)
+2025-03-20 22:40:29,212 - SINDyMarkovModel - INFO - After 50 trials: Success rate = 0.0200, Margin of error = ±0.1820 (target: 0.0300)
+2025-03-20 22:40:29,222 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0100, Margin of error = ±0.1321 (target: 0.0300)
+2025-03-20 22:40:29,229 - SINDyMarkovModel - INFO - After 150 trials: Success rate = 0.0067, Margin of error = ±0.1089 (target: 0.0300)
+2025-03-20 22:40:29,240 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0050, Margin of error = ±0.0947 (target: 0.0300)
+2025-03-20 22:40:29,247 - SINDyMarkovModel - INFO - After 250 trials: Success rate = 0.0080, Margin of error = ±0.0853 (target: 0.0300)
+2025-03-20 22:40:29,254 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0067, Margin of error = ±0.0780 (target: 0.0300)
+2025-03-20 22:40:29,265 - SINDyMarkovModel - INFO - After 350 trials: Success rate = 0.0057, Margin of error = ±0.0722 (target: 0.0300)
+2025-03-20 22:40:29,277 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0050, Margin of error = ±0.0676 (target: 0.0300)
+2025-03-20 22:40:29,288 - SINDyMarkovModel - INFO - After 450 trials: Success rate = 0.0044, Margin of error = ±0.0638 (target: 0.0300)
+2025-03-20 22:40:29,300 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0040, Margin of error = ±0.0605 (target: 0.0300)
+2025-03-20 22:40:29,301 - SINDyMarkovModel - INFO - STLSQ simulation results: 2/500 successful, 0.0040 success rate, margin of error: ±0.0605

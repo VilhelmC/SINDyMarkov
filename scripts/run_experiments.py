@@ -27,6 +27,9 @@ from models.logging_config import bold_green, bold_yellow, bold_red
 # Import configuration loader
 from models.config_loader import load_config, setup_experiment_from_config
 
+from models.logger_utils import suppress_common_warnings
+suppress_common_warnings()
+
 class NumpyEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.integer):

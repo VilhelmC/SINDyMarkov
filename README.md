@@ -1,15 +1,16 @@
-# SINDy Markov Chain Model
+# Improved SINDy Markov Chain Model
 
-This project implements an analytical Markov chain model for predicting success probabilities in the Sparse Identification of Nonlinear Dynamics (SINDy) algorithm with Sequential Thresholded Least Squares (STLSQ).
+This project implements an enhanced analytical Markov chain model for predicting success probabilities in the Sparse Identification of Nonlinear Dynamics (SINDy) algorithm with Sequential Thresholded Least Squares (STLSQ).
 
 ## Overview
 
-The SINDy Markov Chain Model represents the STLSQ algorithm as a Markov process and calculates the probability of correctly identifying the true model under noise. The key features include:
+The SINDy Markov Chain Model represents the STLSQ algorithm as a Markov process and calculates the probability of correctly identifying the true model under noise. The key improvements in this implementation include:
 
-- Analytical calculation of transition probabilities between states
-- Computation of overall success probability using dynamic programming
-- Integration of the Gram matrix to account for term correlations
-- Comparison with empirical simulations for validation
+- Enhanced numerical stability for coefficient distribution calculations
+- Improved transition probability estimation with better Monte Carlo sampling
+- Comprehensive analysis of factors affecting success probability
+- Adaptive trial count determination for efficient empirical validation
+- Detailed logging and visualization capabilities
 
 ## Project Structure
 
@@ -18,27 +19,32 @@ The project is organized into several modules:
 ```
 sindy_markov_model/
 ├── models/
-│   ├── sindy_markov_model.py      # Core model functionality
-│   ├── markov_analysis.py         # Analysis and visualization functions
-│   ├── markov_simulation.py       # Simulation and testing functions
-│   ├── markov_diagnostics.py      # Debugging and diagnostic tools
-│   └── state_utils.py             # State handling utilities
+│   ├── sindy_markov_model.py    # Core model implementation
+│   ├── state_utils.py           # State handling utilities
+│   ├── simulation_utils.py      # Simulation utilities
+│   ├── library_utils.py         # Library function analysis
+│   ├── logger_utils.py          # Logging utilities
+│   └── sindy_markov_analysis.py # Comprehensive analysis module
 ├── scripts/
-│   ├── run_experiments.py         # Main script to run experiments
-│   ├── run_diagnostics.py         # Run detailed diagnostics
-│   └── analyze_results.py         # Analyze experiment results
-├── logs/                          # Log files from experiments
-├── results/                       # Experimental results and figures
-└── docs/
-    └── theoretical_derivation.md  # Theoretical foundation
+│   └── test_script.py           # Test script for the model
+├── notebooks/
+│   └── sindy_markov_analysis.ipynb # Interactive analysis notebook
+├── logs/                        # Log files
+├── results/                     # Analysis results
+├── figures/                     # Generated figures
+└── README.md                    # This file
 ```
 
 ## Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/sindy-markov-model.git
-cd sindy-markov-model
+git clone https://github.com/username/improved-sindy-markov-model.git
+cd improved-sindy-markov-model
+
+# Create and activate a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -46,45 +52,35 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Running Experiments
+### Running the Test Script
 
-To run the standard set of experiments:
-
-```bash
-python scripts/run_experiments.py
-```
-
-This will execute three experiments:
-1. Simple three-term example with one true term
-2. Lambda/sigma ratio experiment to analyze the effect of threshold values
-3. Multiple true terms experiment
-
-Results are saved to the `results/` directory.
-
-### Diagnostics
-
-For in-depth model diagnostics:
+To run the test script with all tests:
 
 ```bash
-python scripts/run_diagnostics.py
+python scripts/test_script.py
 ```
 
-### Analyzing Results
-
-To analyze previously generated results:
+To run a specific test:
 
 ```bash
-python scripts/analyze_results.py
+python scripts/test_script.py --test simple
+python scripts/test_script.py --test advanced
+python scripts/test_script.py --test adaptive
 ```
 
-## Core Components
+### Using the Jupyter Notebook
 
-### SINDy Markov Model
+Launch Jupyter and open the notebook:
 
-The core model implements the Markov chain framework for STLSQ success probability prediction:
+```bash
+jupyter notebook notebooks/sindy_markov_analysis.ipynb
+```
+
+### Using the Core Model
 
 ```python
 from models.sindy_markov_model import SINDyMarkovModel
+import numpy as np
 
 # Define library functions
 def f1(x): return x           # Term 1: x
@@ -92,62 +88,157 @@ def f2(x): return np.sin(x)   # Term 2: sin(x)
 def f3(x): return np.tanh(x)  # Term 3: tanh(x)
 
 library_functions = [f1, f2, f3]
-true_coefs = np.array([1.0, 0.0, 0.0])  # Only first term is true
 
-# Create model
-model = SINDyMarkovModel(library_functions, true_coefs, 
-                         sigma=0.1, threshold=0.05)
+# Define true model: only the first term is present
+true_coefs = np.array([1.0, 0.0, 0.0])
+
+# Create model instance
+sigma = 0.1  # Noise level
+threshold = 0.05  # STLSQ threshold
+model = SINDyMarkovModel(library_functions, true_coefs, sigma, threshold)
 
 # Generate sample points
-x_data = np.random.uniform(-1.0, 1.0, 100)
+x_data = np.random.uniform(-1.0, 1.0, 200)
 
 # Compute Gram matrix
 model.compute_gram_matrix(x_data)
 
 # Calculate success probability
-success_prob = model.calculate_success_probability()
-print(f"Theoretical success probability: {success_prob:.4f}")
+theoretical_prob = model.calculate_success_probability()
+print(f"Theoretical success probability: {theoretical_prob:.4f}")
 
-# Run empirical simulation
-empirical_prob = model.simulate_stlsq(x_data, n_trials=100)
+# Run simulation to validate
+from models.simulation_utils import simulate_stlsq
+empirical_prob = simulate_stlsq(model, x_data, n_trials=100)
 print(f"Empirical success probability: {empirical_prob:.4f}")
 ```
 
-### Analysis and Simulation
-
-The analysis and simulation modules provide functions for evaluating the model:
+### Using the Analysis Module
 
 ```python
-from models.markov_analysis import compare_theory_to_simulation
-from models.markov_analysis import plot_comparison, evaluate_model
+from models.sindy_markov_analysis import SINDyMarkovAnalysis
+import numpy as np
 
-# Compare theory to simulation
-results = compare_theory_to_simulation(model, x_range, n_samples_range)
+# Define library functions and true coefficients
+def f1(x): return x
+def f2(x): return x**2
+def f3(x): return np.sin(x)
+def f4(x): return np.cos(x)
 
-# Visualize results
-fig = plot_comparison(results, x_axis='log_gram_det')
-fig.savefig('comparison.png')
+library_functions = [f1, f2, f3, f4]
+true_coefs = np.array([1.0, 0.5, 0.0, 0.0])  # First and second terms are active
 
-# Evaluate model performance
-metrics = evaluate_model(results)
+# Create analysis object
+sigma = 0.1
+threshold = 0.05
+analysis = SINDyMarkovAnalysis(library_functions, true_coefs, sigma, threshold)
+
+# Prepare data
+x_data = analysis.prepare_data(x_range=1.0, n_samples=200)
+
+# Analyze success probability
+success_analysis = analysis.analyze_success_probability(x_data, n_trials=50)
+
+# Analyze effects of different parameters
+range_analysis = analysis.analyze_data_range_effect()
+sample_analysis = analysis.analyze_sample_size_effect()
+lambda_analysis = analysis.analyze_lambda_sigma_effect()
+
+# Save results
+analysis.save_results()
 ```
+
+## Key Components
+
+### 1. SINDy Markov Model (`sindy_markov_model.py`)
+
+The core model calculates theoretical success probabilities by:
+- Computing the Gram matrix from evaluated library functions
+- Calculating coefficient distributions for each state
+- Computing transition probabilities between states
+- Using dynamic programming to find the overall success probability
+
+Improvements:
+- Enhanced numerical stability for coefficient distribution
+- Better handling of ill-conditioned matrices
+- More accurate transition probability calculation
+
+### 2. Simulation Utilities (`simulation_utils.py`)
+
+Provides functions for empirical validation through simulation:
+- Standard STLSQ simulation with fixed trial count
+- Adaptive STLSQ simulation with automatic trial count determination
+- Detailed trajectory tracking and analysis
+
+### 3. Library Utilities (`library_utils.py`)
+
+Analyzes properties of the library functions:
+- Computes discriminability between terms
+- Analyzes correlations between library terms
+- Visualizes library properties
+
+### 4. State Utilities (`state_utils.py`) 
+
+Handles operations on states in the Markov process:
+- Normalizes state representations
+- Generates valid states
+- Finds paths between states
+
+### 5. Logger Utilities (`logger_utils.py`)
+
+Provides comprehensive logging functionality:
+- Console and file logging with different levels
+- Color-coded console output
+- Conversion of log files to Markdown for better readability
+
+### 6. Comprehensive Analysis (`sindy_markov_analysis.py`)
+
+Performs in-depth analysis of SINDy success factors:
+- Analyzes success probability with detailed diagnostics
+- Studies effect of data range on success probability
+- Investigates impact of sample size on performance
+- Examines influence of λ/σ ratio on identification success
+
+## Results and Visualizations
+
+The analysis provides various visualizations to understand the factors affecting success probability:
+
+1. **Success Probability vs Data Range**: Shows how the width of the sampling region affects success probability.
+
+2. **Success Probability vs Sample Size**: Illustrates the effect of having more or fewer samples.
+
+3. **Success Probability vs λ/σ Ratio**: Demonstrates the impact of the thresholding parameter relative to noise.
+
+4. **Success Probability vs Log Gram Determinant**: Reveals the relationship between the Gram matrix's condition and success probability.
+
+5. **Library Term Correlations**: Visualizes correlations between library terms that can affect identification success.
+
+6. **Discriminability Matrix**: Shows the discriminability between different library terms, which directly impacts the ability to correctly identify active terms.
+
+## Advanced Features
+
+### Adaptive Trial Count Determination
+
+The adaptive simulation approach automatically determines how many trials are needed to achieve a desired level of confidence in the empirical success probability. It:
+
+1. Runs trials in batches
+2. Calculates the margin of error after each batch
+3. Stops when the desired confidence level and margin of error are reached
+
+This results in more efficient simulations, using fewer trials when success probability is extreme (close to 0 or 1) and more trials when it's close to 0.5.
+
+### Log to Markdown Conversion
+
+The `log_to_markdown` function converts log files to nicely formatted Markdown documents, making it easier to review analysis results.
 
 ## Theoretical Foundation
 
-The theoretical foundation is described in detail in the `docs/theoretical_derivation.md` file. This covers:
+The theoretical foundation of the model is explained in the original document `docs/theoretical_derivation.md`. Key concepts include:
 
-- Formulation of the STLSQ algorithm as a Markov process
-- Calculation of coefficient distributions for each state
-- Calculation of transition probabilities between states
-- Computation of overall success probability
-
-## Results
-
-The model shows strong agreement between theoretical predictions and empirical simulations across various parameter settings. The key findings include:
-
-1. The log determinant of the Gram matrix is a strong predictor of success probability
-2. There exists an optimal lambda/sigma ratio for each problem setting
-3. The model accurately accounts for term correlations in the transition probabilities
+- Representing STLSQ as a Markov process
+- Computing coefficient distributions from the Gram matrix
+- Calculating transition probabilities between states
+- Using discriminability as a key metric for success probability
 
 ## License
 
@@ -159,7 +250,7 @@ If you use this code in your research, please cite:
 
 ```
 @article{sindy_markov_model,
-  title={A Markov Chain Model for SINDy Algorithm Success Probability},
+  title={An Improved Markov Chain Model for SINDy Algorithm Success Probability},
   author={Author, A.},
   journal={Journal of Computational Physics},
   year={2025},

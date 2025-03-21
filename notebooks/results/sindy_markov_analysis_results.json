@@ -1,0 +1,137 @@
+{
+  "success_probability": {
+    "theoretical": 0.0,
+    "empirical": 0.12,
+    "discrepancy": 0.12,
+    "trials_used": 50,
+    "margin_of_error": 0.0900747422977163,
+    "simulation_time": 0.00754547119140625
+  },
+  "data_range_effect": {
+    "dataframe": [
+      {
+        "x_range": 0.1,
+        "log_gram_det": -18.280579825717613,
+        "avg_discriminability": 7586.773126368818,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.0,
+        "discrepancy": 0.0
+      },
+      {
+        "x_range": 0.5,
+        "log_gram_det": 0.41882452688179406,
+        "avg_discriminability": 7294.176834523219,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.02,
+        "discrepancy": 0.02
+      },
+      {
+        "x_range": 1.0,
+        "log_gram_det": 8.98735239755483,
+        "avg_discriminability": 9238.101768485696,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.06,
+        "discrepancy": 0.06
+      },
+      {
+        "x_range": 2.0,
+        "log_gram_det": 16.74412470978153,
+        "avg_discriminability": 31212.859683970975,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.66,
+        "discrepancy": 0.66
+      }
+    ],
+    "figure_path": "figures/data_range_effect.png"
+  },
+  "sample_size_effect": {
+    "dataframe": [
+      {
+        "n_samples": 50,
+        "log_gram_det": 4.264706002178808,
+        "avg_discriminability": 2658.5998714616876,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.06,
+        "discrepancy": 0.06
+      },
+      {
+        "n_samples": 100,
+        "log_gram_det": 7.004377157885985,
+        "avg_discriminability": 5686.766904222513,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.06,
+        "discrepancy": 0.06
+      },
+      {
+        "n_samples": 200,
+        "log_gram_det": 10.145329586885737,
+        "avg_discriminability": 12110.476176899354,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.1,
+        "discrepancy": 0.1
+      },
+      {
+        "n_samples": 300,
+        "log_gram_det": 11.596374463864322,
+        "avg_discriminability": 16392.87736928477,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.08,
+        "discrepancy": 0.08
+      }
+    ],
+    "figure_path": "figures/sample_size_effect.png"
+  },
+  "lambda_sigma_effect": {
+    "dataframe": [
+      {
+        "lambda_sigma_ratio": 0.1,
+        "threshold": 0.010000000000000002,
+        "log_gram_det": 9.910451133331946,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.0,
+        "discrepancy": 0.0
+      },
+      {
+        "lambda_sigma_ratio": 0.2,
+        "threshold": 0.020000000000000004,
+        "log_gram_det": 9.910451133331946,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.1,
+        "discrepancy": 0.1
+      },
+      {
+        "lambda_sigma_ratio": 0.5,
+        "threshold": 0.05,
+        "log_gram_det": 9.910451133331946,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.1,
+        "discrepancy": 0.1
+      },
+      {
+        "lambda_sigma_ratio": 1.0,
+        "threshold": 0.1,
+        "log_gram_det": 9.910451133331946,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.23333333333333334,
+        "discrepancy": 0.23333333333333334
+      },
+      {
+        "lambda_sigma_ratio": 2.0,
+        "threshold": 0.2,
+        "log_gram_det": 9.910451133331946,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.3333333333333333,
+        "discrepancy": 0.3333333333333333
+      },
+      {
+        "lambda_sigma_ratio": 5.0,
+        "threshold": 0.5,
+        "log_gram_det": 9.910451133331946,
+        "theoretical_prob": 0.0,
+        "empirical_prob": 0.16666666666666666,
+        "discrepancy": 0.16666666666666666
+      }
+    ],
+    "figure_path": "figures/lambda_sigma_effect.png"
+  }
+}

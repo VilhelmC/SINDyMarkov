@@ -1,0 +1,71 @@
+2025-03-20 23:02:37,896 - SINDyMarkovModel - INFO - Initializing SINDy Markov Model
+2025-03-20 23:02:37,899 - SINDyMarkovModel - INFO - True term indices: [0]
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO - 
+--------------------------------------------------------------------------------
+RUNNING THEORY VS SIMULATION COMPARISON
+--------------------------------------------------------------------------------
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO - Experiment Parameters:
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO -   Library Functions: ['<lambda>', '<lambda>', '<lambda>']
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO -   True Coefficients: [1. 0. 0.]
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO -   Sigma (noise): 0.1
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO -   Threshold: 0.05
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO -   Lambda/Sigma Ratio: 0.5000
+2025-03-20 23:02:37,899 - SINDyExperiment - INFO -   Using adaptive trials (max: 500, min: 30)
+2025-03-20 23:02:37,902 - SINDyExperiment - INFO -   Confidence: 95%, Margin: 3.0%
+2025-03-20 23:02:37,902 - SINDyExperiment - INFO -   x_range: [0.1 1.  2. ]
+2025-03-20 23:02:37,902 - SINDyExperiment - INFO -   n_samples_range: [100 300 500]
+2025-03-20 23:02:37,902 - SINDyMarkovModel - INFO - 
+================================================================================
+STARTING THEORY VS SIMULATION COMPARISON
+================================================================================
+2025-03-20 23:02:37,903 - SINDyMarkovModel - INFO - Experiment Setup:
+2025-03-20 23:02:37,904 - SINDyMarkovModel - INFO -   Testing 3 data ranges: [0.1 1.  2. ]
+2025-03-20 23:02:37,904 - SINDyMarkovModel - INFO -   Testing 3 sample sizes: [100 300 500]
+2025-03-20 23:02:37,904 - SINDyMarkovModel - INFO -   Using adaptive trial count (max: 500, min: 30)
+2025-03-20 23:02:37,904 - SINDyMarkovModel - INFO -   Confidence level: 95%, Margin: 3.0%
+2025-03-20 23:02:37,904 - SINDyMarkovModel - INFO -   Lambda/Sigma Ratio: 0.5000
+2025-03-20 23:02:37,905 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+2025-03-20 23:02:37,905 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 23:02:37,905 - SINDyMarkovModel - INFO - CONFIGURATION 1/9
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 100
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -47.4031
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 23:02:37,906 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 23:02:37,908 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 23:02:37,908 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 23:02:37,908 - SINDyMarkovModel - DEBUG -   State 1: {0}
+2025-03-20 23:02:37,908 - SINDyMarkovModel - DEBUG -   State 2: {0, 1}
+2025-03-20 23:02:37,908 - SINDyMarkovModel - DEBUG -   State 3: {0, 2}
+2025-03-20 23:02:37,908 - SINDyMarkovModel - DEBUG -   State 4: {0, 1, 2}
+2025-03-20 23:02:37,908 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 23:02:37,909 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 23:02:37,909 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 23:02:37,910 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 23:02:37,910 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 23:02:37,910 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 23:02:37,910 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 23:02:37,911 - SINDyMarkovModel - DEBUG - High condition number detected: 4.22e+13, using regularized inversion
+2025-03-20 23:02:37,911 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 23:02:37,911 - SINDyMarkovModel - DEBUG - High condition number detected: 4.22e+13, using regularized inversion
+2025-03-20 23:02:37,912 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 23:02:37,912 - SINDyMarkovModel - DEBUG - High condition number detected: 4.22e+13, using regularized inversion
+2025-03-20 23:02:37,912 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 23:02:37,912 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 23:02:37,913 - SINDyMarkovModel - DEBUG - State Reachability Probabilities:
+2025-03-20 23:02:37,913 - SINDyMarkovModel - DEBUG -   State {0, 1, 2}: 1.000000
+2025-03-20 23:02:37,913 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 23:02:37,913 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 23:02:37,913 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 23:02:37,913 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 23:02:37,914 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 23:02:37,914 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 23:02:37,914 - SINDyMarkovModel - INFO - Analyzing transition probabilities in STLSQ simulations

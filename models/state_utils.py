@@ -1,3 +1,10 @@
+"""
+Utilities for handling state operations in the SINDy Markov Chain Model.
+
+This module provides functions for managing and analyzing the state space
+of the SINDy algorithm with Sequential Thresholded Least Squares (STLSQ).
+"""
+
 import numpy as np
 from itertools import combinations
 
@@ -15,7 +22,15 @@ def normalize_state(state):
     normalized_state : set
         Set containing standard Python integers
     """
-    return set(int(idx) for idx in state)
+    if state is None:
+        return set()
+    
+    # Ensure we're working with an iterable
+    try:
+        return set(int(idx) for idx in state)
+    except TypeError:
+        # Handle case of a single value
+        return {int(state)}
 
 def generate_valid_states(true_indices, all_indices):
     """
@@ -217,3 +232,75 @@ def get_intermediate_states(start_state, end_state):
                 intermediate_states.append(intermediate)
     
     return intermediate_states
+
+def get_all_paths(from_state, to_state):
+    """
+    Find all possible paths from from_state to to_state.
+    
+    Parameters:
+    -----------
+    from_state : set
+        Starting state
+    to_state : set
+        Target state
+        
+    Returns:
+    --------
+    paths : list
+        List of paths, where each path is a list of states
+    """
+    # Normalize states
+    from_state = normalize_state(from_state)
+    to_state = normalize_state(to_state)
+    
+    # to_state must be a subset of from_state
+    if not to_state.issubset(from_state):
+        return []
+    
+    # If states are the same, return a single path
+    if from_state == to_state:
+        return [[from_state]]
+    
+    # DFS to find all paths
+    def dfs(current, target, path, all_paths):
+        # If we've reached the target, add this path
+        if current == target:
+            all_paths.append(path.copy())
+            return
+        
+        # Try eliminating one term at a time
+        for term in current - target:
+            next_state = current.copy()
+            next_state.remove(term)
+            
+            # Avoid cycles
+            if next_state not in path:
+                path.append(next_state)
+                dfs(next_state, target, path, all_paths)
+                path.pop()  # Backtrack
+    
+    all_paths = []
+    dfs(from_state, to_state, [from_state], all_paths)
+    
+    return all_paths
+
+def calculate_state_entropy(probs):
+    """
+    Calculate the entropy of a state distribution.
+    
+    Parameters:
+    -----------
+    probs : dict
+        Dictionary mapping states to probabilities
+        
+    Returns:
+    --------
+    entropy : float
+        Entropy of the distribution
+    """
+    entropy = 0.0
+    for prob in probs.values():
+        if prob > 0:
+            entropy -= prob * np.log2(prob)
+    
+    return entropy

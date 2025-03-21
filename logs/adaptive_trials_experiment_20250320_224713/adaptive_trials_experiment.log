@@ -1,0 +1,528 @@
+2025-03-20 22:47:15,495 - SINDyMarkovModel - INFO - Initializing SINDy Markov Model
+2025-03-20 22:47:15,496 - SINDyMarkovModel - INFO - True term indices: [0]
+2025-03-20 22:47:15,496 - SINDyExperiment - INFO - 
+--------------------------------------------------------------------------------
+RUNNING THEORY VS SIMULATION COMPARISON
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,496 - SINDyExperiment - INFO - Experiment Parameters:
+2025-03-20 22:47:15,496 - SINDyExperiment - INFO -   Library Functions: ['<lambda>', '<lambda>', '<lambda>']
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   True Coefficients: [1. 0. 0.]
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   Sigma (noise): 0.1
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   Threshold: 0.05
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   Lambda/Sigma Ratio: 0.5000
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   Using adaptive trials (max: 500, min: 30)
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   Confidence: 95%, Margin: 3.0%
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   x_range: [0.1 1.  2. ]
+2025-03-20 22:47:15,497 - SINDyExperiment - INFO -   n_samples_range: [100 300 500]
+2025-03-20 22:47:15,499 - SINDyMarkovModel - INFO - 
+================================================================================
+STARTING THEORY VS SIMULATION COMPARISON
+================================================================================
+2025-03-20 22:47:15,499 - SINDyMarkovModel - INFO - Experiment Setup:
+2025-03-20 22:47:15,499 - SINDyMarkovModel - INFO -   Testing 3 data ranges: [0.1 1.  2. ]
+2025-03-20 22:47:15,500 - SINDyMarkovModel - INFO -   Testing 3 sample sizes: [100 300 500]
+2025-03-20 22:47:15,500 - SINDyMarkovModel - INFO -   Using adaptive trial count (max: 500, min: 30)
+2025-03-20 22:47:15,500 - SINDyMarkovModel - INFO -   Confidence level: 95%, Margin: 3.0%
+2025-03-20 22:47:15,501 - SINDyMarkovModel - INFO -   Lambda/Sigma Ratio: 0.5000
+2025-03-20 22:47:15,501 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+2025-03-20 22:47:15,501 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,501 - SINDyMarkovModel - INFO - CONFIGURATION 1/9
+2025-03-20 22:47:15,501 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 100
+2025-03-20 22:47:15,501 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -47.0744
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,503 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,505 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,505 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,506 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:47:15,506 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,506 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:47:15,507 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,507 - SINDyMarkovModel - DEBUG - High condition number detected: 3.30e+13, using regularized inversion
+2025-03-20 22:47:15,507 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:47:15,507 - SINDyMarkovModel - DEBUG - High condition number detected: 3.30e+13, using regularized inversion
+2025-03-20 22:47:15,507 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:47:15,508 - SINDyMarkovModel - DEBUG - High condition number detected: 3.30e+13, using regularized inversion
+2025-03-20 22:47:15,508 - SINDyMarkovModel - ERROR - Error calculating transition probability: unhashable type: 'numpy.ndarray'
+2025-03-20 22:47:15,508 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,508 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,508 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,509 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,509 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,510 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,510 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,510 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,510 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,520 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0000, Margin of error = ±0.1308 (target: 0.0300)
+2025-03-20 22:47:15,528 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0000, Margin of error = ±0.0942 (target: 0.0300)
+2025-03-20 22:47:15,538 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0000, Margin of error = ±0.0774 (target: 0.0300)
+2025-03-20 22:47:15,547 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0000, Margin of error = ±0.0673 (target: 0.0300)
+2025-03-20 22:47:15,557 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0000, Margin of error = ±0.0603 (target: 0.0300)
+2025-03-20 22:47:15,558 - SINDyMarkovModel - INFO - STLSQ simulation results: 0/500 successful, 0.0000 success rate, margin of error: ±0.0603
+2025-03-20 22:47:15,558 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,558 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,559 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 100
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -47.0744
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0000
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0002
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO - Average Discriminability: 0.0001
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000 (from 500 trials)
+2025-03-20 22:47:15,560 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 22:47:15,561 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,561 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,561 - SINDyMarkovModel - INFO - CONFIGURATION 2/9
+2025-03-20 22:47:15,561 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 300
+2025-03-20 22:47:15,563 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,563 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 22:47:15,563 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -43.8194
+2025-03-20 22:47:15,563 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,563 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,563 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,564 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,564 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,565 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,565 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,565 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,565 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,565 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,565 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,565 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,565 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,566 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,566 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,566 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,566 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,567 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,567 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,578 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0000, Margin of error = ±0.1308 (target: 0.0300)
+2025-03-20 22:47:15,588 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0000, Margin of error = ±0.0942 (target: 0.0300)
+2025-03-20 22:47:15,598 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0000, Margin of error = ±0.0774 (target: 0.0300)
+2025-03-20 22:47:15,608 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0000, Margin of error = ±0.0673 (target: 0.0300)
+2025-03-20 22:47:15,618 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0000, Margin of error = ±0.0603 (target: 0.0300)
+2025-03-20 22:47:15,618 - SINDyMarkovModel - INFO - STLSQ simulation results: 0/500 successful, 0.0000 success rate, margin of error: ±0.0603
+2025-03-20 22:47:15,619 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,619 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,620 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 300
+2025-03-20 22:47:15,620 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -43.8194
+2025-03-20 22:47:15,620 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,620 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0001
+2025-03-20 22:47:15,620 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0004
+2025-03-20 22:47:15,621 - SINDyMarkovModel - INFO - Average Discriminability: 0.0003
+2025-03-20 22:47:15,621 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,621 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000 (from 500 trials)
+2025-03-20 22:47:15,621 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 22:47:15,621 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,622 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,622 - SINDyMarkovModel - INFO - CONFIGURATION 3/9
+2025-03-20 22:47:15,622 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 500
+2025-03-20 22:47:15,622 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,622 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 22:47:15,623 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -42.2594
+2025-03-20 22:47:15,623 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,623 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,623 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,623 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,623 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,625 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,625 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,625 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,625 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,625 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,625 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,625 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,625 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,626 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,626 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,626 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,626 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,626 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,627 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,638 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0000, Margin of error = ±0.1308 (target: 0.0300)
+2025-03-20 22:47:15,649 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0000, Margin of error = ±0.0942 (target: 0.0300)
+2025-03-20 22:47:15,661 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0000, Margin of error = ±0.0774 (target: 0.0300)
+2025-03-20 22:47:15,672 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0000, Margin of error = ±0.0673 (target: 0.0300)
+2025-03-20 22:47:15,684 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0000, Margin of error = ±0.0603 (target: 0.0300)
+2025-03-20 22:47:15,685 - SINDyMarkovModel - INFO - STLSQ simulation results: 0/500 successful, 0.0000 success rate, margin of error: ±0.0603
+2025-03-20 22:47:15,685 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,685 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,685 - SINDyMarkovModel - INFO - Data Range: 0.1, Samples: 500
+2025-03-20 22:47:15,686 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -42.2594
+2025-03-20 22:47:15,686 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,686 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 0.0002
+2025-03-20 22:47:15,686 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 0.0007
+2025-03-20 22:47:15,686 - SINDyMarkovModel - INFO - Average Discriminability: 0.0005
+2025-03-20 22:47:15,686 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,687 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0000 (from 500 trials)
+2025-03-20 22:47:15,687 - SINDyMarkovModel - INFO - Difference: 0.0000
+2025-03-20 22:47:15,687 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,687 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,687 - SINDyMarkovModel - INFO - CONFIGURATION 4/9
+2025-03-20 22:47:15,688 - SINDyMarkovModel - INFO - Data Range: 1.0, Samples: 100
+2025-03-20 22:47:15,688 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,689 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 22:47:15,689 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -7.5704
+2025-03-20 22:47:15,689 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,689 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,690 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,690 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,702 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0000, Margin of error = ±0.1308 (target: 0.0300)
+2025-03-20 22:47:15,708 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0000, Margin of error = ±0.0942 (target: 0.0300)
+2025-03-20 22:47:15,720 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0067, Margin of error = ±0.0780 (target: 0.0300)
+2025-03-20 22:47:15,730 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0050, Margin of error = ±0.0676 (target: 0.0300)
+2025-03-20 22:47:15,741 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0040, Margin of error = ±0.0605 (target: 0.0300)
+2025-03-20 22:47:15,742 - SINDyMarkovModel - INFO - STLSQ simulation results: 2/500 successful, 0.0040 success rate, margin of error: ±0.0605
+2025-03-20 22:47:15,742 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,742 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,742 - SINDyMarkovModel - INFO - Data Range: 1.0, Samples: 100
+2025-03-20 22:47:15,743 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -7.5704
+2025-03-20 22:47:15,743 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,744 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 25.1709
+2025-03-20 22:47:15,744 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 67.3974
+2025-03-20 22:47:15,744 - SINDyMarkovModel - INFO - Average Discriminability: 46.2841
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0040 (from 500 trials)
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - Difference: 0.0040
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - CONFIGURATION 5/9
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - Data Range: 1.0, Samples: 300
+2025-03-20 22:47:15,745 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,747 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 22:47:15,747 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -3.5089
+2025-03-20 22:47:15,747 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,747 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,747 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,747 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,748 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,748 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,748 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,748 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,749 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,749 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,749 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,749 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,749 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,749 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,749 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,750 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,750 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,750 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,750 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,760 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0000, Margin of error = ±0.1308 (target: 0.0300)
+2025-03-20 22:47:15,772 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0100, Margin of error = ±0.0952 (target: 0.0300)
+2025-03-20 22:47:15,782 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0067, Margin of error = ±0.0780 (target: 0.0300)
+2025-03-20 22:47:15,793 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0050, Margin of error = ±0.0676 (target: 0.0300)
+2025-03-20 22:47:15,802 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0040, Margin of error = ±0.0605 (target: 0.0300)
+2025-03-20 22:47:15,803 - SINDyMarkovModel - INFO - STLSQ simulation results: 2/500 successful, 0.0040 success rate, margin of error: ±0.0605
+2025-03-20 22:47:15,804 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,804 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,804 - SINDyMarkovModel - INFO - Data Range: 1.0, Samples: 300
+2025-03-20 22:47:15,804 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -3.5089
+2025-03-20 22:47:15,805 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,805 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 117.6475
+2025-03-20 22:47:15,805 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 298.4439
+2025-03-20 22:47:15,805 - SINDyMarkovModel - INFO - Average Discriminability: 208.0457
+2025-03-20 22:47:15,805 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,805 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0040 (from 500 trials)
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - Difference: 0.0040
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - CONFIGURATION 6/9
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - Data Range: 1.0, Samples: 500
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,806 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 22:47:15,808 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: -2.0454
+2025-03-20 22:47:15,808 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,808 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,808 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,809 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,809 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,809 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,809 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,809 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,810 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,810 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,810 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,810 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,810 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,810 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,811 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,811 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,812 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,812 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,812 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,823 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.0000, Margin of error = ±0.1308 (target: 0.0300)
+2025-03-20 22:47:15,836 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0000, Margin of error = ±0.0942 (target: 0.0300)
+2025-03-20 22:47:15,847 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0000, Margin of error = ±0.0774 (target: 0.0300)
+2025-03-20 22:47:15,858 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0025, Margin of error = ±0.0674 (target: 0.0300)
+2025-03-20 22:47:15,869 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0040, Margin of error = ±0.0605 (target: 0.0300)
+2025-03-20 22:47:15,870 - SINDyMarkovModel - INFO - STLSQ simulation results: 2/500 successful, 0.0040 success rate, margin of error: ±0.0605
+2025-03-20 22:47:15,870 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,870 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,871 - SINDyMarkovModel - INFO - Data Range: 1.0, Samples: 500
+2025-03-20 22:47:15,871 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: -2.0454
+2025-03-20 22:47:15,871 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,871 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 174.9058
+2025-03-20 22:47:15,871 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 446.8888
+2025-03-20 22:47:15,872 - SINDyMarkovModel - INFO - Average Discriminability: 310.8973
+2025-03-20 22:47:15,872 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0040 (from 500 trials)
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - Difference: 0.0040
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - CONFIGURATION 7/9
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 100
+2025-03-20 22:47:15,873 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - Computing Gram matrix with 100 sample points
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 2.8902
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,875 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,876 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,876 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,876 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,876 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,876 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,876 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,877 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,877 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,877 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,877 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,877 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,877 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,878 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,878 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,888 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.1000, Margin of error = ±0.1425 (target: 0.0300)
+2025-03-20 22:47:15,897 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.0850, Margin of error = ±0.1016 (target: 0.0300)
+2025-03-20 22:47:15,906 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.0900, Margin of error = ±0.0838 (target: 0.0300)
+2025-03-20 22:47:15,915 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.0875, Margin of error = ±0.0726 (target: 0.0300)
+2025-03-20 22:47:15,923 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.0880, Margin of error = ±0.0651 (target: 0.0300)
+2025-03-20 22:47:15,923 - SINDyMarkovModel - INFO - STLSQ simulation results: 44/500 successful, 0.0880 success rate, margin of error: ±0.0651
+2025-03-20 22:47:15,923 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,923 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,923 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 100
+2025-03-20 22:47:15,927 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 2.8902
+2025-03-20 22:47:15,927 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,927 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 2042.9082
+2025-03-20 22:47:15,927 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 2315.0825
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - Average Discriminability: 2178.9953
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.0880 (from 500 trials)
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - Difference: 0.0880
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,928 - SINDyMarkovModel - INFO - CONFIGURATION 8/9
+2025-03-20 22:47:15,929 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 300
+2025-03-20 22:47:15,929 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,929 - SINDyMarkovModel - INFO - Computing Gram matrix with 300 sample points
+2025-03-20 22:47:15,929 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 6.1845
+2025-03-20 22:47:15,929 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,930 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,931 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,931 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,931 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,931 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,931 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,932 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,932 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,932 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,932 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,932 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,933 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,933 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,933 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,934 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,934 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,934 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,934 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:15,944 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.1600, Margin of error = ±0.1480 (target: 0.0300)
+2025-03-20 22:47:15,951 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.1750, Margin of error = ±0.1075 (target: 0.0300)
+2025-03-20 22:47:15,966 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.1867, Margin of error = ±0.0888 (target: 0.0300)
+2025-03-20 22:47:15,977 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.1900, Margin of error = ±0.0773 (target: 0.0300)
+2025-03-20 22:47:15,987 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.1820, Margin of error = ±0.0690 (target: 0.0300)
+2025-03-20 22:47:15,987 - SINDyMarkovModel - INFO - STLSQ simulation results: 91/500 successful, 0.1820 success rate, margin of error: ±0.0690
+2025-03-20 22:47:15,988 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:15,988 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:15,988 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 300
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 6.1845
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 5117.7886
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 6025.6025
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Average Discriminability: 5571.6955
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.1820 (from 500 trials)
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Large Discrepancy: 0.1820
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - 
+============================================================
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - CONFIGURATION 9/9
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 500
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - ============================================================
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Computing Gram matrix with 500 sample points
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - Log determinant of Gram matrix: 7.6224
+2025-03-20 22:47:15,989 - SINDyMarkovModel - INFO - BEGINNING SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,992 - SINDyMarkovModel - INFO - All indices = {0, 1, 2}
+2025-03-20 22:47:15,992 - SINDyMarkovModel - INFO - True indices = {0}
+2025-03-20 22:47:15,993 - SINDyMarkovModel - INFO - Target state (true model) = {0}
+2025-03-20 22:47:15,993 - SINDyMarkovModel - INFO - Generated 4 valid states
+2025-03-20 22:47:15,993 - SINDyMarkovModel - INFO - TRUE MODEL STATE TRANSITIONS
+2025-03-20 22:47:15,993 - SINDyMarkovModel - INFO - Transitions from {0}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,993 - SINDyMarkovModel - INFO - TRUE MODEL STATE STOPPING PROBABILITY: 1.000000
+
+2025-03-20 22:47:15,994 - SINDyMarkovModel - DEBUG - Transitions from {0, 1}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,994 - SINDyMarkovModel - DEBUG - Transitions from {0, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,994 - SINDyMarkovModel - DEBUG - Transitions from {0, 1, 2}:
+    -> [STOP]: 1.000000
+2025-03-20 22:47:15,994 - SINDyMarkovModel - INFO - SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,994 - SINDyMarkovModel - INFO - Method 1 - Direct Calculation:
+2025-03-20 22:47:15,994 - SINDyMarkovModel - INFO -   Probability of reaching true state:    0.000000
+2025-03-20 22:47:15,994 - SINDyMarkovModel - INFO -   Probability of stopping at true state: 1.000000
+2025-03-20 22:47:15,995 - SINDyMarkovModel - INFO -   Success probability = 0.000000 × 1.000000 = 0.000000
+2025-03-20 22:47:15,995 - SINDyMarkovModel - INFO - END OF SUCCESS PROBABILITY CALCULATION
+2025-03-20 22:47:15,995 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation with max 500 trials, 95% confidence, 3.0% margin
+2025-03-20 22:47:15,995 - SINDyMarkovModel - INFO - Running adaptive STLSQ simulation (max 500 trials, 95% confidence, 3.0% margin)
+2025-03-20 22:47:16,006 - SINDyMarkovModel - INFO - After 100 trials: Success rate = 0.2500, Margin of error = ±0.1542 (target: 0.0300)
+2025-03-20 22:47:16,018 - SINDyMarkovModel - INFO - After 200 trials: Success rate = 0.2550, Margin of error = ±0.1113 (target: 0.0300)
+2025-03-20 22:47:16,028 - SINDyMarkovModel - INFO - After 300 trials: Success rate = 0.2833, Margin of error = ±0.0924 (target: 0.0300)
+2025-03-20 22:47:16,038 - SINDyMarkovModel - INFO - After 400 trials: Success rate = 0.2725, Margin of error = ±0.0799 (target: 0.0300)
+2025-03-20 22:47:16,050 - SINDyMarkovModel - INFO - After 500 trials: Success rate = 0.2760, Margin of error = ±0.0717 (target: 0.0300)
+2025-03-20 22:47:16,050 - SINDyMarkovModel - INFO - STLSQ simulation results: 138/500 successful, 0.2760 success rate, margin of error: ±0.0717
+2025-03-20 22:47:16,051 - SINDyMarkovModel - INFO - Adaptive simulation used 500 trials
+2025-03-20 22:47:16,051 - SINDyMarkovModel - INFO - 
+--------------------------------------------------------------------------------
+CONFIGURATION SUMMARY
+--------------------------------------------------------------------------------
+2025-03-20 22:47:16,051 - SINDyMarkovModel - INFO - Data Range: 2.0, Samples: 500
+2025-03-20 22:47:16,052 - SINDyMarkovModel - INFO - Log Determinant of Gram Matrix: 7.6224
+2025-03-20 22:47:16,052 - SINDyMarkovModel - INFO - Discriminability Details:
+2025-03-20 22:47:16,052 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 1(false): 8985.5006
+2025-03-20 22:47:16,052 - SINDyMarkovModel - INFO -   Term 0(true) vs Term 2(false): 10608.3996
+2025-03-20 22:47:16,052 - SINDyMarkovModel - INFO - Average Discriminability: 9796.9501
+2025-03-20 22:47:16,053 - SINDyMarkovModel - INFO - Theoretical Success Probability: 0.0000
+2025-03-20 22:47:16,053 - SINDyMarkovModel - INFO - Empirical Success Probability: 0.2760 (from 500 trials)
+2025-03-20 22:47:16,054 - SINDyMarkovModel - INFO - Large Discrepancy: 0.2760
+2025-03-20 22:47:16,054 - SINDyMarkovModel - INFO - --------------------------------------------------------------------------------
+
+
+2025-03-20 22:47:16,054 - SINDyMarkovModel - INFO - 
+================================================================================
+THEORY VS SIMULATION COMPARISON COMPLETE
+================================================================================
+2025-03-20 22:47:16,054 - SINDyExperiment - INFO - Results saved to results\adaptive_trials_experiment_20250320_224713\adaptive_trials_experiment_results.csv
+2025-03-20 22:47:18,564 - SINDyExperiment - INFO - 
+Experiment completed in 4.87 seconds
